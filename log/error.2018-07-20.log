@@ -1,0 +1,2 @@
+2018-07-20 00:10:52,402 - [ERROR] - class com.xxy.ordersystem.controller.SearchController - 搜索内容不能为空 
+2018-07-20 00:13:24,192 - [ERROR] - class com.xxy.ordersystem.controller.SearchController - 不支持的搜索类型

@@ -1,0 +1,504 @@
+2018-07-25 00:08:28,925 - [INFO] - boothVOList.size: 3
+2018-07-25 00:08:31,437 - [INFO] - boothVOList.size: 3
+2018-07-25 00:16:11,433 - [INFO] - boothVOList.size: 3
+2018-07-25 00:18:40,088 - [INFO] - boothVOList.size: 3
+2018-07-25 00:19:13,459 - [INFO] - boothVOList.size: 3
+2018-07-25 00:25:44,847 - [INFO] - boothVOList.size: 3
+2018-07-25 00:26:46,966 - [INFO] - boothVOList.size: 3
+2018-07-25 00:28:17,499 - [INFO] - boothVOList.size: 3
+2018-07-25 00:29:52,624 - [INFO] - boothVOList.size: 3
+2018-07-25 00:32:37,355 - [INFO] - boothVOList.size: 3
+2018-07-25 00:32:57,480 - [INFO] - boothVOList.size: 3
+2018-07-25 00:35:34,039 - [INFO] - boothVOList.size: 3
+2018-07-25 00:38:38,081 - [INFO] - boothVOList.size: 3
+2018-07-25 00:39:07,038 - [INFO] - boothVOList.size: 3
+2018-07-25 00:40:13,241 - [INFO] - boothVOList.size: 3
+2018-07-25 00:41:28,928 - [INFO] - boothVOList.size: 3
+2018-07-25 00:42:11,240 - [INFO] - boothVOList.size: 3
+2018-07-25 00:44:49,780 - [INFO] - boothVOList.size: 3
+2018-07-25 00:50:40,172 - [INFO] - boothVOList.size: 3
+2018-07-25 00:54:03,387 - [INFO] - boothVOList.size: 3
+2018-07-25 00:54:32,076 - [INFO] - boothVOList.size: 3
+2018-07-25 00:56:17,775 - [INFO] - boothVOList.size: 3
+2018-07-25 00:56:42,172 - [INFO] - boothVOList.size: 3
+2018-07-25 00:56:49,469 - [INFO] - boothVOList.size: 3
+2018-07-25 00:59:03,090 - [INFO] - boothVOList.size: 3
+2018-07-25 00:59:16,639 - [INFO] - boothVOList.size: 3
+2018-07-25 00:59:26,789 - [INFO] - boothVOList.size: 3
+2018-07-25 00:59:53,179 - [INFO] - boothVOList.size: 3
+2018-07-25 01:00:57,427 - [INFO] - boothVOList.size: 3
+2018-07-25 01:04:18,122 - [INFO] - boothVOList.size: 3
+2018-07-25 01:06:17,924 - [INFO] - boothVOList.size: 3
+2018-07-25 01:06:42,827 - [INFO] - boothVOList.size: 3
+2018-07-25 01:08:06,394 - [INFO] - boothVOList.size: 3
+2018-07-25 01:08:44,574 - [INFO] - boothVOList.size: 3
+2018-07-25 01:09:15,299 - [INFO] - boothVOList.size: 3
+2018-07-25 01:14:55,275 - [INFO] - boothVOList.size: 3
+2018-07-25 01:23:14,507 - [INFO] - boothVOList.size: 3
+2018-07-25 01:27:26,777 - [INFO] - boothVOList.size: 3
+2018-07-25 01:29:00,539 - [INFO] - boothVOList.size: 3
+2018-07-25 01:30:24,284 - [INFO] - boothVOList.size: 3
+2018-07-25 01:31:12,544 - [INFO] - boothVOList.size: 3
+2018-07-25 01:36:24,199 - [INFO] - boothVOList.size: 3
+2018-07-25 01:37:23,338 - [INFO] - boothVOList.size: 3
+2018-07-25 01:55:08,336 - [INFO] - boothVOList.size: 3
+2018-07-25 01:58:54,046 - [INFO] - boothVOList.size: 3
+2018-07-25 02:01:57,686 - [INFO] - boothVOList.size: 3
+2018-07-25 02:02:40,837 - [INFO] - boothVOList.size: 3
+2018-07-25 02:08:33,234 - [INFO] - boothVOList.size: 3
+2018-07-25 02:09:13,343 - [INFO] - boothVOList.size: 3
+2018-07-25 02:15:30,326 - [INFO] - boothVOList.size: 3
+2018-07-25 02:19:01,014 - [INFO] - boothVOList.size: 3
+2018-07-25 02:20:43,229 - [INFO] - boothVOList.size: 3
+2018-07-25 02:33:07,834 - [INFO] - boothVOList.size: 3
+2018-07-25 02:38:56,264 - [INFO] - boothVOList.size: 3
+2018-07-25 02:45:20,398 - [INFO] - boothVOList.size: 3
+2018-07-25 14:12:04,755 - [INFO] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6h20m122ms122µs889ns).
+2018-07-25 15:07:57,801 - [INFO] - boothVOList.size: 3
+2018-07-25 15:13:31,252 - [INFO] - boothVOList.size: 3
+2018-07-25 15:14:44,885 - [INFO] - boothVOList.size: 3
+2018-07-25 15:17:59,822 - [INFO] - boothVOList.size: 3
+2018-07-25 15:18:23,694 - [INFO] - boothVOList.size: 3
+2018-07-25 15:19:22,658 - [INFO] - boothVOList.size: 3
+2018-07-25 15:19:30,893 - [INFO] - boothVOList.size: 3
+2018-07-25 15:19:52,173 - [INFO] - boothVOList.size: 3
+2018-07-25 15:20:04,826 - [INFO] - boothVOList.size: 3
+2018-07-25 15:25:15,743 - [INFO] - boothVOList.size: 3
+2018-07-25 15:26:17,022 - [INFO] - boothVOList.size: 3
+2018-07-25 15:27:35,133 - [INFO] - boothVOList.size: 3
+2018-07-25 15:31:19,261 - [INFO] - boothVOList.size: 3
+2018-07-25 15:34:11,553 - [INFO] - boothVOList.size: 3
+2018-07-25 15:38:16,604 - [INFO] - boothVOList.size: 3
+2018-07-25 15:38:35,565 - [INFO] - boothVOList.size: 3
+2018-07-25 15:41:58,974 - [INFO] - boothVOList.size: 3
+2018-07-25 15:42:43,044 - [INFO] - boothVOList.size: 3
+2018-07-25 15:43:10,656 - [INFO] - boothVOList.size: 3
+2018-07-25 15:43:55,213 - [INFO] - boothVOList.size: 3
+2018-07-25 15:46:39,581 - [INFO] - boothVOList.size: 3
+2018-07-25 15:50:08,394 - [INFO] - boothVOList.size: 3
+2018-07-25 15:59:12,647 - [INFO] - boothVOList.size: 3
+2018-07-25 16:00:49,536 - [INFO] - boothVOList.size: 3
+2018-07-25 16:01:36,537 - [INFO] - boothVOList.size: 3
+2018-07-25 16:03:52,704 - [INFO] - boothVOList.size: 3
+2018-07-25 16:03:59,558 - [INFO] - boothVOList.size: 3
+2018-07-25 16:04:40,857 - [INFO] - boothVOList.size: 3
+2018-07-25 16:04:58,264 - [INFO] - boothVOList.size: 3
+2018-07-25 16:05:32,806 - [INFO] - boothVOList.size: 3
+2018-07-25 16:05:59,533 - [INFO] - boothVOList.size: 3
+2018-07-25 16:06:59,767 - [INFO] - boothVOList.size: 3
+2018-07-25 16:07:05,404 - [INFO] - boothVOList.size: 3
+2018-07-25 16:08:16,707 - [INFO] - boothVOList.size: 3
+2018-07-25 16:09:44,502 - [INFO] - boothVOList.size: 3
+2018-07-25 16:10:58,120 - [INFO] - boothVOList.size: 3
+2018-07-25 16:11:20,064 - [INFO] - boothVOList.size: 3
+2018-07-25 16:15:03,325 - [INFO] - boothVOList.size: 3
+2018-07-25 16:15:08,033 - [INFO] - boothVOList.size: 3
+2018-07-25 16:15:23,329 - [INFO] - boothVOList.size: 3
+2018-07-25 16:17:01,489 - [INFO] - boothVOList.size: 3
+2018-07-25 16:17:13,720 - [INFO] - boothVOList.size: 3
+2018-07-25 16:17:25,819 - [INFO] - boothVOList.size: 3
+2018-07-25 16:27:12,520 - [INFO] - boothVOList.size: 3
+2018-07-25 16:27:25,942 - [INFO] - boothVOList.size: 3
+2018-07-25 16:27:34,751 - [INFO] - boothVOList.size: 3
+2018-07-25 16:28:04,514 - [INFO] - boothVOList.size: 3
+2018-07-25 16:29:33,440 - [INFO] - boothVOList.size: 3
+2018-07-25 16:30:38,984 - [INFO] - boothVOList.size: 3
+2018-07-25 16:31:44,866 - [INFO] - boothVOList.size: 3
+2018-07-25 16:31:58,957 - [INFO] - boothVOList.size: 3
+2018-07-25 16:32:17,417 - [INFO] - boothVOList.size: 3
+2018-07-25 16:32:24,555 - [INFO] - boothVOList.size: 3
+2018-07-25 16:32:58,440 - [INFO] - boothVOList.size: 3
+2018-07-25 16:34:12,384 - [INFO] - boothVOList.size: 3
+2018-07-25 16:36:27,725 - [INFO] - boothVOList.size: 3
+2018-07-25 16:37:56,602 - [INFO] - boothVOList.size: 3
+2018-07-25 16:38:02,033 - [INFO] - boothVOList.size: 3
+2018-07-25 16:38:32,705 - [INFO] - boothVOList.size: 3
+2018-07-25 16:39:04,285 - [INFO] - boothVOList.size: 3
+2018-07-25 16:39:58,257 - [INFO] - boothVOList.size: 3
+2018-07-25 16:40:18,346 - [INFO] - boothVOList.size: 3
+2018-07-25 16:41:30,147 - [INFO] - boothVOList.size: 3
+2018-07-25 16:48:33,016 - [INFO] - boothVOList.size: 3
+2018-07-25 16:49:42,073 - [INFO] - boothVOList.size: 3
+2018-07-25 16:52:42,158 - [INFO] - boothVOList.size: 3
+2018-07-25 16:53:15,529 - [INFO] - boothVOList.size: 3
+2018-07-25 16:53:38,111 - [INFO] - boothVOList.size: 3
+2018-07-25 16:54:36,507 - [INFO] - boothVOList.size: 3
+2018-07-25 16:55:02,970 - [INFO] - boothVOList.size: 3
+2018-07-25 16:56:47,710 - [INFO] - boothVOList.size: 3
+2018-07-25 22:36:55,056 - [INFO] - Starting OrdersystemApplication on DESKTOP-3IDJ6KU with PID 39516 (D:\Workspace\IJIDEA\ordersystem\target\classes started by PC in D:\Workspace\IJIDEA\ordersystem)
+2018-07-25 22:36:55,065 - [INFO] - No active profile set, falling back to default profiles: default
+2018-07-25 22:36:55,353 - [INFO] - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@16fdec90: startup date [Wed Jul 25 22:36:55 EDT 2018]; root of context hierarchy
+2018-07-25 22:36:57,431 - [INFO] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$b6241bf5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-25 22:36:57,782 - [INFO] - Tomcat initialized with port(s): 8080 (http)
+2018-07-25 22:36:57,805 - [INFO] - Initializing ProtocolHandler ["http-nio-8080"]
+2018-07-25 22:36:57,815 - [INFO] - Starting service [Tomcat]
+2018-07-25 22:36:57,816 - [INFO] - Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-07-25 22:36:57,823 - [INFO] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_171\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_171\bin;D:\Software\Gwak\GnuWin32\bin;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;D:\Software\apache-maven-3.5.3-bin\bin;D:\Software\Git\cmd;C:\Users\PC\AppData\Local\Microsoft\WindowsApps;;.]
+2018-07-25 22:36:57,956 - [INFO] - Initializing Spring embedded WebApplicationContext
+2018-07-25 22:36:57,956 - [INFO] - Root WebApplicationContext: initialization completed in 2604 ms
+2018-07-25 22:36:58,114 - [INFO] - Servlet dispatcherServlet mapped to [/]
+2018-07-25 22:36:58,124 - [INFO] - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-25 22:36:58,124 - [INFO] - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-25 22:36:58,124 - [INFO] - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-25 22:36:58,124 - [INFO] - Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-25 22:36:58,370 - [INFO] - HikariPool-1 - Starting...
+2018-07-25 22:36:58,717 - [INFO] - HikariPool-1 - Start completed.
+2018-07-25 22:36:58,776 - [INFO] - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-07-25 22:36:58,793 - [INFO] - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-07-25 22:36:58,964 - [INFO] - HHH000412: Hibernate Core {5.2.17.Final}
+2018-07-25 22:36:58,966 - [INFO] - HHH000206: hibernate.properties not found
+2018-07-25 22:36:59,071 - [INFO] - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-07-25 22:36:59,358 - [INFO] - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-07-25 22:37:00,120 - [INFO] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-07-25 22:37:00,845 - [INFO] - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-25 22:37:01,123 - [INFO] - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@16fdec90: startup date [Wed Jul 25 22:36:55 EDT 2018]; root of context hierarchy
+2018-07-25 22:37:01,157 - [INFO] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-07-25 22:37:01,192 - [INFO] - Mapped "{[/booth/list],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.BoothVO>> com.xxy.ordersystem.controller.BoothController.list(java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2018-07-25 22:37:01,193 - [INFO] - Mapped "{[/booth/detail],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.viewobject.BoothVO> com.xxy.ordersystem.controller.BoothController.detail(java.lang.String)
+2018-07-25 22:37:01,193 - [INFO] - Mapped "{[/booth/detailByFid],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.viewobject.BoothVO> com.xxy.ordersystem.controller.BoothController.detailByFid(java.lang.String)
+2018-07-25 22:37:01,194 - [INFO] - Mapped "{[/food/list],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.FoodVO>> com.xxy.ordersystem.controller.FoodConttroller.list(java.lang.Integer,java.lang.Integer,java.lang.String)
+2018-07-25 22:37:01,194 - [INFO] - Mapped "{[/food/listAllFood],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO com.xxy.ordersystem.controller.FoodConttroller.listAllFood()
+2018-07-25 22:37:01,195 - [INFO] - Mapped "{[/info/recommend],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.BoothVO>> com.xxy.ordersystem.controller.InfoController.recommend()
+2018-07-25 22:37:01,195 - [INFO] - Mapped "{[/info/ads],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<java.lang.String>> com.xxy.ordersystem.controller.InfoController.ads()
+2018-07-25 22:37:01,197 - [INFO] - Mapped "{[/order/create],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.create(com.xxy.ordersystem.form.OrderForm,org.springframework.validation.BindingResult)
+2018-07-25 22:37:01,197 - [INFO] - Mapped "{[/order/cancel],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.cancel(java.lang.String,java.lang.String,java.lang.String)
+2018-07-25 22:37:01,198 - [INFO] - Mapped "{[/order/detail],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.dto.OrderDTO> com.xxy.ordersystem.controller.OrderController.getOrdersById(java.lang.String,java.lang.String)
+2018-07-25 22:37:01,198 - [INFO] - Mapped "{[/order/finishPrepare],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.finishPrepare(java.lang.String,java.lang.String)
+2018-07-25 22:37:01,198 - [INFO] - Mapped "{[/order/confirmDelivered],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.confirmDelivered(java.lang.String,java.lang.String)
+2018-07-25 22:37:01,198 - [INFO] - Mapped "{[/order/startDeliver],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.startDeliver(java.lang.String,java.lang.String)
+2018-07-25 22:37:01,198 - [INFO] - Mapped "{[/order/confirmReceived],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.confirmReceived(java.lang.String,java.lang.String)
+2018-07-25 22:37:01,199 - [INFO] - Mapped "{[/order/startPrepare],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.startPrepare(java.lang.String,java.lang.String)
+2018-07-25 22:37:01,199 - [INFO] - Mapped "{[/order/list],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.OrderVO>> com.xxy.ordersystem.controller.OrderController.getAllOrders(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2018-07-25 22:37:01,200 - [INFO] - Mapped "{[/res/img/{filename:.+}],methods=[GET]}" onto public org.springframework.http.ResponseEntity<?> com.xxy.ordersystem.controller.ResourceController.getFile(java.lang.String)
+2018-07-25 22:37:01,200 - [INFO] - Mapped "{[/res/addBImg],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.UploadFileResponse> com.xxy.ordersystem.controller.ResourceController.addBImg(org.springframework.web.multipart.MultipartFile,java.lang.String)
+2018-07-25 22:37:01,201 - [INFO] - Mapped "{[/res/getQR],methods=[GET]}" onto public org.springframework.http.ResponseEntity<?> com.xxy.ordersystem.controller.ResourceController.getQR()
+2018-07-25 22:37:01,201 - [INFO] - Mapped "{[/res/addFImg],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.UploadFileResponse> com.xxy.ordersystem.controller.ResourceController.addFImg(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String)
+2018-07-25 22:37:01,201 - [INFO] - Mapped "{[/res/addAdvImg],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.UploadFileResponse> com.xxy.ordersystem.controller.ResourceController.addAdvImg(org.springframework.web.multipart.MultipartFile)
+2018-07-25 22:37:01,201 - [INFO] - Mapped "{[/res/adv/{filename:.+}],methods=[GET]}" onto public org.springframework.http.ResponseEntity<?> com.xxy.ordersystem.controller.ResourceController.getAdv(java.lang.String)
+2018-07-25 22:37:01,203 - [INFO] - Mapped "{[/search/all],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.viewobject.SearchResultVO> com.xxy.ordersystem.controller.SearchController.searchAll(java.lang.String,java.lang.String,java.lang.Integer,java.lang.Integer)
+2018-07-25 22:37:01,205 - [INFO] - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-25 22:37:01,205 - [INFO] - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-25 22:37:01,230 - [INFO] - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-25 22:37:01,231 - [INFO] - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-25 22:37:01,553 - [INFO] - Registering beans for JMX exposure on startup
+2018-07-25 22:37:01,554 - [INFO] - Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-07-25 22:37:01,558 - [INFO] - Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-07-25 22:37:01,568 - [INFO] - Starting ProtocolHandler ["http-nio-8080"]
+2018-07-25 22:37:01,583 - [INFO] - Using a shared selector for servlet write/read
+2018-07-25 22:37:01,650 - [INFO] - Tomcat started on port(s): 8080 (http) with context path '/os'
+2018-07-25 22:37:01,654 - [INFO] - Started OrdersystemApplication in 7.395 seconds (JVM running for 9.699)
+2018-07-25 22:38:40,103 - [INFO] - Starting OrdersystemApplication on DESKTOP-3IDJ6KU with PID 15516 (D:\Workspace\IJIDEA\ordersystem\target\classes started by PC in D:\Workspace\IJIDEA\ordersystem)
+2018-07-25 22:38:40,107 - [INFO] - No active profile set, falling back to default profiles: default
+2018-07-25 22:38:40,195 - [INFO] - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6b00f608: startup date [Wed Jul 25 22:38:40 EDT 2018]; root of context hierarchy
+2018-07-25 22:38:41,090 - [INFO] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$99c50631] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-25 22:38:41,349 - [INFO] - Tomcat initialized with port(s): 8080 (http)
+2018-07-25 22:38:41,363 - [INFO] - Initializing ProtocolHandler ["http-nio-8080"]
+2018-07-25 22:38:41,371 - [INFO] - Starting service [Tomcat]
+2018-07-25 22:38:41,371 - [INFO] - Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-07-25 22:38:41,375 - [INFO] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_171\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_171\bin;D:\Software\Gwak\GnuWin32\bin;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;D:\Software\apache-maven-3.5.3-bin\bin;D:\Software\Git\cmd;C:\Users\PC\AppData\Local\Microsoft\WindowsApps;;.]
+2018-07-25 22:38:41,482 - [INFO] - Initializing Spring embedded WebApplicationContext
+2018-07-25 22:38:41,482 - [INFO] - Root WebApplicationContext: initialization completed in 1287 ms
+2018-07-25 22:38:41,599 - [INFO] - Servlet dispatcherServlet mapped to [/]
+2018-07-25 22:38:41,604 - [INFO] - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-25 22:38:41,604 - [INFO] - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-25 22:38:41,604 - [INFO] - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-25 22:38:41,604 - [INFO] - Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-25 22:38:41,723 - [INFO] - HikariPool-1 - Starting...
+2018-07-25 22:38:41,952 - [INFO] - HikariPool-1 - Start completed.
+2018-07-25 22:38:42,004 - [INFO] - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-07-25 22:38:42,013 - [INFO] - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-07-25 22:38:42,075 - [INFO] - HHH000412: Hibernate Core {5.2.17.Final}
+2018-07-25 22:38:42,077 - [INFO] - HHH000206: hibernate.properties not found
+2018-07-25 22:38:42,122 - [INFO] - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-07-25 22:38:42,253 - [INFO] - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-07-25 22:38:42,712 - [INFO] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-07-25 22:38:43,291 - [INFO] - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-25 22:38:43,509 - [INFO] - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6b00f608: startup date [Wed Jul 25 22:38:40 EDT 2018]; root of context hierarchy
+2018-07-25 22:38:43,536 - [INFO] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-07-25 22:38:43,567 - [INFO] - Mapped "{[/booth/list],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.BoothVO>> com.xxy.ordersystem.controller.BoothController.list(java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2018-07-25 22:38:43,568 - [INFO] - Mapped "{[/booth/detail],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.viewobject.BoothVO> com.xxy.ordersystem.controller.BoothController.detail(java.lang.String)
+2018-07-25 22:38:43,568 - [INFO] - Mapped "{[/booth/detailByFid],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.viewobject.BoothVO> com.xxy.ordersystem.controller.BoothController.detailByFid(java.lang.String)
+2018-07-25 22:38:43,569 - [INFO] - Mapped "{[/food/list],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.FoodVO>> com.xxy.ordersystem.controller.FoodConttroller.list(java.lang.Integer,java.lang.Integer,java.lang.String)
+2018-07-25 22:38:43,569 - [INFO] - Mapped "{[/food/listAllFood],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO com.xxy.ordersystem.controller.FoodConttroller.listAllFood()
+2018-07-25 22:38:43,570 - [INFO] - Mapped "{[/info/recommend],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.BoothVO>> com.xxy.ordersystem.controller.InfoController.recommend()
+2018-07-25 22:38:43,570 - [INFO] - Mapped "{[/info/ads],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<java.lang.String>> com.xxy.ordersystem.controller.InfoController.ads()
+2018-07-25 22:38:43,572 - [INFO] - Mapped "{[/order/create],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.create(com.xxy.ordersystem.form.OrderForm,org.springframework.validation.BindingResult)
+2018-07-25 22:38:43,573 - [INFO] - Mapped "{[/order/cancel],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.cancel(java.lang.String,java.lang.String,java.lang.String)
+2018-07-25 22:38:43,573 - [INFO] - Mapped "{[/order/list],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.OrderVO>> com.xxy.ordersystem.controller.OrderController.getAllOrders(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2018-07-25 22:38:43,573 - [INFO] - Mapped "{[/order/startPrepare],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.startPrepare(java.lang.String,java.lang.String)
+2018-07-25 22:38:43,573 - [INFO] - Mapped "{[/order/detail],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.dto.OrderDTO> com.xxy.ordersystem.controller.OrderController.getOrdersById(java.lang.String,java.lang.String)
+2018-07-25 22:38:43,574 - [INFO] - Mapped "{[/order/finishPrepare],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.finishPrepare(java.lang.String,java.lang.String)
+2018-07-25 22:38:43,574 - [INFO] - Mapped "{[/order/startDeliver],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.startDeliver(java.lang.String,java.lang.String)
+2018-07-25 22:38:43,574 - [INFO] - Mapped "{[/order/confirmDelivered],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.confirmDelivered(java.lang.String,java.lang.String)
+2018-07-25 22:38:43,574 - [INFO] - Mapped "{[/order/confirmReceived],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.confirmReceived(java.lang.String,java.lang.String)
+2018-07-25 22:38:43,576 - [INFO] - Mapped "{[/res/img/{filename:.+}],methods=[GET]}" onto public org.springframework.http.ResponseEntity<?> com.xxy.ordersystem.controller.ResourceController.getFile(java.lang.String)
+2018-07-25 22:38:43,576 - [INFO] - Mapped "{[/res/addAdvImg],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.UploadFileResponse> com.xxy.ordersystem.controller.ResourceController.addAdvImg(org.springframework.web.multipart.MultipartFile)
+2018-07-25 22:38:43,577 - [INFO] - Mapped "{[/res/adv/{filename:.+}],methods=[GET]}" onto public org.springframework.http.ResponseEntity<?> com.xxy.ordersystem.controller.ResourceController.getAdv(java.lang.String)
+2018-07-25 22:38:43,577 - [INFO] - Mapped "{[/res/addFImg],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.UploadFileResponse> com.xxy.ordersystem.controller.ResourceController.addFImg(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String)
+2018-07-25 22:38:43,577 - [INFO] - Mapped "{[/res/getQR],methods=[GET]}" onto public org.springframework.http.ResponseEntity<?> com.xxy.ordersystem.controller.ResourceController.getQR()
+2018-07-25 22:38:43,577 - [INFO] - Mapped "{[/res/addBImg],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.UploadFileResponse> com.xxy.ordersystem.controller.ResourceController.addBImg(org.springframework.web.multipart.MultipartFile,java.lang.String)
+2018-07-25 22:38:43,578 - [INFO] - Mapped "{[/search/all],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.viewobject.SearchResultVO> com.xxy.ordersystem.controller.SearchController.searchAll(java.lang.String,java.lang.String,java.lang.Integer,java.lang.Integer)
+2018-07-25 22:38:43,579 - [INFO] - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-25 22:38:43,580 - [INFO] - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-25 22:38:43,603 - [INFO] - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-25 22:38:43,603 - [INFO] - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-25 22:38:43,879 - [INFO] - Registering beans for JMX exposure on startup
+2018-07-25 22:38:43,880 - [INFO] - Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-07-25 22:38:43,884 - [INFO] - Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-07-25 22:38:43,893 - [INFO] - Starting ProtocolHandler ["http-nio-8080"]
+2018-07-25 22:38:43,905 - [INFO] - Using a shared selector for servlet write/read
+2018-07-25 22:38:43,925 - [INFO] - Tomcat started on port(s): 8080 (http) with context path '/os'
+2018-07-25 22:38:43,927 - [INFO] - Started OrdersystemApplication in 4.405 seconds (JVM running for 5.585)
+2018-07-25 22:42:13,620 - [INFO] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-25 22:42:13,620 - [INFO] - FrameworkServlet 'dispatcherServlet': initialization started
+2018-07-25 22:42:13,644 - [INFO] - FrameworkServlet 'dispatcherServlet': initialization completed in 24 ms
+2018-07-25 22:42:13,736 - [INFO] - class com.xxy.ordersystem.service.UpperService.imp.FileHandlerServiceImp - D:\Workspace\IJIDEA\ordersystem\upload-dir\advImg\1532572933735843917.jpg
+2018-07-25 22:42:13,736 - [INFO] - upload-dir\advImg
+2018-07-25 22:42:23,981 - [INFO] - class com.xxy.ordersystem.service.UpperService.imp.FileHandlerServiceImp - D:\Workspace\IJIDEA\ordersystem\upload-dir\advImg\1532572943981958377.png
+2018-07-25 22:42:23,981 - [INFO] - upload-dir\advImg
+2018-07-25 22:42:33,102 - [INFO] - class com.xxy.ordersystem.service.UpperService.imp.FileHandlerServiceImp - D:\Workspace\IJIDEA\ordersystem\upload-dir\advImg\1532572953102957760.png
+2018-07-25 22:42:33,103 - [INFO] - upload-dir\advImg
+2018-07-25 22:42:39,873 - [INFO] - class com.xxy.ordersystem.service.UpperService.imp.FileHandlerServiceImp - D:\Workspace\IJIDEA\ordersystem\upload-dir\advImg\1532572959873819060.png
+2018-07-25 22:42:39,874 - [INFO] - upload-dir\advImg
+2018-07-25 22:42:56,971 - [INFO] - class com.xxy.ordersystem.service.UpperService.imp.FileHandlerServiceImp - D:\Workspace\IJIDEA\ordersystem\upload-dir\advImg\1532572976971677970.jpg
+2018-07-25 22:42:56,971 - [INFO] - upload-dir\advImg
+2018-07-25 22:45:48,466 - [INFO] - HHH000397: Using ASTQueryTranslatorFactory
+2018-07-25 22:45:50,291 - [INFO] - boothVOList.size: 3
+2018-07-25 22:47:22,984 - [INFO] - boothVOList.size: 3
+2018-07-25 22:48:18,646 - [INFO] - boothVOList.size: 3
+2018-07-25 22:50:41,922 - [INFO] - boothVOList.size: 3
+2018-07-25 22:50:47,909 - [INFO] - boothVOList.size: 3
+2018-07-25 22:50:55,020 - [INFO] - boothVOList.size: 3
+2018-07-25 22:52:32,584 - [INFO] - boothVOList.size: 3
+2018-07-25 22:52:38,278 - [INFO] - boothVOList.size: 3
+2018-07-25 22:56:52,441 - [INFO] - boothVOList.size: 3
+2018-07-25 22:56:56,934 - [INFO] - boothVOList.size: 3
+2018-07-25 23:03:00,721 - [INFO] - Starting OrdersystemApplication on DESKTOP-3IDJ6KU with PID 36396 (D:\Workspace\IJIDEA\ordersystem\target\classes started by PC in D:\Workspace\IJIDEA\ordersystem)
+2018-07-25 23:03:00,724 - [INFO] - No active profile set, falling back to default profiles: default
+2018-07-25 23:03:00,764 - [INFO] - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@34e9fd99: startup date [Wed Jul 25 23:03:00 EDT 2018]; root of context hierarchy
+2018-07-25 23:03:01,762 - [INFO] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2eaf020c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-25 23:03:02,008 - [INFO] - Tomcat initialized with port(s): 8080 (http)
+2018-07-25 23:03:02,023 - [INFO] - Initializing ProtocolHandler ["http-nio-8080"]
+2018-07-25 23:03:02,032 - [INFO] - Starting service [Tomcat]
+2018-07-25 23:03:02,032 - [INFO] - Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-07-25 23:03:02,036 - [INFO] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_171\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_171\bin;D:\Software\Gwak\GnuWin32\bin;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;D:\Software\apache-maven-3.5.3-bin\bin;D:\Software\Git\cmd;C:\Users\PC\AppData\Local\Microsoft\WindowsApps;;.]
+2018-07-25 23:03:02,152 - [INFO] - Initializing Spring embedded WebApplicationContext
+2018-07-25 23:03:02,152 - [INFO] - Root WebApplicationContext: initialization completed in 1388 ms
+2018-07-25 23:03:02,251 - [INFO] - Servlet dispatcherServlet mapped to [/]
+2018-07-25 23:03:02,254 - [INFO] - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-25 23:03:02,254 - [INFO] - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-25 23:03:02,254 - [INFO] - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-25 23:03:02,254 - [INFO] - Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-25 23:03:02,386 - [INFO] - HikariPool-1 - Starting...
+2018-07-25 23:03:02,630 - [INFO] - HikariPool-1 - Start completed.
+2018-07-25 23:03:02,772 - [INFO] - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-07-25 23:03:02,799 - [INFO] - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-07-25 23:03:03,080 - [INFO] - HHH000412: Hibernate Core {5.2.17.Final}
+2018-07-25 23:03:03,082 - [INFO] - HHH000206: hibernate.properties not found
+2018-07-25 23:03:03,220 - [INFO] - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-07-25 23:03:03,565 - [INFO] - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-07-25 23:03:04,948 - [INFO] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-07-25 23:03:05,687 - [INFO] - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-25 23:03:05,880 - [INFO] - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@34e9fd99: startup date [Wed Jul 25 23:03:00 EDT 2018]; root of context hierarchy
+2018-07-25 23:03:06,030 - [INFO] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-07-25 23:03:06,136 - [INFO] - Mapped "{[/booth/list],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.BoothVO>> com.xxy.ordersystem.controller.BoothController.list(java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2018-07-25 23:03:06,137 - [INFO] - Mapped "{[/booth/detail],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.viewobject.BoothVO> com.xxy.ordersystem.controller.BoothController.detail(java.lang.String)
+2018-07-25 23:03:06,137 - [INFO] - Mapped "{[/booth/detailByFid],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.viewobject.BoothVO> com.xxy.ordersystem.controller.BoothController.detailByFid(java.lang.String)
+2018-07-25 23:03:06,138 - [INFO] - Mapped "{[/food/list],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.FoodVO>> com.xxy.ordersystem.controller.FoodConttroller.list(java.lang.Integer,java.lang.Integer,java.lang.String)
+2018-07-25 23:03:06,138 - [INFO] - Mapped "{[/food/listAllFood],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO com.xxy.ordersystem.controller.FoodConttroller.listAllFood()
+2018-07-25 23:03:06,139 - [INFO] - Mapped "{[/info/recommend],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.BoothVO>> com.xxy.ordersystem.controller.InfoController.recommend()
+2018-07-25 23:03:06,139 - [INFO] - Mapped "{[/info/ads],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<java.lang.String>> com.xxy.ordersystem.controller.InfoController.ads()
+2018-07-25 23:03:06,143 - [INFO] - Mapped "{[/order/create],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.create(com.xxy.ordersystem.form.OrderForm,org.springframework.validation.BindingResult)
+2018-07-25 23:03:06,143 - [INFO] - Mapped "{[/order/cancel],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.cancel(java.lang.String,java.lang.String,java.lang.String)
+2018-07-25 23:03:06,143 - [INFO] - Mapped "{[/order/finishPrepare],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.finishPrepare(java.lang.String,java.lang.String)
+2018-07-25 23:03:06,143 - [INFO] - Mapped "{[/order/startDeliver],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.startDeliver(java.lang.String,java.lang.String)
+2018-07-25 23:03:06,144 - [INFO] - Mapped "{[/order/list],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.OrderVO>> com.xxy.ordersystem.controller.OrderController.getAllOrders(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2018-07-25 23:03:06,144 - [INFO] - Mapped "{[/order/confirmDelivered],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.confirmDelivered(java.lang.String,java.lang.String)
+2018-07-25 23:03:06,144 - [INFO] - Mapped "{[/order/startPrepare],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.startPrepare(java.lang.String,java.lang.String)
+2018-07-25 23:03:06,144 - [INFO] - Mapped "{[/order/confirmReceived],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.confirmReceived(java.lang.String,java.lang.String)
+2018-07-25 23:03:06,145 - [INFO] - Mapped "{[/order/detail],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.dto.OrderDTO> com.xxy.ordersystem.controller.OrderController.getOrdersById(java.lang.String,java.lang.String)
+2018-07-25 23:03:06,146 - [INFO] - Mapped "{[/res/img/{filename:.+}],methods=[GET]}" onto public org.springframework.http.ResponseEntity<?> com.xxy.ordersystem.controller.ResourceController.getFile(java.lang.String)
+2018-07-25 23:03:06,146 - [INFO] - Mapped "{[/res/addFImg],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.UploadFileResponse> com.xxy.ordersystem.controller.ResourceController.addFImg(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String)
+2018-07-25 23:03:06,147 - [INFO] - Mapped "{[/res/getQR],methods=[GET]}" onto public org.springframework.http.ResponseEntity<?> com.xxy.ordersystem.controller.ResourceController.getQR()
+2018-07-25 23:03:06,147 - [INFO] - Mapped "{[/res/addBImg],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.UploadFileResponse> com.xxy.ordersystem.controller.ResourceController.addBImg(org.springframework.web.multipart.MultipartFile,java.lang.String)
+2018-07-25 23:03:06,147 - [INFO] - Mapped "{[/res/addAdvImg],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.UploadFileResponse> com.xxy.ordersystem.controller.ResourceController.addAdvImg(org.springframework.web.multipart.MultipartFile)
+2018-07-25 23:03:06,147 - [INFO] - Mapped "{[/res/adv/{filename:.+}],methods=[GET]}" onto public org.springframework.http.ResponseEntity<?> com.xxy.ordersystem.controller.ResourceController.getAdv(java.lang.String)
+2018-07-25 23:03:06,148 - [INFO] - Mapped "{[/search/all],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.viewobject.SearchResultVO> com.xxy.ordersystem.controller.SearchController.searchAll(java.lang.String,java.lang.String,java.lang.Integer,java.lang.Integer)
+2018-07-25 23:03:06,150 - [INFO] - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-25 23:03:06,150 - [INFO] - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-25 23:03:06,176 - [INFO] - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-25 23:03:06,176 - [INFO] - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-25 23:03:06,476 - [INFO] - Registering beans for JMX exposure on startup
+2018-07-25 23:03:06,477 - [INFO] - Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-07-25 23:03:06,480 - [INFO] - Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-07-25 23:03:06,487 - [INFO] - Starting ProtocolHandler ["http-nio-8080"]
+2018-07-25 23:03:06,500 - [INFO] - Using a shared selector for servlet write/read
+2018-07-25 23:03:06,518 - [INFO] - Tomcat started on port(s): 8080 (http) with context path '/os'
+2018-07-25 23:03:06,520 - [INFO] - Started OrdersystemApplication in 6.391 seconds (JVM running for 7.699)
+2018-07-25 23:03:32,270 - [INFO] - Starting OrdersystemApplication on DESKTOP-3IDJ6KU with PID 22576 (D:\Workspace\IJIDEA\ordersystem\target\classes started by PC in D:\Workspace\IJIDEA\ordersystem)
+2018-07-25 23:03:32,273 - [INFO] - No active profile set, falling back to default profiles: default
+2018-07-25 23:03:32,314 - [INFO] - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@36ebc363: startup date [Wed Jul 25 23:03:32 EDT 2018]; root of context hierarchy
+2018-07-25 23:03:33,273 - [INFO] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d1aae699] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-25 23:03:33,514 - [INFO] - Tomcat initialized with port(s): 8080 (http)
+2018-07-25 23:03:33,527 - [INFO] - Initializing ProtocolHandler ["http-nio-8080"]
+2018-07-25 23:03:33,533 - [INFO] - Starting service [Tomcat]
+2018-07-25 23:03:33,533 - [INFO] - Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-07-25 23:03:33,536 - [INFO] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_171\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_171\bin;D:\Software\Gwak\GnuWin32\bin;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;D:\Software\apache-maven-3.5.3-bin\bin;D:\Software\Git\cmd;C:\Users\PC\AppData\Local\Microsoft\WindowsApps;;.]
+2018-07-25 23:03:33,639 - [INFO] - Initializing Spring embedded WebApplicationContext
+2018-07-25 23:03:33,639 - [INFO] - Root WebApplicationContext: initialization completed in 1325 ms
+2018-07-25 23:03:33,732 - [INFO] - Servlet dispatcherServlet mapped to [/]
+2018-07-25 23:03:33,734 - [INFO] - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-25 23:03:33,735 - [INFO] - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-25 23:03:33,735 - [INFO] - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-25 23:03:33,735 - [INFO] - Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-25 23:03:33,838 - [INFO] - HikariPool-1 - Starting...
+2018-07-25 23:03:33,980 - [INFO] - HikariPool-1 - Start completed.
+2018-07-25 23:03:34,091 - [INFO] - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-07-25 23:03:34,102 - [INFO] - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-07-25 23:03:34,149 - [INFO] - HHH000412: Hibernate Core {5.2.17.Final}
+2018-07-25 23:03:34,150 - [INFO] - HHH000206: hibernate.properties not found
+2018-07-25 23:03:34,183 - [INFO] - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-07-25 23:03:34,294 - [INFO] - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-07-25 23:03:34,663 - [INFO] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-07-25 23:03:35,157 - [INFO] - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-25 23:03:35,326 - [INFO] - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@36ebc363: startup date [Wed Jul 25 23:03:32 EDT 2018]; root of context hierarchy
+2018-07-25 23:03:35,350 - [INFO] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-07-25 23:03:35,372 - [INFO] - Mapped "{[/booth/list],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.BoothVO>> com.xxy.ordersystem.controller.BoothController.list(java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2018-07-25 23:03:35,373 - [INFO] - Mapped "{[/booth/detail],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.viewobject.BoothVO> com.xxy.ordersystem.controller.BoothController.detail(java.lang.String)
+2018-07-25 23:03:35,373 - [INFO] - Mapped "{[/booth/detailByFid],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.viewobject.BoothVO> com.xxy.ordersystem.controller.BoothController.detailByFid(java.lang.String)
+2018-07-25 23:03:35,374 - [INFO] - Mapped "{[/food/list],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.FoodVO>> com.xxy.ordersystem.controller.FoodConttroller.list(java.lang.Integer,java.lang.Integer,java.lang.String)
+2018-07-25 23:03:35,374 - [INFO] - Mapped "{[/food/listAllFood],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO com.xxy.ordersystem.controller.FoodConttroller.listAllFood()
+2018-07-25 23:03:35,375 - [INFO] - Mapped "{[/info/recommend],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.BoothVO>> com.xxy.ordersystem.controller.InfoController.recommend()
+2018-07-25 23:03:35,375 - [INFO] - Mapped "{[/info/adv],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<java.lang.String>> com.xxy.ordersystem.controller.InfoController.ads()
+2018-07-25 23:03:35,377 - [INFO] - Mapped "{[/order/create],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.create(com.xxy.ordersystem.form.OrderForm,org.springframework.validation.BindingResult)
+2018-07-25 23:03:35,378 - [INFO] - Mapped "{[/order/cancel],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.cancel(java.lang.String,java.lang.String,java.lang.String)
+2018-07-25 23:03:35,378 - [INFO] - Mapped "{[/order/finishPrepare],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.finishPrepare(java.lang.String,java.lang.String)
+2018-07-25 23:03:35,378 - [INFO] - Mapped "{[/order/startDeliver],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.startDeliver(java.lang.String,java.lang.String)
+2018-07-25 23:03:35,378 - [INFO] - Mapped "{[/order/detail],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.dto.OrderDTO> com.xxy.ordersystem.controller.OrderController.getOrdersById(java.lang.String,java.lang.String)
+2018-07-25 23:03:35,379 - [INFO] - Mapped "{[/order/startPrepare],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.startPrepare(java.lang.String,java.lang.String)
+2018-07-25 23:03:35,379 - [INFO] - Mapped "{[/order/confirmDelivered],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.confirmDelivered(java.lang.String,java.lang.String)
+2018-07-25 23:03:35,379 - [INFO] - Mapped "{[/order/confirmReceived],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.confirmReceived(java.lang.String,java.lang.String)
+2018-07-25 23:03:35,379 - [INFO] - Mapped "{[/order/list],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.OrderVO>> com.xxy.ordersystem.controller.OrderController.getAllOrders(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2018-07-25 23:03:35,380 - [INFO] - Mapped "{[/res/img/{filename:.+}],methods=[GET]}" onto public org.springframework.http.ResponseEntity<?> com.xxy.ordersystem.controller.ResourceController.getFile(java.lang.String)
+2018-07-25 23:03:35,381 - [INFO] - Mapped "{[/res/addFImg],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.UploadFileResponse> com.xxy.ordersystem.controller.ResourceController.addFImg(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String)
+2018-07-25 23:03:35,381 - [INFO] - Mapped "{[/res/adv/{filename:.+}],methods=[GET]}" onto public org.springframework.http.ResponseEntity<?> com.xxy.ordersystem.controller.ResourceController.getAdv(java.lang.String)
+2018-07-25 23:03:35,381 - [INFO] - Mapped "{[/res/addAdvImg],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.UploadFileResponse> com.xxy.ordersystem.controller.ResourceController.addAdvImg(org.springframework.web.multipart.MultipartFile)
+2018-07-25 23:03:35,381 - [INFO] - Mapped "{[/res/addBImg],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.UploadFileResponse> com.xxy.ordersystem.controller.ResourceController.addBImg(org.springframework.web.multipart.MultipartFile,java.lang.String)
+2018-07-25 23:03:35,381 - [INFO] - Mapped "{[/res/getQR],methods=[GET]}" onto public org.springframework.http.ResponseEntity<?> com.xxy.ordersystem.controller.ResourceController.getQR()
+2018-07-25 23:03:35,382 - [INFO] - Mapped "{[/search/all],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.viewobject.SearchResultVO> com.xxy.ordersystem.controller.SearchController.searchAll(java.lang.String,java.lang.String,java.lang.Integer,java.lang.Integer)
+2018-07-25 23:03:35,383 - [INFO] - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-25 23:03:35,384 - [INFO] - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-25 23:03:35,403 - [INFO] - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-25 23:03:35,403 - [INFO] - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-25 23:03:35,630 - [INFO] - Registering beans for JMX exposure on startup
+2018-07-25 23:03:35,631 - [INFO] - Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-07-25 23:03:35,635 - [INFO] - Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-07-25 23:03:35,646 - [INFO] - Starting ProtocolHandler ["http-nio-8080"]
+2018-07-25 23:03:35,659 - [INFO] - Using a shared selector for servlet write/read
+2018-07-25 23:03:35,677 - [INFO] - Tomcat started on port(s): 8080 (http) with context path '/os'
+2018-07-25 23:03:35,680 - [INFO] - Started OrdersystemApplication in 3.796 seconds (JVM running for 4.807)
+2018-07-25 23:04:19,310 - [INFO] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-25 23:04:19,311 - [INFO] - FrameworkServlet 'dispatcherServlet': initialization started
+2018-07-25 23:04:19,338 - [INFO] - FrameworkServlet 'dispatcherServlet': initialization completed in 27 ms
+2018-07-25 23:04:19,381 - [INFO] - HHH000397: Using ASTQueryTranslatorFactory
+2018-07-25 23:04:19,604 - [INFO] - boothVOList.size: 3
+2018-07-25 23:04:39,576 - [INFO] - Starting OrdersystemApplication on DESKTOP-3IDJ6KU with PID 37584 (D:\Workspace\IJIDEA\ordersystem\target\classes started by PC in D:\Workspace\IJIDEA\ordersystem)
+2018-07-25 23:04:39,578 - [INFO] - No active profile set, falling back to default profiles: default
+2018-07-25 23:04:39,663 - [INFO] - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@36ebc363: startup date [Wed Jul 25 23:04:39 EDT 2018]; root of context hierarchy
+2018-07-25 23:04:40,621 - [INFO] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d1aae699] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-25 23:04:40,825 - [INFO] - Tomcat initialized with port(s): 8080 (http)
+2018-07-25 23:04:40,836 - [INFO] - Initializing ProtocolHandler ["http-nio-8080"]
+2018-07-25 23:04:40,844 - [INFO] - Starting service [Tomcat]
+2018-07-25 23:04:40,844 - [INFO] - Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-07-25 23:04:40,848 - [INFO] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_171\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_171\bin;D:\Software\Gwak\GnuWin32\bin;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;D:\Software\apache-maven-3.5.3-bin\bin;D:\Software\Git\cmd;C:\Users\PC\AppData\Local\Microsoft\WindowsApps;;.]
+2018-07-25 23:04:40,939 - [INFO] - Initializing Spring embedded WebApplicationContext
+2018-07-25 23:04:40,940 - [INFO] - Root WebApplicationContext: initialization completed in 1276 ms
+2018-07-25 23:04:41,043 - [INFO] - Servlet dispatcherServlet mapped to [/]
+2018-07-25 23:04:41,048 - [INFO] - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-25 23:04:41,048 - [INFO] - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-25 23:04:41,048 - [INFO] - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-25 23:04:41,048 - [INFO] - Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-25 23:04:41,167 - [INFO] - HikariPool-1 - Starting...
+2018-07-25 23:04:41,313 - [INFO] - HikariPool-1 - Start completed.
+2018-07-25 23:04:41,420 - [INFO] - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-07-25 23:04:41,432 - [INFO] - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-07-25 23:04:41,482 - [INFO] - HHH000412: Hibernate Core {5.2.17.Final}
+2018-07-25 23:04:41,483 - [INFO] - HHH000206: hibernate.properties not found
+2018-07-25 23:04:41,511 - [INFO] - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-07-25 23:04:41,607 - [INFO] - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-07-25 23:04:41,960 - [INFO] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-07-25 23:04:42,451 - [INFO] - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-25 23:04:42,622 - [INFO] - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@36ebc363: startup date [Wed Jul 25 23:04:39 EDT 2018]; root of context hierarchy
+2018-07-25 23:04:42,645 - [INFO] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-07-25 23:04:42,671 - [INFO] - Mapped "{[/booth/list],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.BoothVO>> com.xxy.ordersystem.controller.BoothController.list(java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2018-07-25 23:04:42,672 - [INFO] - Mapped "{[/booth/detail],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.viewobject.BoothVO> com.xxy.ordersystem.controller.BoothController.detail(java.lang.String)
+2018-07-25 23:04:42,672 - [INFO] - Mapped "{[/booth/detailByFid],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.viewobject.BoothVO> com.xxy.ordersystem.controller.BoothController.detailByFid(java.lang.String)
+2018-07-25 23:04:42,673 - [INFO] - Mapped "{[/food/list],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.FoodVO>> com.xxy.ordersystem.controller.FoodConttroller.list(java.lang.Integer,java.lang.Integer,java.lang.String)
+2018-07-25 23:04:42,673 - [INFO] - Mapped "{[/food/listAllFood],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO com.xxy.ordersystem.controller.FoodConttroller.listAllFood()
+2018-07-25 23:04:42,674 - [INFO] - Mapped "{[/info/recommend],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.BoothVO>> com.xxy.ordersystem.controller.InfoController.recommend()
+2018-07-25 23:04:42,674 - [INFO] - Mapped "{[/info/adv],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<java.lang.String>> com.xxy.ordersystem.controller.InfoController.ads()
+2018-07-25 23:04:42,677 - [INFO] - Mapped "{[/order/create],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.create(com.xxy.ordersystem.form.OrderForm,org.springframework.validation.BindingResult)
+2018-07-25 23:04:42,677 - [INFO] - Mapped "{[/order/cancel],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.cancel(java.lang.String,java.lang.String,java.lang.String)
+2018-07-25 23:04:42,677 - [INFO] - Mapped "{[/order/finishPrepare],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.finishPrepare(java.lang.String,java.lang.String)
+2018-07-25 23:04:42,677 - [INFO] - Mapped "{[/order/confirmReceived],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.confirmReceived(java.lang.String,java.lang.String)
+2018-07-25 23:04:42,678 - [INFO] - Mapped "{[/order/list],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.OrderVO>> com.xxy.ordersystem.controller.OrderController.getAllOrders(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2018-07-25 23:04:42,678 - [INFO] - Mapped "{[/order/startPrepare],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.startPrepare(java.lang.String,java.lang.String)
+2018-07-25 23:04:42,678 - [INFO] - Mapped "{[/order/startDeliver],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.startDeliver(java.lang.String,java.lang.String)
+2018-07-25 23:04:42,678 - [INFO] - Mapped "{[/order/detail],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.dto.OrderDTO> com.xxy.ordersystem.controller.OrderController.getOrdersById(java.lang.String,java.lang.String)
+2018-07-25 23:04:42,678 - [INFO] - Mapped "{[/order/confirmDelivered],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.confirmDelivered(java.lang.String,java.lang.String)
+2018-07-25 23:04:42,680 - [INFO] - Mapped "{[/res/img/{filename:.+}],methods=[GET]}" onto public org.springframework.http.ResponseEntity<?> com.xxy.ordersystem.controller.ResourceController.getFile(java.lang.String)
+2018-07-25 23:04:42,680 - [INFO] - Mapped "{[/res/addAdvImg],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.UploadFileResponse> com.xxy.ordersystem.controller.ResourceController.addAdvImg(org.springframework.web.multipart.MultipartFile)
+2018-07-25 23:04:42,680 - [INFO] - Mapped "{[/res/adv/{filename:.+}],methods=[GET]}" onto public org.springframework.http.ResponseEntity<?> com.xxy.ordersystem.controller.ResourceController.getAdv(java.lang.String)
+2018-07-25 23:04:42,680 - [INFO] - Mapped "{[/res/addBImg],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.UploadFileResponse> com.xxy.ordersystem.controller.ResourceController.addBImg(org.springframework.web.multipart.MultipartFile,java.lang.String)
+2018-07-25 23:04:42,680 - [INFO] - Mapped "{[/res/getQR],methods=[GET]}" onto public org.springframework.http.ResponseEntity<?> com.xxy.ordersystem.controller.ResourceController.getQR()
+2018-07-25 23:04:42,681 - [INFO] - Mapped "{[/res/addFImg],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.UploadFileResponse> com.xxy.ordersystem.controller.ResourceController.addFImg(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String)
+2018-07-25 23:04:42,681 - [INFO] - Mapped "{[/search/all],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.viewobject.SearchResultVO> com.xxy.ordersystem.controller.SearchController.searchAll(java.lang.String,java.lang.String,java.lang.Integer,java.lang.Integer)
+2018-07-25 23:04:42,683 - [INFO] - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-25 23:04:42,683 - [INFO] - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-25 23:04:42,702 - [INFO] - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-25 23:04:42,702 - [INFO] - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-25 23:04:42,936 - [INFO] - Registering beans for JMX exposure on startup
+2018-07-25 23:04:42,938 - [INFO] - Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-07-25 23:04:42,943 - [INFO] - Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-07-25 23:04:42,950 - [INFO] - Starting ProtocolHandler ["http-nio-8080"]
+2018-07-25 23:04:42,963 - [INFO] - Using a shared selector for servlet write/read
+2018-07-25 23:04:42,981 - [INFO] - Tomcat started on port(s): 8080 (http) with context path '/os'
+2018-07-25 23:04:42,983 - [INFO] - Started OrdersystemApplication in 3.821 seconds (JVM running for 4.811)
+2018-07-25 23:05:09,383 - [INFO] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-25 23:05:09,383 - [INFO] - FrameworkServlet 'dispatcherServlet': initialization started
+2018-07-25 23:05:09,406 - [INFO] - FrameworkServlet 'dispatcherServlet': initialization completed in 23 ms
+2018-07-25 23:05:09,448 - [INFO] - HHH000397: Using ASTQueryTranslatorFactory
+2018-07-25 23:05:09,911 - [INFO] - boothVOList.size: 3
+2018-07-25 23:10:13,972 - [INFO] - boothVOList.size: 3
+2018-07-25 23:12:56,921 - [INFO] - boothVOList.size: 3
+2018-07-25 23:14:22,696 - [INFO] - boothVOList.size: 3
+2018-07-25 23:15:42,067 - [INFO] - boothVOList.size: 3
+2018-07-25 23:15:48,636 - [INFO] - boothVOList.size: 3
+2018-07-25 23:37:44,846 - [INFO] - boothVOList.size: 3
+2018-07-25 23:46:18,228 - [INFO] - boothVOList.size: 3
+2018-07-25 23:46:48,436 - [INFO] - boothVOList.size: 3
+2018-07-25 23:47:14,195 - [INFO] - boothVOList.size: 3
+2018-07-25 23:48:20,454 - [INFO] - boothVOList.size: 3
+2018-07-25 23:50:37,026 - [INFO] - boothVOList.size: 3
+2018-07-25 23:51:12,419 - [INFO] - boothVOList.size: 3
+2018-07-25 23:52:17,494 - [INFO] - boothVOList.size: 3
+2018-07-25 23:53:32,744 - [INFO] - boothVOList.size: 3
+2018-07-25 23:53:59,041 - [INFO] - boothVOList.size: 3
+2018-07-25 23:54:14,201 - [INFO] - boothVOList.size: 3
+2018-07-25 23:54:51,135 - [INFO] - boothVOList.size: 3
+2018-07-25 23:56:07,258 - [INFO] - boothVOList.size: 3
+2018-07-25 23:56:39,362 - [INFO] - boothVOList.size: 3
+2018-07-25 23:56:55,749 - [INFO] - boothVOList.size: 3
+2018-07-25 23:57:49,879 - [INFO] - boothVOList.size: 3
+2018-07-25 23:59:09,995 - [INFO] - boothVOList.size: 3
+2018-07-25 23:59:50,841 - [INFO] - boothVOList.size: 3

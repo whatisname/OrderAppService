@@ -1,0 +1,134 @@
+2018-07-15 22:42:31,648 - [INFO] - Starting OrderServiceTest on DESKTOP-3IDJ6KU with PID 16744 (started by PC in D:\Workspace\IJIDEA\ordersystem)
+2018-07-15 22:42:31,650 - [INFO] - No active profile set, falling back to default profiles: default
+2018-07-15 22:42:32,234 - [INFO] - Refreshing org.springframework.web.context.support.GenericWebApplicationContext@4bc222e: startup date [Sun Jul 15 22:42:32 EDT 2018]; root of context hierarchy
+2018-07-15 22:42:37,704 - [INFO] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$b71b7d49] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-15 22:42:38,737 - [INFO] - HikariPool-1 - Starting...
+2018-07-15 22:42:39,355 - [INFO] - HikariPool-1 - Start completed.
+2018-07-15 22:42:39,522 - [INFO] - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-07-15 22:42:39,714 - [INFO] - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-07-15 22:42:40,353 - [INFO] - HHH000412: Hibernate Core {5.2.17.Final}
+2018-07-15 22:42:40,355 - [INFO] - HHH000206: hibernate.properties not found
+2018-07-15 22:42:40,860 - [INFO] - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-07-15 22:42:41,742 - [INFO] - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-07-15 22:42:43,117 - [INFO] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-07-15 22:42:44,582 - [INFO] - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-15 22:42:45,121 - [INFO] - Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@4bc222e: startup date [Sun Jul 15 22:42:32 EDT 2018]; root of context hierarchy
+2018-07-15 22:42:45,167 - [INFO] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-07-15 22:42:45,203 - [INFO] - Mapped "{[/bo/l],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO com.xxy.ordersystem.controller.BoothController.list()
+2018-07-15 22:42:45,204 - [INFO] - Mapped "{[/fo/l],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO com.xxy.ordersystem.controller.FoodConttroller.list()
+2018-07-15 22:42:45,205 - [INFO] - Mapped "{[/or/l],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO com.xxy.ordersystem.controller.OrderController.getAllOrders()
+2018-07-15 22:42:45,205 - [INFO] - Mapped "{[/or/oid],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO com.xxy.ordersystem.controller.OrderController.getOrdersById()
+2018-07-15 22:42:45,205 - [INFO] - Mapped "{[/se/all],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.viewobject.SearchResultVO> com.xxy.ordersystem.controller.SearchController.searchAll()
+2018-07-15 22:42:45,207 - [INFO] - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-15 22:42:45,208 - [INFO] - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-15 22:42:45,234 - [INFO] - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-15 22:42:45,234 - [INFO] - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-15 22:42:45,515 - [INFO] - Started OrderServiceTest in 16.912 seconds (JVM running for 21.377)
+2018-07-15 22:42:46,850 - [INFO] - Closing org.springframework.web.context.support.GenericWebApplicationContext@4bc222e: startup date [Sun Jul 15 22:42:32 EDT 2018]; root of context hierarchy
+2018-07-15 22:42:46,855 - [INFO] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-07-15 22:42:46,856 - [INFO] - HikariPool-1 - Shutdown initiated...
+2018-07-15 22:42:46,875 - [INFO] - HikariPool-1 - Shutdown completed.
+2018-07-15 22:43:38,654 - [INFO] - Starting OrderServiceTest on DESKTOP-3IDJ6KU with PID 23896 (started by PC in D:\Workspace\IJIDEA\ordersystem)
+2018-07-15 22:43:38,655 - [INFO] - No active profile set, falling back to default profiles: default
+2018-07-15 22:43:38,703 - [INFO] - Refreshing org.springframework.web.context.support.GenericWebApplicationContext@75c56eb9: startup date [Sun Jul 15 22:43:38 EDT 2018]; root of context hierarchy
+2018-07-15 22:43:40,152 - [INFO] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ec5d5046] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-15 22:43:40,346 - [INFO] - HikariPool-1 - Starting...
+2018-07-15 22:43:40,569 - [INFO] - HikariPool-1 - Start completed.
+2018-07-15 22:43:40,634 - [INFO] - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-07-15 22:43:40,648 - [INFO] - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-07-15 22:43:40,723 - [INFO] - HHH000412: Hibernate Core {5.2.17.Final}
+2018-07-15 22:43:40,724 - [INFO] - HHH000206: hibernate.properties not found
+2018-07-15 22:43:40,766 - [INFO] - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-07-15 22:43:40,949 - [INFO] - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-07-15 22:43:41,777 - [INFO] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-07-15 22:43:42,794 - [INFO] - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-15 22:43:43,113 - [INFO] - Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@75c56eb9: startup date [Sun Jul 15 22:43:38 EDT 2018]; root of context hierarchy
+2018-07-15 22:43:43,164 - [INFO] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-07-15 22:43:43,202 - [INFO] - Mapped "{[/bo/l],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO com.xxy.ordersystem.controller.BoothController.list()
+2018-07-15 22:43:43,204 - [INFO] - Mapped "{[/fo/l],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO com.xxy.ordersystem.controller.FoodConttroller.list()
+2018-07-15 22:43:43,205 - [INFO] - Mapped "{[/or/oid],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO com.xxy.ordersystem.controller.OrderController.getOrdersById()
+2018-07-15 22:43:43,205 - [INFO] - Mapped "{[/or/l],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO com.xxy.ordersystem.controller.OrderController.getAllOrders()
+2018-07-15 22:43:43,206 - [INFO] - Mapped "{[/se/all],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.viewobject.SearchResultVO> com.xxy.ordersystem.controller.SearchController.searchAll()
+2018-07-15 22:43:43,209 - [INFO] - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-15 22:43:43,211 - [INFO] - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-15 22:43:43,234 - [INFO] - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-15 22:43:43,234 - [INFO] - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-15 22:43:43,501 - [INFO] - Started OrderServiceTest in 5.455 seconds (JVM running for 6.445)
+2018-07-15 22:43:43,715 - [INFO] - sum price = 15.0
+2018-07-15 22:43:43,719 - [INFO] - Closing org.springframework.web.context.support.GenericWebApplicationContext@75c56eb9: startup date [Sun Jul 15 22:43:38 EDT 2018]; root of context hierarchy
+2018-07-15 22:43:43,724 - [INFO] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-07-15 22:43:43,724 - [INFO] - HikariPool-1 - Shutdown initiated...
+2018-07-15 22:43:43,729 - [INFO] - HikariPool-1 - Shutdown completed.
+2018-07-15 22:44:14,558 - [INFO] - Starting OrderServiceTest on DESKTOP-3IDJ6KU with PID 10944 (started by PC in D:\Workspace\IJIDEA\ordersystem)
+2018-07-15 22:44:14,561 - [INFO] - No active profile set, falling back to default profiles: default
+2018-07-15 22:44:14,598 - [INFO] - Refreshing org.springframework.web.context.support.GenericWebApplicationContext@57a3e26a: startup date [Sun Jul 15 22:44:14 EDT 2018]; root of context hierarchy
+2018-07-15 22:44:15,851 - [INFO] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$b71e33da] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-15 22:44:16,045 - [INFO] - HikariPool-1 - Starting...
+2018-07-15 22:44:16,266 - [INFO] - HikariPool-1 - Start completed.
+2018-07-15 22:44:16,321 - [INFO] - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-07-15 22:44:16,336 - [INFO] - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-07-15 22:44:16,413 - [INFO] - HHH000412: Hibernate Core {5.2.17.Final}
+2018-07-15 22:44:16,414 - [INFO] - HHH000206: hibernate.properties not found
+2018-07-15 22:44:16,454 - [INFO] - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-07-15 22:44:16,601 - [INFO] - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-07-15 22:44:17,430 - [INFO] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-07-15 22:44:18,445 - [INFO] - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-15 22:44:18,777 - [INFO] - Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@57a3e26a: startup date [Sun Jul 15 22:44:14 EDT 2018]; root of context hierarchy
+2018-07-15 22:44:18,828 - [INFO] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-07-15 22:44:18,879 - [INFO] - Mapped "{[/bo/l],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO com.xxy.ordersystem.controller.BoothController.list()
+2018-07-15 22:44:18,880 - [INFO] - Mapped "{[/fo/l],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO com.xxy.ordersystem.controller.FoodConttroller.list()
+2018-07-15 22:44:18,881 - [INFO] - Mapped "{[/or/oid],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO com.xxy.ordersystem.controller.OrderController.getOrdersById()
+2018-07-15 22:44:18,882 - [INFO] - Mapped "{[/or/l],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO com.xxy.ordersystem.controller.OrderController.getAllOrders()
+2018-07-15 22:44:18,883 - [INFO] - Mapped "{[/se/all],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.viewobject.SearchResultVO> com.xxy.ordersystem.controller.SearchController.searchAll()
+2018-07-15 22:44:18,886 - [INFO] - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-15 22:44:18,888 - [INFO] - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-15 22:44:18,924 - [INFO] - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-15 22:44:18,924 - [INFO] - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-15 22:44:19,226 - [INFO] - Started OrderServiceTest in 5.232 seconds (JVM running for 6.159)
+2018-07-15 22:44:19,390 - [INFO] - sum price = 15.1
+2018-07-15 22:44:19,396 - [INFO] - Closing org.springframework.web.context.support.GenericWebApplicationContext@57a3e26a: startup date [Sun Jul 15 22:44:14 EDT 2018]; root of context hierarchy
+2018-07-15 22:44:19,401 - [INFO] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-07-15 22:44:19,401 - [INFO] - HikariPool-1 - Shutdown initiated...
+2018-07-15 22:44:19,406 - [INFO] - HikariPool-1 - Shutdown completed.
+2018-07-15 22:54:24,564 - [INFO] - Starting OrderServiceTest on DESKTOP-3IDJ6KU with PID 19532 (started by PC in D:\Workspace\IJIDEA\ordersystem)
+2018-07-15 22:54:24,568 - [INFO] - No active profile set, falling back to default profiles: default
+2018-07-15 22:54:24,602 - [INFO] - Refreshing org.springframework.web.context.support.GenericWebApplicationContext@27912e3: startup date [Sun Jul 15 22:54:24 EDT 2018]; root of context hierarchy
+2018-07-15 22:54:25,770 - [INFO] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$abea0edf] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-15 22:54:25,982 - [INFO] - HikariPool-1 - Starting...
+2018-07-15 22:54:26,202 - [INFO] - HikariPool-1 - Start completed.
+2018-07-15 22:54:26,257 - [INFO] - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-07-15 22:54:26,270 - [INFO] - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-07-15 22:54:26,340 - [INFO] - HHH000412: Hibernate Core {5.2.17.Final}
+2018-07-15 22:54:26,342 - [INFO] - HHH000206: hibernate.properties not found
+2018-07-15 22:54:26,380 - [INFO] - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-07-15 22:54:26,510 - [INFO] - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-07-15 22:54:27,293 - [INFO] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-07-15 22:54:28,227 - [INFO] - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-15 22:54:28,504 - [INFO] - Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@27912e3: startup date [Sun Jul 15 22:54:24 EDT 2018]; root of context hierarchy
+2018-07-15 22:54:28,551 - [INFO] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-07-15 22:54:28,591 - [INFO] - Mapped "{[/bo/l],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO com.xxy.ordersystem.controller.BoothController.list()
+2018-07-15 22:54:28,592 - [INFO] - Mapped "{[/fo/l],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO com.xxy.ordersystem.controller.FoodConttroller.list()
+2018-07-15 22:54:28,593 - [INFO] - Mapped "{[/or/l],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO com.xxy.ordersystem.controller.OrderController.getAllOrders()
+2018-07-15 22:54:28,593 - [INFO] - Mapped "{[/or/oid],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO com.xxy.ordersystem.controller.OrderController.getOrdersById()
+2018-07-15 22:54:28,594 - [INFO] - Mapped "{[/se/all],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.viewobject.SearchResultVO> com.xxy.ordersystem.controller.SearchController.searchAll()
+2018-07-15 22:54:28,596 - [INFO] - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-15 22:54:28,597 - [INFO] - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-15 22:54:28,618 - [INFO] - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-15 22:54:28,618 - [INFO] - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-15 22:54:28,918 - [INFO] - Started OrderServiceTest in 4.964 seconds (JVM running for 5.92)
+2018-07-15 22:54:29,826 - [INFO] - Began transaction (1) for test context [DefaultTestContext@34e9fd99 testClass = OrderServiceTest, testInstance = com.xxy.ordersystem.service.UpperService.intf.OrderServiceTest@28989415, testMethod = addNewOrder@OrderServiceTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@3c41ed1d testClass = OrderServiceTest, locations = '{}', classes = '{class com.xxy.ordersystem.OrdersystemApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@25af5db5, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@5f3a4b84, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@74ad1f1f, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@23fe1d71], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@4db0ba1c]; rollback [true]
+2018-07-15 22:54:29,933 - [INFO] - sum price = 15.2
+2018-07-15 22:54:30,008 - [INFO] - add, return orderVO: OrderVO(oPId=3, oPDeliverFee=1, oPSum=15.2, oPOrderDate=null, oPFinishDate=null, oPState=1, orderDetailVOList=[OrderDetailVO(oDNumber=1, oDPrice=5.00, oDSum=5.0, foodVO=null), OrderDetailVO(oDNumber=2, oDPrice=5.10, oDSum=5.1, foodVO=null)], studentVO=null, boothVO=null, addressVO=null, delivererVO=null)
+2018-07-15 22:54:30,012 - [INFO] - Rolled back transaction for test: [DefaultTestContext@34e9fd99 testClass = OrderServiceTest, testInstance = com.xxy.ordersystem.service.UpperService.intf.OrderServiceTest@28989415, testMethod = addNewOrder@OrderServiceTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@3c41ed1d testClass = OrderServiceTest, locations = '{}', classes = '{class com.xxy.ordersystem.OrdersystemApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@25af5db5, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@5f3a4b84, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@74ad1f1f, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@23fe1d71], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true]]
+2018-07-15 22:54:30,014 - [INFO] - Closing org.springframework.web.context.support.GenericWebApplicationContext@27912e3: startup date [Sun Jul 15 22:54:24 EDT 2018]; root of context hierarchy
+2018-07-15 22:54:30,020 - [INFO] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-07-15 22:54:30,020 - [INFO] - HikariPool-1 - Shutdown initiated...
+2018-07-15 22:54:30,024 - [INFO] - HikariPool-1 - Shutdown completed.

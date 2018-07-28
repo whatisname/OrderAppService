@@ -1,0 +1,94 @@
+2018-07-20 00:09:36,291 - [INFO] - Starting FoodDaoTest on DESKTOP-3IDJ6KU with PID 16496 (started by PC in D:\Workspace\IJIDEA\ordersystem)
+2018-07-20 00:09:36,296 - [INFO] - No active profile set, falling back to default profiles: default
+2018-07-20 00:09:36,346 - [INFO] - Refreshing org.springframework.web.context.support.GenericWebApplicationContext@723e88f9: startup date [Fri Jul 20 00:09:36 EDT 2018]; root of context hierarchy
+2018-07-20 00:09:37,938 - [INFO] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2fe0e2f2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-20 00:09:38,149 - [INFO] - HikariPool-1 - Starting...
+2018-07-20 00:09:38,475 - [INFO] - HikariPool-1 - Start completed.
+2018-07-20 00:09:38,617 - [INFO] - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-07-20 00:09:38,637 - [INFO] - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-07-20 00:09:38,717 - [INFO] - HHH000412: Hibernate Core {5.2.17.Final}
+2018-07-20 00:09:38,719 - [INFO] - HHH000206: hibernate.properties not found
+2018-07-20 00:09:38,758 - [INFO] - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-07-20 00:09:38,893 - [INFO] - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-07-20 00:09:39,943 - [INFO] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-07-20 00:09:41,454 - [INFO] - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-20 00:09:41,768 - [INFO] - Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@723e88f9: startup date [Fri Jul 20 00:09:36 EDT 2018]; root of context hierarchy
+2018-07-20 00:09:41,808 - [INFO] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-07-20 00:09:41,853 - [INFO] - Mapped "{[/booth/list],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.BoothVO>> com.xxy.ordersystem.controller.BoothController.list(java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2018-07-20 00:09:41,854 - [INFO] - Mapped "{[/booth/recommend],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.BoothVO>> com.xxy.ordersystem.controller.BoothController.recommend()
+2018-07-20 00:09:41,855 - [INFO] - Mapped "{[/food/list],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.FoodVO>> com.xxy.ordersystem.controller.FoodConttroller.list(java.lang.Integer,java.lang.Integer,java.lang.String)
+2018-07-20 00:09:41,855 - [INFO] - Mapped "{[/food/listAllFood],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO com.xxy.ordersystem.controller.FoodConttroller.listAllFood()
+2018-07-20 00:09:41,858 - [INFO] - Mapped "{[/order/create],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.create(com.xxy.ordersystem.form.OrderForm,org.springframework.validation.BindingResult)
+2018-07-20 00:09:41,859 - [INFO] - Mapped "{[/order/cancel],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.cancel(java.lang.String,java.lang.String,java.lang.String)
+2018-07-20 00:09:41,859 - [INFO] - Mapped "{[/order/detail],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.dto.OrderDTO> com.xxy.ordersystem.controller.OrderController.getOrdersById(java.lang.String,java.lang.String)
+2018-07-20 00:09:41,859 - [INFO] - Mapped "{[/order/list],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.OrderVO>> com.xxy.ordersystem.controller.OrderController.getAllOrders(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2018-07-20 00:09:41,860 - [INFO] - Mapped "{[/search/all],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.viewobject.SearchResultVO> com.xxy.ordersystem.controller.SearchController.searchAll(java.lang.String,java.lang.String,java.lang.Integer,java.lang.Integer)
+2018-07-20 00:09:41,862 - [INFO] - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-20 00:09:41,863 - [INFO] - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-20 00:09:41,891 - [INFO] - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-20 00:09:41,891 - [INFO] - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-20 00:09:42,292 - [INFO] - Started FoodDaoTest in 6.725 seconds (JVM running for 7.917)
+2018-07-20 00:09:42,448 - [INFO] - HHH000397: Using ASTQueryTranslatorFactory
+2018-07-20 00:09:42,755 - [INFO] - size: 1
+2018-07-20 00:09:42,764 - [INFO] - Closing org.springframework.web.context.support.GenericWebApplicationContext@723e88f9: startup date [Fri Jul 20 00:09:36 EDT 2018]; root of context hierarchy
+2018-07-20 00:09:42,800 - [INFO] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-07-20 00:09:42,802 - [INFO] - HikariPool-1 - Shutdown initiated...
+2018-07-20 00:09:42,848 - [INFO] - HikariPool-1 - Shutdown completed.
+2018-07-20 00:09:58,176 - [INFO] - Starting OrdersystemApplication on DESKTOP-3IDJ6KU with PID 13360 (D:\Workspace\IJIDEA\ordersystem\target\classes started by PC in D:\Workspace\IJIDEA\ordersystem)
+2018-07-20 00:09:58,180 - [INFO] - No active profile set, falling back to default profiles: default
+2018-07-20 00:09:58,301 - [INFO] - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@75d4a5c2: startup date [Fri Jul 20 00:09:58 EDT 2018]; root of context hierarchy
+2018-07-20 00:09:59,196 - [INFO] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$63b0cbf0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-20 00:09:59,393 - [INFO] - Tomcat initialized with port(s): 8080 (http)
+2018-07-20 00:09:59,407 - [INFO] - Initializing ProtocolHandler ["http-nio-8080"]
+2018-07-20 00:09:59,413 - [INFO] - Starting service [Tomcat]
+2018-07-20 00:09:59,413 - [INFO] - Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-07-20 00:09:59,417 - [INFO] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_171\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_171\bin;D:\Software\Gwak\GnuWin32\bin;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;D:\Software\apache-maven-3.5.3-bin\bin;C:\Users\PC\AppData\Local\Microsoft\WindowsApps;;.]
+2018-07-20 00:09:59,512 - [INFO] - Initializing Spring embedded WebApplicationContext
+2018-07-20 00:09:59,512 - [INFO] - Root WebApplicationContext: initialization completed in 1211 ms
+2018-07-20 00:09:59,628 - [INFO] - Servlet dispatcherServlet mapped to [/]
+2018-07-20 00:09:59,631 - [INFO] - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-20 00:09:59,631 - [INFO] - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-20 00:09:59,631 - [INFO] - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-20 00:09:59,631 - [INFO] - Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-20 00:09:59,824 - [INFO] - HikariPool-1 - Starting...
+2018-07-20 00:10:00,017 - [INFO] - HikariPool-1 - Start completed.
+2018-07-20 00:10:00,129 - [INFO] - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-07-20 00:10:00,141 - [INFO] - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-07-20 00:10:00,194 - [INFO] - HHH000412: Hibernate Core {5.2.17.Final}
+2018-07-20 00:10:00,195 - [INFO] - HHH000206: hibernate.properties not found
+2018-07-20 00:10:00,225 - [INFO] - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-07-20 00:10:00,323 - [INFO] - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-07-20 00:10:00,682 - [INFO] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-07-20 00:10:01,284 - [INFO] - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-20 00:10:01,473 - [INFO] - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@75d4a5c2: startup date [Fri Jul 20 00:09:58 EDT 2018]; root of context hierarchy
+2018-07-20 00:10:01,494 - [INFO] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-07-20 00:10:01,522 - [INFO] - Mapped "{[/booth/list],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.BoothVO>> com.xxy.ordersystem.controller.BoothController.list(java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2018-07-20 00:10:01,523 - [INFO] - Mapped "{[/booth/recommend],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.BoothVO>> com.xxy.ordersystem.controller.BoothController.recommend()
+2018-07-20 00:10:01,523 - [INFO] - Mapped "{[/food/list],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.FoodVO>> com.xxy.ordersystem.controller.FoodConttroller.list(java.lang.Integer,java.lang.Integer,java.lang.String)
+2018-07-20 00:10:01,524 - [INFO] - Mapped "{[/food/listAllFood],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO com.xxy.ordersystem.controller.FoodConttroller.listAllFood()
+2018-07-20 00:10:01,525 - [INFO] - Mapped "{[/order/create],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.create(com.xxy.ordersystem.form.OrderForm,org.springframework.validation.BindingResult)
+2018-07-20 00:10:01,525 - [INFO] - Mapped "{[/order/cancel],methods=[POST]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.lang.String> com.xxy.ordersystem.controller.OrderController.cancel(java.lang.String,java.lang.String,java.lang.String)
+2018-07-20 00:10:01,526 - [INFO] - Mapped "{[/order/list],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<java.util.List<com.xxy.ordersystem.viewmessage.viewobject.OrderVO>> com.xxy.ordersystem.controller.OrderController.getAllOrders(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2018-07-20 00:10:01,526 - [INFO] - Mapped "{[/order/detail],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.dto.OrderDTO> com.xxy.ordersystem.controller.OrderController.getOrdersById(java.lang.String,java.lang.String)
+2018-07-20 00:10:01,526 - [INFO] - Mapped "{[/search/all],methods=[GET]}" onto public com.xxy.ordersystem.viewmessage.ResultVO<com.xxy.ordersystem.viewmessage.viewobject.SearchResultVO> com.xxy.ordersystem.controller.SearchController.searchAll(java.lang.String,java.lang.String,java.lang.Integer,java.lang.Integer)
+2018-07-20 00:10:01,528 - [INFO] - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-20 00:10:01,528 - [INFO] - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-20 00:10:01,547 - [INFO] - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-20 00:10:01,547 - [INFO] - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-20 00:10:01,761 - [INFO] - Registering beans for JMX exposure on startup
+2018-07-20 00:10:01,762 - [INFO] - Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-07-20 00:10:01,767 - [INFO] - Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-07-20 00:10:01,776 - [INFO] - Starting ProtocolHandler ["http-nio-8080"]
+2018-07-20 00:10:01,784 - [INFO] - Using a shared selector for servlet write/read
+2018-07-20 00:10:01,793 - [INFO] - Tomcat started on port(s): 8080 (http) with context path '/os'
+2018-07-20 00:10:01,795 - [INFO] - Started OrdersystemApplication in 4.121 seconds (JVM running for 5.27)
+2018-07-20 00:10:52,366 - [INFO] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-20 00:10:52,366 - [INFO] - FrameworkServlet 'dispatcherServlet': initialization started
+2018-07-20 00:10:52,381 - [INFO] - FrameworkServlet 'dispatcherServlet': initialization completed in 14 ms
+2018-07-20 00:11:01,903 - [INFO] - HHH000397: Using ASTQueryTranslatorFactory
+2018-07-20 01:02:12,719 - [INFO] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m12s472ms177µs757ns).
+2018-07-20 14:28:45,309 - [INFO] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8h14m50s74ms887µs653ns).

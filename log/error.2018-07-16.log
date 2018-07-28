@@ -1,0 +1,2 @@
+2018-07-16 02:12:42,716 - [ERROR] - Field 'o_p_deliver_fee' doesn't have a default value
+2018-07-16 02:12:42,718 - [ERROR] - HHH000346: Error during managed flush [org.hibernate.exception.GenericJDBCException: could not execute statement]
