@@ -10,6 +10,10 @@ spring:
     default-property-inclusion: non_null
 #    joda-date-time-format: yyyy-MM-dd HH:mm:ss
     date-format: yyyy-MM-dd HH:mm:ss
+#  velocity:
+#    resourceLoaderPath: /pages/
+#    prefix: /
+#    suffix: .vm
 server:
     servlet:
       context-path: /os

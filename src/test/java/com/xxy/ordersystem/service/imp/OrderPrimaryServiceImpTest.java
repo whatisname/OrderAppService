@@ -34,7 +34,7 @@ public class OrderPrimaryServiceImpTest {
     @Test
     public void findOrdersById() {
         OrdersPrimary ordersPrimary = orderPrimaryService.findOrdersById("1");
-        log.info("find order: {}", ordersPrimary);
+        log.info("find orderManage: {}", ordersPrimary);
     }
 
     @Test

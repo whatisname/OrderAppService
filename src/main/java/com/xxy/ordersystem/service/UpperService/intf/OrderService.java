@@ -15,10 +15,36 @@ import java.util.Map;
  */
 public interface OrderService {
     //==========================订单查询=========================================
+    /**
+     * 根据id查找单个订单
+     * @param orderPrimaryId
+     * @return
+     */
     OrderDTO findOrderByPrimaryId(String orderPrimaryId);
+
+    /**
+     * 查询所有订单
+     * @return
+     */
     List<OrderDTO> findAllOrders();
+
+    /**
+     * 用户根据student id查找某个用户的所有订单
+     * @param studentId
+     * @param haveDetail
+     * @param pageable
+     * @return
+     */
     Page<OrderDTO> findAllOrdersByStudentId(String studentId, Boolean haveDetail, Pageable pageable);
 
+    /**
+     * 用户根据studentId和orderState查找学生下某个状态的所有订单（分页）
+     * @param studentId
+     * @param orderState
+     * @param haveDetail 是否查询订单细节（订单副表）
+     * @param pageable
+     * @return
+     */
     Page<OrderDTO> findAllOrdersByStudentIdAndState(String studentId, Integer orderState, Boolean haveDetail, Pageable pageable);
 
     /**
@@ -26,12 +52,35 @@ public interface OrderService {
      * @param boothId
      * @return
      */
-    List<OrdersPrimary> findAllOrdersByBoothId(String boothId, Boolean haveDetail, Pageable pageable);
+    Page<OrderDTO> findAllOrdersByBoothId(String boothId, Boolean haveDetail, Pageable pageable);
 
-    Page<OrdersPrimary> findAllOrdersByBoothIdAndState(String boothId, Integer orderState, Boolean haveDetail, Pageable pageable);
+    /**
+     * 商家根据boothId和state查询订单（分页）
+     * @param boothId
+     * @param orderState
+     * @param haveDetail 是否查询订单细节（订单副表）
+     * @param pageable
+     * @return
+     */
+    Page<OrderDTO> findAllOrdersByBoothIdAndState(String boothId, Integer orderState, Boolean haveDetail, Pageable pageable);
 
+    /**
+     * 快递员根据delivererId查询所有订单（分页）
+     * @param delivererId
+     * @param haveDetail 是否查询订单细节（订单副表）
+     * @param pageable
+     * @return
+     */
     Page<OrderDTO> findAllOrdersByDelivererId(String delivererId, Boolean haveDetail, Pageable pageable);
 
+    /**
+     * 快递员根据delivererId和orderState查询所有订单（分页）
+     * @param delivererId
+     * @param orderState
+     * @param haveDetail 是否查询订单细节（订单副表）
+     * @param pageable
+     * @return
+     */
     Page<OrderDTO> findAllOrdersByDelivererIdAndState(String delivererId, Integer orderState, Boolean haveDetail, Pageable pageable);
 
 

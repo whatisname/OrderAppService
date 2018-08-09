@@ -53,7 +53,7 @@ public class OrderServiceImp implements OrderService {
     @Override
     public OrderDTO findOrderByPrimaryId(String orderPrimaryId) {
         OrderDTO orderDTO = new OrderDTO();
-        //get primary order
+        //get primary orderManage
         OrdersPrimary ordersPrimary = orderPrimaryService.findOrdersById(orderPrimaryId);
         if (ordersPrimary == null){
             log.error("({}) - {}", this.getClass() ,ExceptionStates.NO_SUCH_ORDERPRIMRY.getMessage());
@@ -151,7 +151,7 @@ public class OrderServiceImp implements OrderService {
     }
 
     @Override
-    public List<OrdersPrimary> findAllOrdersByBoothId(String boothId, Boolean haveDetail, Pageable pageable) {
+    public Page<OrderDTO> findAllOrdersByBoothId(String boothId, Boolean haveDetail, Pageable pageable) {
 //        Page<OrdersPrimary> ordersPrimaryPage = orderPrimaryService.findAllByBoothId(boothId, pageable);
 //        List<OrderDTO> orderDTOList = new ArrayList<>();
 
@@ -164,7 +164,7 @@ public class OrderServiceImp implements OrderService {
     }
 
     @Override
-    public Page<OrdersPrimary> findAllOrdersByBoothIdAndState(String boothId, Integer orderState, Boolean haveDetail, Pageable pageable) {
+    public Page<OrderDTO> findAllOrdersByBoothIdAndState(String boothId, Integer orderState, Boolean haveDetail, Pageable pageable) {
         //TODO
         return null;
     }

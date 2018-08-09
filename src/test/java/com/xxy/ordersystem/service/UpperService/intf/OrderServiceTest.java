@@ -35,7 +35,7 @@ public class OrderServiceTest {
     @Test
     public void findOrderByOrderPrimaryId() {
         OrderDTO orderDTO = orderService.findOrderByPrimaryId("10");
-        log.info("order dto: {}", orderDTO.toString());
+        log.info("orderManage dto: {}", orderDTO.toString());
     }
 
     @Test

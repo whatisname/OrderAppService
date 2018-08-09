@@ -32,7 +32,7 @@ public class OrderPrimaryDaoTest {
     @Test
     public void findOrdersPrimaryByOPId() {
         OrdersPrimary ordersPrimary = orderPrimaryDao.findOrdersPrimaryByOPId("1");
-        log.info("find order: {}", ordersPrimary.toString());
+        log.info("find orderManage: {}", ordersPrimary.toString());
     }
 
     @Test
