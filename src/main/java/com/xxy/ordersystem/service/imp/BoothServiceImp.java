@@ -87,4 +87,25 @@ public class BoothServiceImp implements BoothService {
             return false;
         }
     }
+
+    @Override
+    public Boolean deleteBooth(Booth booth) {
+        boothDao.delete(booth);
+        return true;
+    }
+
+    @Override
+    public Boolean deleteBoothById(String boothId) {
+        Booth booth = boothDao.findBoothByBIdEquals(boothId);
+        if(booth == null){
+            return false;
+        }else{
+            return this.deleteBooth(booth);
+        }
+    }
+
+    @Override
+    public Booth addBooth(Booth booth) {
+        return boothDao.save(booth);
+    }
 }

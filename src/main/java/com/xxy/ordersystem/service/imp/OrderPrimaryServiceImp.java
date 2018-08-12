@@ -54,6 +54,11 @@ public class OrderPrimaryServiceImp implements OrderPrimaryService {
     }
 
     @Override
+    public Page<OrdersPrimary> findAllByBoothId(String boothId, Pageable pageable) {
+        return orderPrimaryDao.findAllByBId(boothId, pageable);
+    }
+
+    @Override
     public List<OrdersPrimary> findAllByBoothIdAndOrderState(String boothId, Integer orderState) {
         return orderPrimaryDao.findAllByBIdAndOPState(boothId, orderState);
     }

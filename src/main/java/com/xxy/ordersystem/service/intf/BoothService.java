@@ -28,4 +28,8 @@ public interface BoothService {
 
     Boolean updateBooth(Booth booth);
 
+    Boolean deleteBooth(Booth booth);
+    Boolean deleteBoothById(String boothId);
+
+    Booth addBooth(Booth booth);
 }

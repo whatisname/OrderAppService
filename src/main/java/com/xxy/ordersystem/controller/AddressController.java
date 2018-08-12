@@ -6,6 +6,7 @@ import com.xxy.ordersystem.enums.Quyu;
 import com.xxy.ordersystem.exception.SaleException;
 import com.xxy.ordersystem.form.AddressForm;
 import com.xxy.ordersystem.service.intf.AddressService;
+import com.xxy.ordersystem.utils.KeyUtil;
 import com.xxy.ordersystem.utils.MessageUtil;
 import com.xxy.ordersystem.viewmessage.ResultVO;
 import com.xxy.ordersystem.viewmessage.viewobject.AddressVO;
@@ -63,6 +64,8 @@ public class AddressController {
             return MessageUtil.error(bindingResult.getFieldError().getDefaultMessage(), null);
         }
         Address address = new Address();
+        String aid = KeyUtil.generateUniqueKeyId();
+        addressForm.setAId(aid);
         BeanUtils.copyProperties(addressForm, address);
         Address result = addressService.addNewAddress(address);
         if (result == null){

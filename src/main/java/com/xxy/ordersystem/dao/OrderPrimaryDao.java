@@ -21,6 +21,7 @@ public interface OrderPrimaryDao extends JpaRepository<OrdersPrimary, String> {
     OrdersPrimary findOrdersPrimaryByOPId(String ordersPrimaryId);
 
     List<OrdersPrimary> findAllByBId(String boothId);
+    Page<OrdersPrimary> findAllByBId(String boothId, Pageable pageable);
     List<OrdersPrimary> findAllByBIdAndOPState(String boothId, Integer orderState);
 
     List<OrdersPrimary> findAllByDId(String delivererId);

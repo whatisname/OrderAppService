@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
 /**
@@ -33,13 +36,12 @@ public class OwnerOrderController {
             @RequestParam(value = "size", defaultValue = "10") Integer size,
             @RequestParam("bid") String bid,
             Map<String, Object> map
-
     ){
-        log.info("kjfsdfjl");
         PageRequest request = PageRequest.of(page-1, size);
         Page<OrderDTO> orderDTOPage = orderService.findAllOrdersByBoothId(bid, false, request);
         map.put("orderDTOPage", orderDTOPage);
-        return new ModelAndView("/src/main/resources/pages/list", map);
-
+        map.put("boolVal", true);
+        map.put("date", new Timestamp(System.currentTimeMillis()));
+        return new ModelAndView("/list", map);
     }
 }

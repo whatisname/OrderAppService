@@ -6,6 +6,7 @@ import com.xxy.ordersystem.enums.BoothStates;
 import com.xxy.ordersystem.enums.ExceptionStates;
 import com.xxy.ordersystem.enums.Quyu;
 import com.xxy.ordersystem.exception.SaleException;
+import com.xxy.ordersystem.form.BoothForm;
 import com.xxy.ordersystem.service.intf.BoothService;
 import com.xxy.ordersystem.service.intf.FoodService;
 import com.xxy.ordersystem.utils.MessageUtil;
@@ -20,11 +21,10 @@ import org.springframework.cglib.beans.BeanCopier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -131,6 +131,28 @@ public class BoothController {
             boothVO.setFoodVOList(foodVOList);
             return MessageUtil.successDefault(boothVO);
         }
+    }
+
+    @PostMapping("/update")
+    public ResultVO update(
+            @Valid BoothForm boothForm,
+            BindingResult bindingResult
+    ){
+        log.info("update");
+        if (bindingResult.hasErrors()){
+            log.error("{} - {}", this.getClass(), ExceptionStates.PARAM_ERROR.getMessage());
+            return MessageUtil.error(bindingResult.getFieldError().getDefaultMessage(), null);
+        }
+        Booth booth = boothService.findBoothById(boothForm.getBId());
+        String old_password = booth.getBOwnerPassword();
+        BeanUtils.copyProperties(boothForm, booth);
+        Boolean result = boothService.updateBooth(booth);
+
+        if (result == false){
+        log.error("{} - {}", this.getClass(), "店铺更新失败");
+        return MessageUtil.error("店铺更新失败", null);
+        }
+        return MessageUtil.success();
     }
 
 }

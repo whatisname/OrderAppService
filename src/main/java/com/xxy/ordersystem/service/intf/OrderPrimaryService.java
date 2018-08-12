@@ -21,6 +21,7 @@ public interface OrderPrimaryService {
     OrdersPrimary findOrdersById(String ordersPrimaryId);
 
     List<OrdersPrimary> findAllByBoothId(String boothId);
+    Page<OrdersPrimary> findAllByBoothId(String boothId, Pageable pageable);
     List<OrdersPrimary> findAllByBoothIdAndOrderState(String boothId, Integer orderState);
 
     List<OrdersPrimary> findAllByDelivererId(String delivererId);

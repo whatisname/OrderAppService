@@ -12,7 +12,7 @@ import javax.validation.constraints.NotEmpty;
 @Data
 public class AddressForm {
 
-    @NotEmpty(message = "必须填写id")
+//    @NotEmpty(message = "必须填写id")
     private String aId;
     @NotEmpty(message = "必须填写区域")
     private int aQuyu;

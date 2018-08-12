@@ -3,6 +3,7 @@ package com.xxy.ordersystem.viewmessage.viewobject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -29,19 +30,22 @@ public class BoothVO {
     private String quyu;
     @JsonProperty("imgurl")
     private String bImg;
-    @JsonProperty("state")
+    @JsonProperty("statecode")
     private Integer bState;
+    @JsonProperty("state")
+    private String state;
 //
-//    private String bOwnerName;
-//    private String bOwnerPhone;
-//    private String bOwnerEmail;
-//    private String bOwnerPassword;
+    private String bOwnerName;
+    private String bOwnerPhone;
+
+    private String bOwnerEmail;
+    private String bOwnerPassword;
 //    private String bOpenid;
 
     @JsonProperty("comment")
     private String bComment;
-//    private Timestamp bCreateTime;
-//    private Timestamp bUpdateTime;
+    private Timestamp bCreateTime;
+    private Timestamp bUpdateTime;
 
     @JsonProperty("foods")
     private List<FoodVO> foodVOList;

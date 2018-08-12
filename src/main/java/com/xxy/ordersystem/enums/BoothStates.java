@@ -19,8 +19,22 @@ public enum BoothStates {
     private int code;
     private String state;
 
-    BoothStates(int code, String state) {
+    BoothStates(Integer code, String state) {
         this.code = code;
         this.state = state;
+    }
+
+    public static String stateOf(Integer code){
+        switch (code){
+            case 0:
+                return OPEN.getState();
+            case 1:
+                return REST.getState();
+            case 2:
+                return CLOSE.getState();
+            default:
+                return "其他状态";
+        }
+
     }
 }

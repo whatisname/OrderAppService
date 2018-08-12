@@ -116,7 +116,7 @@ public class OrderServiceImp implements OrderService {
     @Override
     public Page<OrderDTO> findAllOrdersByStudentId(String studentId, Boolean haveDetail, Pageable pageable) {
         Page<OrdersPrimary> ordersPrimaryPage = orderPrimaryService.findAllByStudentId(studentId, pageable);
-        List<OrderDTO> orderDTOList = new ArrayList<>();
+//        List<OrderDTO> orderDTOList = new ArrayList<>();
 
         if (!haveDetail) {
             return this.convertToPageOrderDTO(ordersPrimaryPage, pageable);
@@ -152,15 +152,15 @@ public class OrderServiceImp implements OrderService {
 
     @Override
     public Page<OrderDTO> findAllOrdersByBoothId(String boothId, Boolean haveDetail, Pageable pageable) {
-//        Page<OrdersPrimary> ordersPrimaryPage = orderPrimaryService.findAllByBoothId(boothId, pageable);
+        Page<OrdersPrimary> ordersPrimaryPage = orderPrimaryService.findAllByBoothId(boothId, pageable);
 //        List<OrderDTO> orderDTOList = new ArrayList<>();
 
-//        if (!haveDetail) {
-//            return this.convertToPageOrderDTO(ordersPrimaryPage, pageable);
-//        }else{
+        if (!haveDetail) { //不包含细节
+            return this.convertToPageOrderDTO(ordersPrimaryPage, pageable);
+        }else{
         //TODO
         return null;
-//        }
+        }
     }
 
     @Override
