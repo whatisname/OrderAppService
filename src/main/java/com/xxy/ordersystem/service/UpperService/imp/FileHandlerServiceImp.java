@@ -40,7 +40,6 @@ public class FileHandlerServiceImp implements FileHandlerService {
     @Override
     public UploadFileResponse saveBoothImg(MultipartFile file, String bid) {
 
-
         //查找booth
         Booth booth = boothService.findBoothById(bid);
         if (booth == null){
@@ -53,15 +52,16 @@ public class FileHandlerServiceImp implements FileHandlerService {
 
         //设置存储路径
         String imageName = FileNameUtil.generateFileName();
-        Path uploadPath = Paths.get(BoothImgStoragePath, bid, imageName+"."+fileType);
+        Path uploadPath = Paths.get(ImgBaseStoragePath, BoothImgFolder, imageName+"."+fileType);
 
         //存储文件
         UploadFileResponse response = this.saveFile(file, uploadPath);
+        response.setFileDownloadUri("/os/static/images/"+BoothImgFolder+"/"+imageName+"."+fileType);
 
         //更新booth imgurl
         String old_imgurl = booth.getBImg();
 
-        booth.setBImg(bid+"-"+imageName+"."+fileType);
+        booth.setBImg("/os/static/images/"+BoothImgFolder+"/"+imageName+"."+fileType);
         Boolean result = boothService.updateBooth(booth);
         if (result == false){
             log.error("{} - {}",getClass(), "更新失败");
@@ -94,15 +94,16 @@ public class FileHandlerServiceImp implements FileHandlerService {
 
         //设置存储路径
         String imageName = FileNameUtil.generateFileName();
-        Path uploadPath = Paths.get(BoothImgStoragePath, bid,FoodImgFolder, imageName+"."+fileType);
+        Path uploadPath = Paths.get(ImgBaseStoragePath,FoodImgFolder, imageName+"."+fileType);
 
         //存储文件
         UploadFileResponse response = this.saveFile(file, uploadPath);
+        response.setFileDownloadUri("/os/static/images/"+FoodImgFolder+"/"+imageName+"."+fileType);
 
         //更新food imgurl
         String old_imgurl = food.getFImg();
 
-        food.setFImg(bid+"-"+FoodImgFolder+"-"+imageName+"."+fileType);
+        food.setFImg("/os/static/images/"+FoodImgFolder+"/"+imageName+"."+fileType);
         Boolean result = foodService.updateFood(food);
         if (result == false){
             log.error("{} - {}",getClass(), "更新失败");
@@ -121,19 +122,22 @@ public class FileHandlerServiceImp implements FileHandlerService {
 
         //设置存储路径
         String imageName = FileNameUtil.generateFileName();
-        Path uploadPath = Paths.get(AdvImgStoragePath, imageName+"."+fileType);
+        Path uploadPath = Paths.get(ImgBaseStoragePath,AdvImgFolder, imageName+"."+fileType);
 
         //存储文件
         UploadFileResponse response = this.saveFile(file, uploadPath);
+        response.setFileDownloadUri("/os/static/images/"+AdvImgFolder+"/"+imageName+"."+fileType);
 
-        //更新ADs address
-
+        //TODO: 更新ADs address
+        //TODO: delete old adv img
 
         return response;
     }
 
     @Override
     public Boolean deleteAdv(String advId) {
+
+        //TODO:
         return null;
     }
 
@@ -167,8 +171,9 @@ public class FileHandlerServiceImp implements FileHandlerService {
 
     //删除旧图片
     private Boolean deleteFile(String old_imgurl){
-        old_imgurl = old_imgurl.replaceAll("-", "/");
-        Path oldImgPath = Paths.get(BoothImgStoragePath, old_imgurl);
+//        os/static/images/booth-default.png
+        old_imgurl = old_imgurl.replaceAll("/os", "src/main/resources");
+        Path oldImgPath = Paths.get(old_imgurl);
         //旧图片
         File oldImg = new File(oldImgPath.toString());
         if (oldImg.exists()) {
@@ -207,11 +212,11 @@ public class FileHandlerServiceImp implements FileHandlerService {
                 Files.copy(file.getInputStream(), uploadPath);
 
             }
-            response.setFileName(file1.getName());
+            response.setFileName(FilenameUtils.getName(file1.getName()));
+            response.setFileFullName(file1.getName());
             response.setFileType(file.getContentType());
             response.setFileExtension(FilenameUtils.getExtension(file1.getName()));
-            //TODO 设置uri
-            response.setFileDownloadUri("");
+            response.setFileDownloadUri("/os/static/images/");
             response.setSize(file.getSize());
 
         } catch (IOException e) {

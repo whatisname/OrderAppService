@@ -10,6 +10,7 @@ import lombok.Data;
 @Data
 public class UploadFileResponse {
     private String fileName;
+    private String fileFullName;
     private String fileDownloadUri;
     private String fileType;
     private String fileExtension;

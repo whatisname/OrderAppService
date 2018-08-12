@@ -34,6 +34,11 @@ public class BoothForm {
     @NotEmpty(message = "必须填写邮箱")
     private String bOwnerEmail;
 
+//    private String bImg;
+
+//    @NotEmpty(message = "必须选择状态")
+//    private Integer bState;
+
 //    private String bOwnerPassword;
 
 //    private String bOpenid;

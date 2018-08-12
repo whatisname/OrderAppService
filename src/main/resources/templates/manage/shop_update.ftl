@@ -15,6 +15,8 @@
   <link href="../../static/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <!-- NProgress -->
   <link href="../../static/vendors/nprogress/nprogress.css" rel="stylesheet">
+  <!-- Dropzone.js -->
+  <link href="../../static/vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
 
   <!-- Custom Theme Style -->
   <link href="../../static/build/css/custom.min.css" rel="stylesheet">
@@ -31,7 +33,7 @@
       <div class="">
         <div class="page-title">
           <div class="title_left">
-            <h3>商店信息 <small><a href="/os/manage/booth/list"> 返回 <i class="fa fa-angle-double-left"></i></a></small></h3>
+            <h3>商店信息 <small><a href="/os/manage/booth/list"><i class="fa fa-angle-double-right"></i> 返回列表 <i class="fa fa-angle-double-left"></i></a></small></h3>
           </div>
 
           <div class="title_right">
@@ -91,9 +93,9 @@
                         class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input type="text" id="bOwnerName" name="bOwnerName" data-validate-length-range="1,6"
+                      <input type="text" id="bOwnerName" name="bOwnerName" data-validate-length-range="1,15"
                              class="form-control col-md-7 col-xs-12" required="required"
-                             value="${boothVO.getBOwnerName()!}" placeholder="长度:1-6">
+                             value="${boothVO.getBOwnerName()!}" placeholder="长度:1-15">
                     </div>
                   </div>
                   <div class="item form-group">
@@ -151,7 +153,7 @@
                              placeholder='格式:"窗口XX"'>
                     </div>
                   </div>
-                  <div class="item form-group">
+                  <div class="item form-group hidden">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="quyu">区域 <span
                         class="required">*</span>
                     </label>
@@ -160,13 +162,25 @@
                              class="form-control col-md-7 col-xs-12" value="${boothVO.getQuyu()!}">
                     </div>
                   </div>
+
                   <div class="item form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="bQuyu">区域code <span
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="bQuyu">区域选择 <span
                         class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input type="number" id="bQuyu" name="bQuyu" required="required" data-validate-minmax="0,1"
-                             class="form-control col-md-7 col-xs-12" value="${boothVO.getBQuyu()!}">
+                      <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-default <#if boothVO.getBQuyu() == 1>active</#if>">
+                          <input type="radio" name="bQuyu" id="quyu_option1" value="1"> 东区
+                        </label>
+                        <label class="btn btn-default <#if boothVO.getBQuyu() == 2>active</#if>">
+                          <input type="radio" name="bQuyu" id="quyu_option2" value="2"> 西区
+                        </label>
+                      <#--<label class="btn btn-default">-->
+                      <#--<input type="radio" name="bQuyu" id="option3"> Option 3-->
+                      <#--</label>-->
+                      </div>
+                    <#--<input type="number" id="bQuyu" name="bQuyu" required="required" data-validate-minmax="0,2"-->
+                    <#--class="form-control col-md-7 col-xs-12" value="${boothVO.getBQuyu()!}">-->
                     </div>
                   </div>
 
@@ -244,14 +258,18 @@
                   </div>
 
                   <div class="item form-group">
-                    <label for="password" class="control-label col-md-3 col-sm-3 col-xs-12">更改密码 </label>
+                    <label for="password" class="control-label col-md-3 col-sm-3 col-xs-12">更改密码
+                      <span class="required">*</span>
+                    </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                       <input id="bOwnerPassword" type="password" name="bOwnerPassword" data-validate-length-range="6,12"
                              class="form-control col-md-7 col-xs-12" required="required" placeholder="长度为6-12">
                     </div>
                   </div>
                   <div class="item form-group">
-                    <label for="password2" class="control-label col-md-3 col-sm-3 col-xs-12">确认新密码 </label>
+                    <label for="password2" class="control-label col-md-3 col-sm-3 col-xs-12">确认新密码
+                      <span class="required">*</span>
+                    </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                       <input id="password2" type="password" name="password2" data-validate-length-range="6,12"
                              data-validate-linked="bOwnerPassword" class="form-control col-md-7 col-xs-12"
@@ -293,167 +311,226 @@
                 <div class="clearfix"></div>
               </div>
               <div class="x_content">
-                <p></p>
-                <form id="form_img" class="form-horizontal form-label-left" novalidate
-                      action="/os/manage/booth/updateImg"
-                      method="post">
-                <#--<span class="section">修改图片</span>-->
-                  <div class="item form-group hidden">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="bId2">bId3
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input id="bId3" class="form-control col-md-7 col-xs-12" name="bId" type="text"
-                             value="${boothVO.getBId()!}">
+                <p>改动可能需要几分钟生效。</p>
+                <div class="row">
+                <#--<div class="col-md-4 col-sm-6 col-xs-12"></div>-->
+                <#--<div class="control-label col-md-3 col-sm-3 col-xs-12">-->
+                <#--<form action="/os/res/addBImg" class="dropzone">-->
+                <#--<input name="bid" class="hidden" value="${boothVO.getBId()}">-->
+                <#--<div class="fallback">-->
+                <#--<input name="file" type="file"/>-->
+                <#--</div>-->
+                <#--</form>-->
+                <#--</div>-->
+                <#--</div>-->
+
+                  <form id="form_img" class="form-horizontal form-label-left" novalidate
+                        action="/os/manage/booth/updateImg" enctype="multipart/form-data"
+                        method="post">
+                  <#--<span class="section">修改图片</span>-->
+                    <div class="item form-group hidden">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="bId3">bId3
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input id="bId3" class="form-control col-md-7 col-xs-12" name="bId" type="text"
+                               value="${boothVO.getBId()!}">
+                      </div>
                     </div>
-                  </div>
-                  <div class="item form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="bImg">图片 <span
-                        class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input type="text" id="bImg" name="bImg" readonly="readonly"
-                             class="form-control col-md-7 col-xs-12" value="${boothVO.getBImg()!}">
+
+                    <div class="item form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">目前图片
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <img src="${boothVO.getBImg()}" alt="..." class="img-thumbnail"
+                             style="height: 100px; width: 100px;">
+                      </div>
                     </div>
-                  </div>
-                  <div class="ln_solid"></div>
-                  <div class="form-group">
-                    <div class="col-md-6 col-md-offset-3">
-                      <button id="submit_img" type="submit" class="btn btn-success">修改</button>
+
+                    <div class="item form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="file">选择图片
+                        <span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="file" id="file" name="file"
+                               class="form-control col-md-7 col-xs-12" required="required">
+                      </div>
                     </div>
-                  </div>
-                </form>
+
+                    <div class="item form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="bImg">图片URL
+                        <span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" id="bImg" name="bImg" readonly="readonly"
+                               class="form-control col-md-7 col-xs-12" value="${boothVO.getBImg()!}">
+                      </div>
+                    </div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                      <div class="col-md-6 col-md-offset-3">
+                        <button id="submit_img" type="submit" class="btn btn-success">修改</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
 
 
-            <div class="x_panel">
-              <div class="x_title">
-                <h2>修改状态
-                <#--<small>修改信息</small>-->
-                </h2>
-                <ul class="nav navbar-right panel_toolbox">
-                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                  </li>
-                  <!--<li class="dropdown">-->
-                  <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>-->
-                  <!--<ul class="dropdown-menu" role="menu">-->
-                  <!--<li><a href="#">Settings 1</a>-->
-                  <!--</li>-->
-                  <!--<li><a href="#">Settings 2</a>-->
-                  <!--</li>-->
-                  <!--</ul>-->
-                  <!--</li>-->
-                  <!--<li><a class="close-link"><i class="fa fa-close"></i></a>-->
-                  <!--</li>-->
-                </ul>
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-                <p></p>
-                <form id="form_state" class="form-horizontal form-label-left" novalidate
-                      action="/os/manage/booth/updateImg"
-                      method="post">
-                <#--<span class="section">修改状态</span>-->
-                  <div class="item form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="state">状态 <span
-                        class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input type="text" id="state" name="state" required="required" data-validate-minmax="1,5"
-                             class="form-control col-md-7 col-xs-12" value="${boothVO.getState()!}">
-                    </div>
-                  </div>
-                  <div class="item form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="bState">状态code <span
-                        class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input type="number" id="bState" name="bState" required="required"
-                             class="form-control col-md-7 col-xs-12" value="${boothVO.getBState()!}">
-                    </div>
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>修改状态
+                  <#--<small>修改信息</small>-->
+                  </h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <!--<li class="dropdown">-->
+                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>-->
+                    <!--<ul class="dropdown-menu" role="menu">-->
+                    <!--<li><a href="#">Settings 1</a>-->
+                    <!--</li>-->
+                    <!--<li><a href="#">Settings 2</a>-->
+                    <!--</li>-->
+                    <!--</ul>-->
+                    <!--</li>-->
+                    <!--<li><a class="close-link"><i class="fa fa-close"></i></a>-->
+                    <!--</li>-->
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                  <div class="alert alert-warning alert-dismissible fade in" role="alert">
+                    状态若修改成“关闭”，则商户无法自行开启 <strong>（相当于封户）</strong>，只有管理员权限可以重新打开。
                   </div>
 
-                  <div class="ln_solid"></div>
-                  <div class="form-group">
-                    <div class="col-md-6 col-md-offset-3">
-                      <button id="submit_state" type="submit" class="btn btn-success">修改</button>
+                  <p></p>
+                  <form id="form_state" class="form-horizontal form-label-left" novalidate
+                        action="/os/manage/booth/updateState"
+                        method="post">
+                  <#--<span class="section">修改状态</span>-->
+                    <div class="item form-group hidden">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="bId4">bId4
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input id="bId4" class="form-control col-md-7 col-xs-12" name="bId" type="text"
+                               value="${boothVO.getBId()!}">
+                      </div>
                     </div>
-                  </div>
-                </form>
+                    <div class="item form-group hidden">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="state">状态 <span
+                          class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" id="state" name="state" required="required" data-validate-minmax="1,5"
+                               class="form-control col-md-7 col-xs-12" value="${boothVO.getState()!}">
+                      </div>
+                    </div>
+                    <div class="item form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="bState">状态 <span
+                          class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+
+                        <div class="btn-group" data-toggle="buttons">
+                          <label class="btn btn-default <#if boothVO.getBState() == 0>active</#if>">
+                            <input type="radio" name="bState" id="state_option1" value="0"> 营业
+                          </label>
+                          <label class="btn btn-default <#if boothVO.getBState() == 1>active</#if>">
+                            <input type="radio" name="bState" id="state_option2" value="1"> 休息
+                          </label>
+                          <label class="btn btn-danger <#if boothVO.getBState() == 2>active</#if>"">
+                            <input type="radio" name="bState" id="state_option3" value="2"> 关闭
+                          </label>
+                        </div>
+                        <#--<input type="number" id="bState" name="bState" required="required"-->
+                               <#--class="form-control col-md-7 col-xs-12" value="${boothVO.getBState()!}">-->
+                      </div>
+                    </div>
+
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                      <div class="col-md-6 col-md-offset-3">
+                        <button id="submit_state" type="submit" class="btn btn-success">修改</button>
+                      </div>
+                    </div>
+                  </form>
 
 
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- /page content -->
+      <!-- /page content -->
 
-    <!-- footer content -->
+      <!-- footer content -->
     <#include "../template/foot.html">
 
+    </div>
   </div>
-</div>
 
-<!-- jQuery -->
-<script src="../../static/vendors/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="../../static/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- FastClick -->
-<script src="../../static/vendors/fastclick/lib/fastclick.js"></script>
-<!-- NProgress -->
-<script src="../../static/vendors/nprogress/nprogress.js"></script>
-<!-- validator -->
-<script src="../../static/vendors/validator/validator.js"></script>
-
-<!-- Custom Theme Scripts -->
-<script src="../../static/build/js/custom.min.js"></script>
-<script>
-  function init_validator() {
-    "undefined" != typeof validator && (
-        console.log("init_validator"),
-            $("#form_info")
-                .on("blur", "input[required], input.optional, select.required", validator.checkField)
-                .on("change", "select.required", validator.checkField)
-                .on("keypress", "input[required][pattern]", validator.keypress),
-            $("#form_password")
-                .on("blur", "input[required], input.optional, select.required", validator.checkField)
-                .on("change", "select.required", validator.checkField)
-                .on("keypress", "input[required][pattern]", validator.keypress),
-            $("#form_img")
-                .on("blur", "input[required], input.optional, select.required", validator.checkField)
-                .on("change", "select.required", validator.checkField)
-                .on("keypress", "input[required][pattern]", validator.keypress),
-            $("#form_state")
-                .on("blur", "input[required], input.optional, select.required", validator.checkField)
-                .on("change", "select.required", validator.checkField)
-                .on("keypress", "input[required][pattern]", validator.keypress),
-            $(".multi.required").on("keyup blur", "input", function () {
-              validator.checkField.apply($(this).siblings().last()[0])
-            }),
-            $("#form_info").submit(function (a) {
-              a.preventDefault();
-              var b = !0;
-              return validator.checkAll($(this)) || (b = !1), b && this.submit(), !1
-            }),
-            $("#form_password").submit(function (a) {
-              a.preventDefault();
-              var b = !0;
-              return validator.checkAll($(this)) || (b = !1), b && this.submit(), !1
-            }),
-            $("#form_img").submit(function (a) {
-              a.preventDefault();
-              var b = !0;
-              return validator.checkAll($(this)) || (b = !1), b && this.submit(), !1
-            }),
-            $("#form_state").submit(function (a) {
-              a.preventDefault();
-              var b = !0;
-              return validator.checkAll($(this)) || (b = !1), b && this.submit(), !1
-            })
-    )
-  }
-</script>
+  <!-- jQuery -->
+  <script src="../../static/vendors/jquery/dist/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="../../static/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- FastClick -->
+  <script src="../../static/vendors/fastclick/lib/fastclick.js"></script>
+  <!-- NProgress -->
+  <script src="../../static/vendors/nprogress/nprogress.js"></script>
+  <!-- validator -->
+  <script src="../../static/vendors/validator/validator.js"></script>
+  <!-- Dropzone.js -->
+  <script src="../../static/vendors/dropzone/dist/min/dropzone.min.js"></script>
+  <!-- Custom Theme Scripts -->
+  <script src="../../static/build/js/custom.min.js"></script>
+  <script>
+    function init_validator() {
+      "undefined" != typeof validator && (
+          console.log("init_validator"),
+              $("#form_info")
+                  .on("blur", "input[required], input.optional, select.required", validator.checkField)
+                  .on("change", "select.required", validator.checkField)
+                  .on("keypress", "input[required][pattern]", validator.keypress),
+              $("#form_password")
+                  .on("blur", "input[required], input.optional, select.required", validator.checkField)
+                  .on("change", "select.required", validator.checkField)
+                  .on("keypress", "input[required][pattern]", validator.keypress),
+              $("#form_img")
+                  .on("blur", "input[required], input.optional, select.required", validator.checkField)
+                  .on("change", "select.required", validator.checkField)
+                  .on("keypress", "input[required][pattern]", validator.keypress),
+              $("#form_state")
+                  .on("blur", "input[required], input.optional, select.required", validator.checkField)
+                  .on("change", "select.required", validator.checkField)
+                  .on("keypress", "input[required][pattern]", validator.keypress),
+              $(".multi.required").on("keyup blur", "input", function () {
+                validator.checkField.apply($(this).siblings().last()[0])
+              }),
+              $("#form_info").submit(function (a) {
+                a.preventDefault();
+                var b = !0;
+                return validator.checkAll($(this)) || (b = !1), b && this.submit(), !1
+              }),
+              $("#form_password").submit(function (a) {
+                a.preventDefault();
+                var b = !0;
+                return validator.checkAll($(this)) || (b = !1), b && this.submit(), !1
+              }),
+              $("#form_img").submit(function (a) {
+                a.preventDefault();
+                var b = !0;
+                return validator.checkAll($(this)) || (b = !1), b && this.submit(), !1
+              }),
+              $("#form_state").submit(function (a) {
+                a.preventDefault();
+                var b = !0;
+                return validator.checkAll($(this)) || (b = !1), b && this.submit(), !1
+              })
+      )
+    }
+  </script>
 </body>
 </html>

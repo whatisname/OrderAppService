@@ -137,35 +137,35 @@ public class ResourceController {
      * @param filename
      * @return
      */
-    @GetMapping("/img/{filename:.+}")
-    @ResponseBody
-    public ResponseEntity<?> getFile(
-            @PathVariable String filename
-    ) {
-        try {
-            filename = filename.replaceAll("-", "/");
-            String fileType = FilenameUtils.getExtension(filename);
-            if (fileType.equals(FileTypes.PNG.getType())){
-                return ResponseEntity.ok().contentType(MediaType.IMAGE_PNG).body(resourceLoader.getResource("file:" + Paths.get(fileHandlerService.BoothImgStoragePath, filename).toString()));
-            }else if (
-                    fileType.equals(FileTypes.JPEG.getType()) ||
-                    fileType.equals(FileTypes.JPG.getType())
-                    ){
-                return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(resourceLoader.getResource("file:" + Paths.get(fileHandlerService.BoothImgStoragePath, filename).toString()));
-            }else {
-                log.error("{} - {}",getClass(), ExceptionStates.WRONG_FILE_TYPE.getMessage(), "不支持的图片类型");
-                throw new SaleException(ExceptionStates.WRONG_FILE_TYPE);
-
-//                return ResponseEntity.ok().contentType(MediaType.ALL).body(resourceLoader.getResource("file:" + Paths.get(BoothImgStoragePath, filename).toString()));
-            }
-//            response.addHeader("Content-Disposition", "attachment;filename=image.png";
-//            这样写在浏览器上打开链接会直接下载图片，放入image标签的src属性会显示图片
-
-//            return ResponseEntity.ok(resourceLoader.getResource("file:" + Paths.get(BoothImgStoragePath, filename).toString()));
-        } catch (Exception e) {
-            return ResponseEntity.notFound().build();
-        }
-    }
+//    @GetMapping("/img/{filename:.+}")
+//    @ResponseBody
+//    public ResponseEntity<?> getFile(
+//            @PathVariable String filename
+//    ) {
+//        try {
+//            filename = filename.replaceAll("-", "/");
+//            String fileType = FilenameUtils.getExtension(filename);
+//            if (fileType.equals(FileTypes.PNG.getType())){
+//                return ResponseEntity.ok().contentType(MediaType.IMAGE_PNG).body(resourceLoader.getResource("file:" + Paths.get(fileHandlerService.BoothImgStoragePath, filename).toString()));
+//            }else if (
+//                    fileType.equals(FileTypes.JPEG.getType()) ||
+//                    fileType.equals(FileTypes.JPG.getType())
+//                    ){
+//                return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(resourceLoader.getResource("file:" + Paths.get(fileHandlerService.BoothImgStoragePath, filename).toString()));
+//            }else {
+//                log.error("{} - {}",getClass(), ExceptionStates.WRONG_FILE_TYPE.getMessage(), "不支持的图片类型");
+//                throw new SaleException(ExceptionStates.WRONG_FILE_TYPE);
+//
+////                return ResponseEntity.ok().contentType(MediaType.ALL).body(resourceLoader.getResource("file:" + Paths.get(BoothImgStoragePath, filename).toString()));
+//            }
+////            response.addHeader("Content-Disposition", "attachment;filename=image.png";
+////            这样写在浏览器上打开链接会直接下载图片，放入image标签的src属性会显示图片
+//
+////            return ResponseEntity.ok(resourceLoader.getResource("file:" + Paths.get(BoothImgStoragePath, filename).toString()));
+//        } catch (Exception e) {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
 
 
     /**
@@ -198,32 +198,32 @@ public class ResourceController {
      * @param filename
      * @return
      */
-    @GetMapping("/adv/{filename:.+}")
-    @ResponseBody
-    public ResponseEntity<?> getAdv(
-            @PathVariable String filename
-    ){
-        try {
-            filename = filename.replaceAll("-", "/");
-            String fileType = FilenameUtils.getExtension(filename);
-            if (fileType.equals(FileTypes.PNG.getType())){
-                return ResponseEntity.ok().contentType(MediaType.IMAGE_PNG).body(resourceLoader.getResource("file:" + Paths.get(fileHandlerService.AdvImgStoragePath, filename).toString()));
-            }else if (
-                    fileType.equals(FileTypes.JPEG.getType()) ||
-                            fileType.equals(FileTypes.JPG.getType())
-                    ){
-                return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(resourceLoader.getResource("file:" + Paths.get(fileHandlerService.AdvImgStoragePath, filename).toString()));
-            }else {
-                log.error("{} - {}",getClass(), ExceptionStates.WRONG_FILE_TYPE.getMessage(), "不支持的图片类型");
-                throw new SaleException(ExceptionStates.WRONG_FILE_TYPE);
-            }
-//            response.addHeader("Content-Disposition", "attachment;filename=image.png";
-//            这样写在浏览器上打开链接会直接下载图片，放入image标签的src属性会显示图片
-
-//            return ResponseEntity.ok(resourceLoader.getResource("file:" + Paths.get(BoothImgStoragePath, filename).toString()));
-        } catch (Exception e) {
-            return ResponseEntity.notFound().build();
-        }
-    }
+//    @GetMapping("/adv/{filename:.+}")
+//    @ResponseBody
+//    public ResponseEntity<?> getAdv(
+//            @PathVariable String filename
+//    ){
+//        try {
+//            filename = filename.replaceAll("-", "/");
+//            String fileType = FilenameUtils.getExtension(filename);
+//            if (fileType.equals(FileTypes.PNG.getType())){
+//                return ResponseEntity.ok().contentType(MediaType.IMAGE_PNG).body(resourceLoader.getResource("file:" + Paths.get(fileHandlerService.AdvImgStoragePath, filename).toString()));
+//            }else if (
+//                    fileType.equals(FileTypes.JPEG.getType()) ||
+//                            fileType.equals(FileTypes.JPG.getType())
+//                    ){
+//                return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(resourceLoader.getResource("file:" + Paths.get(fileHandlerService.AdvImgStoragePath, filename).toString()));
+//            }else {
+//                log.error("{} - {}",getClass(), ExceptionStates.WRONG_FILE_TYPE.getMessage(), "不支持的图片类型");
+//                throw new SaleException(ExceptionStates.WRONG_FILE_TYPE);
+//            }
+////            response.addHeader("Content-Disposition", "attachment;filename=image.png";
+////            这样写在浏览器上打开链接会直接下载图片，放入image标签的src属性会显示图片
+//
+////            return ResponseEntity.ok(resourceLoader.getResource("file:" + Paths.get(BoothImgStoragePath, filename).toString()));
+//        } catch (Exception e) {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
 
 }

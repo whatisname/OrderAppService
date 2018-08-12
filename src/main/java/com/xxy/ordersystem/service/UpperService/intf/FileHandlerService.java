@@ -12,9 +12,11 @@ import java.util.List;
  * @date 7/24/2018 2:50 AM
  */
 public interface FileHandlerService {
-    public static final String BoothImgStoragePath = "upload-dir/boothImg";
+//    public static final String BoothImgStoragePath = "upload-dir/boothImg";
+    public static final String ImgBaseStoragePath = "src/main/resources/static/images";
+    public static final String BoothImgFolder = "boothImg";
     public static final String FoodImgFolder = "foodImg";
-    public static final String AdvImgStoragePath = "upload-dir/advImg";
+    public static final String AdvImgFolder = "advImg";
 
     //保存
     UploadFileResponse saveBoothImg(MultipartFile file, String bid);
