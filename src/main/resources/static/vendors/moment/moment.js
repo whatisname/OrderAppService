@@ -1465,7 +1465,7 @@
         }
     }
 
-    // constant that refers to the ISO standard
+    // constantConfig that refers to the ISO standard
     utils_hooks__hooks.ISO_8601 = function () {};
 
     // date from string and format string

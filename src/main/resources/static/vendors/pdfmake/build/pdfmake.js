@@ -3071,10 +3071,10 @@
 	   * @returns {Function} Returns a new `lodash` function.
 	   * @example
 	   *
-	   * _.mixin({ 'foo': _.constant('foo') });
+	   * _.mixin({ 'foo': _.constantConfig('foo') });
 	   *
 	   * var lodash = _.runInContext();
-	   * lodash.mixin({ 'bar': lodash.constant('bar') });
+	   * lodash.mixin({ 'bar': lodash.constantConfig('bar') });
 	   *
 	   * _.isFunction(_.foo);
 	   * // => true
@@ -3226,7 +3226,7 @@
 	     *
 	     * The chainable wrapper methods are:
 	     * `after`, `ary`, `assign`, `at`, `before`, `bind`, `bindAll`, `bindKey`,
-	     * `callback`, `chain`, `chunk`, `commit`, `compact`, `concat`, `constant`,
+	     * `callback`, `chain`, `chunk`, `commit`, `compact`, `concat`, `constantConfig`,
 	     * `countBy`, `create`, `curry`, `debounce`, `defaults`, `defaultsDeep`,
 	     * `defer`, `delay`, `difference`, `drop`, `dropRight`, `dropRightWhile`,
 	     * `dropWhile`, `fill`, `filter`, `flatten`, `flattenDeep`, `flow`, `flowRight`,
@@ -12309,7 +12309,7 @@
 	     * @returns {*} Returns the resolved value.
 	     * @example
 	     *
-	     * var object = { 'a': [{ 'b': { 'c1': 3, 'c2': _.constant(4) } }] };
+	     * var object = { 'a': [{ 'b': { 'c1': 3, 'c2': _.constantConfig(4) } }] };
 	     *
 	     * _.result(object, 'a[0].b.c1');
 	     * // => 3
@@ -12320,7 +12320,7 @@
 	     * _.result(object, 'a.b.c', 'default');
 	     * // => 'default'
 	     *
-	     * _.result(object, 'a.b.c', _.constant('default'));
+	     * _.result(object, 'a.b.c', _.constantConfig('default'));
 	     * // => 'default'
 	     */
 	    function result(object, path, defaultValue) {
@@ -13544,7 +13544,7 @@
 	     * @example
 	     *
 	     * var object = { 'user': 'fred' };
-	     * var getter = _.constant(object);
+	     * var getter = _.constantConfig(object);
 	     *
 	     * getter() === object;
 	     * // => true
@@ -13644,8 +13644,8 @@
 	     * @example
 	     *
 	     * var objects = [
-	     *   { 'a': { 'b': { 'c': _.constant(2) } } },
-	     *   { 'a': { 'b': { 'c': _.constant(1) } } }
+	     *   { 'a': { 'b': { 'c': _.constantConfig(2) } } },
+	     *   { 'a': { 'b': { 'c': _.constantConfig(1) } } }
 	     * ];
 	     *
 	     * _.map(objects, _.method('a.b.c'));
@@ -13673,7 +13673,7 @@
 	     * @returns {Function} Returns the new function.
 	     * @example
 	     *
-	     * var array = _.times(3, _.constant),
+	     * var array = _.times(3, _.constantConfig),
 	     *     object = { 'a': array, 'b': array, 'c': array };
 	     *
 	     * _.map(['a[2]', 'c[0]'], _.methodOf(object));
@@ -25100,7 +25100,7 @@
 
 
 	/* ===========================================================================
-	 * Initialize the various 'constant' tables.
+	 * Initialize the various 'constantConfig' tables.
 	 */
 	function tr_static_init() {
 	  var n;        /* iterates over tree elements */
@@ -26650,7 +26650,7 @@
 	        do {
 	          // TODO: 2 or 1 bytes?
 	          len = input[next + copy++];
-	          /* use constant limit because in js we should not preallocate memory */
+	          /* use constantConfig limit because in js we should not preallocate memory */
 	          if (state.head && len &&
 	              (state.length < 65536 /*state.head.name_max*/)) {
 	            state.head.name += String.fromCharCode(len);
@@ -26676,7 +26676,7 @@
 	        copy = 0;
 	        do {
 	          len = input[next + copy++];
-	          /* use constant limit because in js we should not preallocate memory */
+	          /* use constantConfig limit because in js we should not preallocate memory */
 	          if (state.head && len &&
 	              (state.length < 65536 /*state.head.comm_max*/)) {
 	            state.head.comment += String.fromCharCode(len);

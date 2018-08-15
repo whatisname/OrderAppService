@@ -8,7 +8,7 @@ import { HOUR } from '../units/constants';
 import { hooks } from '../utils/hooks';
 import getParsingFlags from './parsing-flags';
 
-// constant that refers to the ISO standard
+// constantConfig that refers to the ISO standard
 hooks.ISO_8601 = function () {};
 
 // date from string and format string

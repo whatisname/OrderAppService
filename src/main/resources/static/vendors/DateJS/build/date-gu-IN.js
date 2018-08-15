@@ -2117,7 +2117,7 @@ Date.CultureStrings.lang = "gu-IN";
 	
 	var processTerms = function (names, staticFunc, instanceFunc) {
 		for (var i = 0; i < names.length; i++) {
-			// Create constant static Name variables.
+			// Create constantConfig static Name variables.
 			$D[names[i].toUpperCase()] = $D[names[i].toUpperCase().substring(0, 3)] = i;
 			// Create Name functions.
 			$D[names[i]] = $D[names[i].substring(0, 3)] = staticFunc(i);

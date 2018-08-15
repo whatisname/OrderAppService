@@ -153,7 +153,7 @@
                              placeholder='格式:"窗口XX"'>
                     </div>
                   </div>
-                  <div class="item form-group hidden">
+                  <#--<div class="item form-group hidden">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="quyu">区域 <span
                         class="required">*</span>
                     </label>
@@ -161,26 +161,23 @@
                       <input type="text" id="quyu" name="quyu" required="required"
                              class="form-control col-md-7 col-xs-12" value="${boothVO.getQuyu()!}">
                     </div>
-                  </div>
+                  </div>-->
 
                   <div class="item form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="bQuyu">区域选择 <span
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="quyu_option2">区域选择 <span
                         class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
+
+                      <input type="number" class="hidden" name="bQuyu" id="bQuyu" value="${boothVO.getBQuyu()!'1'}"/>
                       <div class="btn-group" data-toggle="buttons">
                         <label class="btn btn-default <#if boothVO.getBQuyu() == 1>active</#if>">
-                          <input type="radio" name="bQuyu" id="quyu_option1" value="1"> 东区
+                          <input type="radio" name="quyu" id="quyu_option1" value="1" onchange='setValue("bQuyu", 1)'> 东区
                         </label>
                         <label class="btn btn-default <#if boothVO.getBQuyu() == 2>active</#if>">
-                          <input type="radio" name="bQuyu" id="quyu_option2" value="2"> 西区
+                          <input type="radio" name="quyu" id="quyu_option2" value="2" onchange='setValue("bQuyu", 2)'> 西区
                         </label>
-                      <#--<label class="btn btn-default">-->
-                      <#--<input type="radio" name="bQuyu" id="option3"> Option 3-->
-                      <#--</label>-->
                       </div>
-                    <#--<input type="number" id="bQuyu" name="bQuyu" required="required" data-validate-minmax="0,2"-->
-                    <#--class="form-control col-md-7 col-xs-12" value="${boothVO.getBQuyu()!}">-->
                     </div>
                   </div>
 
@@ -258,7 +255,7 @@
                   </div>
 
                   <div class="item form-group">
-                    <label for="password" class="control-label col-md-3 col-sm-3 col-xs-12">更改密码
+                    <label for="bOwnerPassword" class="control-label col-md-3 col-sm-3 col-xs-12">更改密码
                       <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
@@ -418,7 +415,7 @@
                                value="${boothVO.getBId()!}">
                       </div>
                     </div>
-                    <div class="item form-group hidden">
+                    <#--<div class="item form-group hidden">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="state">状态 <span
                           class="required">*</span>
                       </label>
@@ -426,26 +423,24 @@
                         <input type="text" id="state" name="state" required="required" data-validate-minmax="1,5"
                                class="form-control col-md-7 col-xs-12" value="${boothVO.getState()!}">
                       </div>
-                    </div>
+                    </div>-->
                     <div class="item form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="bState">状态 <span
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="state_option3">状态 <span
                           class="required">*</span>
                       </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-
+                        <input type="number" class="hidden" id="bState" name="bState" value="${boothVO.getBState()!'0'}">
                         <div class="btn-group" data-toggle="buttons">
                           <label class="btn btn-default <#if boothVO.getBState() == 0>active</#if>">
-                            <input type="radio" name="bState" id="state_option1" value="0"> 营业
+                            <input type="radio" name="state" id="state_option1" value="0" onchange='setValue("bState", 0)'> 营业
                           </label>
                           <label class="btn btn-default <#if boothVO.getBState() == 1>active</#if>">
-                            <input type="radio" name="bState" id="state_option2" value="1"> 休息
+                            <input type="radio" name="state" id="state_option2" value="1" onchange='setValue("bState", 1)'> 休息
                           </label>
                           <label class="btn btn-danger <#if boothVO.getBState() == 2>active</#if>"">
-                            <input type="radio" name="bState" id="state_option3" value="2"> 关闭
+                            <input type="radio" name="state" id="state_option3" value="2" onchange='setValue("bState", 2)'> 关闭
                           </label>
                         </div>
-                        <#--<input type="number" id="bState" name="bState" required="required"-->
-                               <#--class="form-control col-md-7 col-xs-12" value="${boothVO.getBState()!}">-->
                       </div>
                     </div>
 

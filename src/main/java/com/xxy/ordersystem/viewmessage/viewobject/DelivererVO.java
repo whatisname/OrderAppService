@@ -24,11 +24,28 @@ public class DelivererVO {
     private String dIdcard;
     @JsonProperty("email")
     private String dEmail;
-    @JsonProperty("quyu")
+    @JsonProperty("quyuCode")
     private int dQuyu;
+
+    @JsonProperty("quyu")
+    private String quyu;
+
     //    private String dPassword;
-//    private String dComment;
+
+    @JsonProperty("comment")
+    private String dComment;
+
     @JsonProperty("createTime")
     private Timestamp dCreateTime;
-//    private Timestamp dUpdateTime;
+
+    @JsonProperty("updateTime")
+    private Timestamp dUpdateTime;
+
+    @JsonProperty("accountState")
+    private Integer dAccountState;
+
+    private Integer numberM; //月送单量
+    private Integer numberW; //周送单量
+    private Integer numberD; //日送单量
+    private Integer numberAll; //总送单量
 }

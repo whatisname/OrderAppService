@@ -3392,7 +3392,7 @@ Date.CultureStrings.lang = "en-US";
 	};
 	
 	for (var i = 0; i < dx.length; i++) {
-		// Create constant static Day Name variables. Example: Date.MONDAY or Date.MON
+		// Create constantConfig static Day Name variables. Example: Date.MONDAY or Date.MON
 		$D[dx[i].toUpperCase()] = $D[dx[i].toUpperCase().substring(0, 3)] = i;
 
 		// Create Day Name functions. Example: Date.monday() or Date.mon()
@@ -3420,7 +3420,7 @@ Date.CultureStrings.lang = "en-US";
 	};
 	
 	for (var j = 0; j < mx.length; j++) {
-		// Create constant static Month Name variables. Example: Date.MARCH or Date.MAR
+		// Create constantConfig static Month Name variables. Example: Date.MARCH or Date.MAR
 		$D[mx[j].toUpperCase()] = $D[mx[j].toUpperCase().substring(0, 3)] = j;
 
 		// Create Month Name functions. Example: Date.march() or Date.mar()

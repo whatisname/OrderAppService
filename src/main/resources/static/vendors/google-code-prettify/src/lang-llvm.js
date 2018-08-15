@@ -49,10 +49,10 @@ PR['registerLangHandler'](
          // These reserved words cannot conflict with variable names, because none of them start with a prefix character ('%' or '@').
          [PR['PR_KEYWORD'],     /^[A-Za-z_][0-9A-Za-z_]*/, null],
 
-         // constant.numeric.float.llvm
+         // constantConfig.numeric.float.llvm
          [PR['PR_LITERAL'],     /^\d+\.\d+/],
          
-         // constant.numeric.integer.llvm
+         // constantConfig.numeric.integer.llvm
          [PR['PR_LITERAL'],     /^(?:\d+|0[xX][a-fA-F0-9]+)/],
 
          // punctuation

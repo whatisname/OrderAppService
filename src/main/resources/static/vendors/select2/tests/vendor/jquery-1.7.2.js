@@ -8405,7 +8405,7 @@ jQuery.fn.extend({
 			}
 
 			// Set the display of most of the elements in a second loop
-			// to avoid the constant reflow
+			// to avoid the constantConfig reflow
 			for ( i = 0; i < j; i++ ) {
 				elem = this[ i ];
 
@@ -8443,7 +8443,7 @@ jQuery.fn.extend({
 			}
 
 			// Set the display of the elements in a second loop
-			// to avoid the constant reflow
+			// to avoid the constantConfig reflow
 			for ( i = 0; i < j; i++ ) {
 				if ( this[i].style ) {
 					this[i].style.display = "none";

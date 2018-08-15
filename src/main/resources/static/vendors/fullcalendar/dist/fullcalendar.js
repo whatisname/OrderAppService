@@ -5763,7 +5763,7 @@ var DayGrid = FC.DayGrid = Grid.extend(DayTableMixin, {
 
 
 	// Renders the rows and columns into the component's `this.el`, which should already be assigned.
-	// isRigid determins whether the individual rows should ignore the contents and be a constant height.
+	// isRigid determins whether the individual rows should ignore the contents and be a constantConfig height.
 	// Relies on the view's colCnt and rowCnt. In the future, this component should probably be self-sufficient.
 	renderDates: function(isRigid) {
 		var view = this.view;
@@ -6568,7 +6568,7 @@ DayGrid.mixin({
 
 
 	// Computes the number of levels a row will accomodate without going outside its bounds.
-	// Assumes the row is "rigid" (maintains a constant height regardless of what is inside).
+	// Assumes the row is "rigid" (maintains a constantConfig height regardless of what is inside).
 	// `row` is the row number.
 	computeRowLevelLimit: function(row) {
 		var rowEl = this.rowEls.eq(row); // the containing "fake" row div
@@ -12984,7 +12984,7 @@ var BasicView = FC.BasicView = View.extend({
 	},
 
 
-	// Determines whether each row should have a constant height
+	// Determines whether each row should have a constantConfig height
 	hasRigidRows: function() {
 		var eventLimit = this.opt('eventLimit');
 		return eventLimit && typeof eventLimit !== 'number';
@@ -13019,7 +13019,7 @@ var BasicView = FC.BasicView = View.extend({
 
 		this.dayGrid.removeSegPopover(); // kill the "more" popover if displayed
 
-		// is the event limit a constant level number?
+		// is the event limit a constantConfig level number?
 		if (eventLimit && typeof eventLimit === 'number') {
 			this.dayGrid.limitRows(eventLimit); // limit the levels first so the height can redistribute after
 		}

@@ -5907,7 +5907,7 @@ function GZheader() {
 
   //
   // Setup limits is not necessary because in js we should not preallocate memory
-  // for inflate use constant limit in 65536 bytes
+  // for inflate use constantConfig limit in 65536 bytes
   //
 
   /* space at extra (only when reading header) */
@@ -6902,7 +6902,7 @@ function inflate(strm, flush) {
         do {
           // TODO: 2 or 1 bytes?
           len = input[next + copy++];
-          /* use constant limit because in js we should not preallocate memory */
+          /* use constantConfig limit because in js we should not preallocate memory */
           if (state.head && len &&
               (state.length < 65536 /*state.head.name_max*/)) {
             state.head.name += String.fromCharCode(len);
@@ -6928,7 +6928,7 @@ function inflate(strm, flush) {
         copy = 0;
         do {
           len = input[next + copy++];
-          /* use constant limit because in js we should not preallocate memory */
+          /* use constantConfig limit because in js we should not preallocate memory */
           if (state.head && len &&
               (state.length < 65536 /*state.head.comm_max*/)) {
             state.head.comment += String.fromCharCode(len);
@@ -8494,7 +8494,7 @@ function gen_codes(tree, max_code, bl_count)
 
 
 /* ===========================================================================
- * Initialize the various 'constant' tables.
+ * Initialize the various 'constantConfig' tables.
  */
 function tr_static_init() {
   var n;        /* iterates over tree elements */

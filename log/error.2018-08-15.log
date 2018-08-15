@@ -1,0 +1,54 @@
+2018-08-15 01:01:35,696 - [ERROR] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Configuration property name 'projectUrl' is not valid:
+
+    Invalid characters: 'U'
+    Bean: projectUrlConfig
+    Reason: Canonical names should be kebab-case ('-' separated), lowercase alpha-numeric characters and must start with a letter
+
+Action:
+
+Modify 'projectUrl' so that it conforms to the canonical names requirements.
+
+2018-08-15 01:08:19,540 - [ERROR] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Configuration property name 'projectUrl' is not valid:
+
+    Invalid characters: 'U'
+    Bean: projectUrlConfig
+    Reason: Canonical names should be kebab-case ('-' separated), lowercase alpha-numeric characters and must start with a letter
+
+Action:
+
+Modify 'projectUrl' so that it conforms to the canonical names requirements.
+
+2018-08-15 05:15:16,725 - [ERROR] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Configuration property name 'projectUrl' is not valid:
+
+    Invalid characters: 'U'
+    Bean: projectUrlConfig
+    Reason: Canonical names should be kebab-case ('-' separated), lowercase alpha-numeric characters and must start with a letter
+
+Action:
+
+Modify 'projectUrl' so that it conforms to the canonical names requirements.
+

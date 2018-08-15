@@ -33,6 +33,8 @@ public class Deliverer {
     private String dComment;
     private Timestamp dCreateTime;
     private Timestamp dUpdateTime;
+    @Column(name = "d_account_state")
+    private Integer dAccountState;
 
     @Override
     public boolean equals(Object o) {
@@ -49,12 +51,13 @@ public class Deliverer {
                 Objects.equals(dPassword, deliverer.dPassword) &&
                 Objects.equals(dComment, deliverer.dComment) &&
                 Objects.equals(dCreateTime, deliverer.dCreateTime) &&
-                Objects.equals(dUpdateTime, deliverer.dUpdateTime);
+                Objects.equals(dUpdateTime, deliverer.dUpdateTime) &&
+                Objects.equals(dAccountState, deliverer.dAccountState);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(dId, dName, dPhone, dXibieBanji, dIdcard, dEmail, dQuyu, dPassword, dComment, dCreateTime, dUpdateTime);
+        return Objects.hash(dId, dName, dPhone, dXibieBanji, dIdcard, dEmail, dQuyu, dPassword, dComment, dCreateTime, dUpdateTime, dAccountState);
     }
 }

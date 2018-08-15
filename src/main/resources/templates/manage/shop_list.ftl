@@ -106,9 +106,10 @@
                   <th class="column-title">负责人邮箱</th>
                   <th class="column-title">负责人电话</th>
                   <th class="column-title">备注</th>
+                  <th class="column-title">创建时间</th>
                   <th class="column-title no-link last"><span class="nobr">操作</span>
                   </th>
-                  <th class="bulk-actions" colspan="10">
+                  <th class="bulk-actions" colspan="11">
                     <a class="antoo" style="color:#fff; font-weight:500;">( <span class="action-cnt"> </span> ) 操作： </a>
 
                     <!--<a class="" href="/delete/">删除所选</a>-->
@@ -150,7 +151,8 @@
                     <td class=" ">${item.getBOwnerName()!} </td>
                     <td class=" ">${item.getBOwnerEmail()!} </td>
                     <td class=" ">${item.getBOwnerPhone()!} </td>
-                    <td class="a-right a-right ">${item.getBComment()!} </td>
+                    <td>${item.getBComment()!} </td>
+                    <td class="a-right a-right ">${item.getBCreateTime()}</td>
                     <td class=" last">
                     <#--<a class="btn btn-default btn-xs" href="/os/manage/booth/detail?bid=${item.getBId()}">详情</a>-->
                       <a class="btn btn-default btn-xs" href="/os/manage/booth/detail?bid=${item.getBId()}">修改</a>
@@ -260,8 +262,14 @@
 <script src="../../static/vendors/pnotify/dist/pnotify.js"></script>
 <script src="../../static/vendors/pnotify/dist/pnotify.buttons.js"></script>
 <script src="../../static/vendors/pnotify/dist/pnotify.nonblock.js"></script>
-<script>
-
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').dataTable( {
+      "language": {
+        "url": "dataTables.german.lang"
+      }
+    } );
+  } );
 </script>
 
 </body>
