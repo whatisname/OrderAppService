@@ -31,9 +31,9 @@ public enum ExceptionStates {
 
     WRONG_FILE_TYPE(200, "非法文件类型"),
 
-    UPDATE_FAIL(400, "更新数据失败"),
-    CREATE_FAIL(401, "新增数据失败"),
-    DELETE_FAIL(402, "删除数据失败"),
+    UPDATE_FAIL(200, "更新数据失败"),
+    CREATE_FAIL(201, "新增数据失败"),
+    DELETE_FAIL(202, "删除数据失败"),
 
 
     ;

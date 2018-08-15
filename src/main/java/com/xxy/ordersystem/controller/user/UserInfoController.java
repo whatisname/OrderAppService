@@ -1,4 +1,4 @@
-package com.xxy.ordersystem.controller;
+package com.xxy.ordersystem.controller.user;
 
 import com.xxy.ordersystem.entity.Booth;
 import com.xxy.ordersystem.entity.Food;
@@ -22,13 +22,13 @@ import java.util.stream.Collectors;
 
 /**
  * @author X
- * @package com.xxy.ordersystem.controller
- * @date 7/22/2018 1:51 PM
+ * @package com.xxy.ordersystem.controller.user
+ * @date 8/15/2018 7:09 PM
  */
 @RestController
 @Slf4j
-@RequestMapping("/info")
-public class InfoController {
+@RequestMapping("/user/info")
+public class UserInfoController {
     @Autowired
     private FoodService foodService;
     @Autowired

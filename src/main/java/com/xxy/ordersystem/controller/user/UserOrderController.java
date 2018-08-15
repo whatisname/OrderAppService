@@ -1,9 +1,7 @@
-package com.xxy.ordersystem.controller;
+package com.xxy.ordersystem.controller.user;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.sun.org.apache.xalan.internal.lib.ExsltBase;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import com.xxy.ordersystem.dto.OrderDTO;
 import com.xxy.ordersystem.enums.ExceptionStates;
 import com.xxy.ordersystem.exception.SaleException;
@@ -15,31 +13,28 @@ import com.xxy.ordersystem.viewmessage.ResultVO;
 import com.xxy.ordersystem.viewmessage.viewobject.CartVO;
 import com.xxy.ordersystem.viewmessage.viewobject.OrderVO;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
  * @author X
- * @package com.xxy.ordersystem.controller
- * @date 7/14/2018 12:19 PM
+ * @package com.xxy.ordersystem.controller.user
+ * @date 8/15/2018 7:10 PM
  */
 @RestController
-@RequestMapping("/order")
+@RequestMapping("/user/order")
 @Slf4j
-public class OrderController {
+public class UserOrderController {
     @Autowired
     private OrderService orderService;
     @Autowired
@@ -74,9 +69,9 @@ public class OrderController {
      */
     @GetMapping("/list")
     public ResultVO<List<OrderVO>> getAllOrders(@RequestParam("sid") @NotEmpty(message = "sid不能为空") String sid,
-                                          @RequestParam(value = "page", defaultValue = "0") Integer page,
-                                          @RequestParam(value = "size", defaultValue = "10") Integer size,
-                                          @RequestParam(value = "state", defaultValue = "-1")Integer state){
+                                                @RequestParam(value = "page", defaultValue = "0") Integer page,
+                                                @RequestParam(value = "size", defaultValue = "10") Integer size,
+                                                @RequestParam(value = "state", defaultValue = "-1")Integer state){
         // TODO 验证sid
         if(sid == null){
             log.error("{} - {}", getClass(), ExceptionStates.PARAM_ERROR);
@@ -239,5 +234,4 @@ public class OrderController {
             return MessageUtil.error();
         }
     }
-
 }

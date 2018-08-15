@@ -1,23 +1,21 @@
 package com.xxy.ordersystem.exception;
 
 import com.xxy.ordersystem.enums.ExceptionStates;
-import lombok.Getter;
 
 /**
  * @author X
  * @package com.xxy.ordersystem.exception
- * @date 7/16/2018 1:45 AM
+ * @date 8/15/2018 11:13 AM
  */
-@Getter
-public class SaleException extends RuntimeException{
+public class AuthenticationException extends RuntimeException{
     private Integer code;
 
-    public SaleException(ExceptionStates exceptionStates) {
+    public AuthenticationException(ExceptionStates exceptionStates) {
         super(exceptionStates.getMessage());
         this.code = exceptionStates.getCode();
     }
 
-    public SaleException(Integer code, String message) {
+    public AuthenticationException(Integer code, String message) {
         super(message);
         this.code = code;
     }

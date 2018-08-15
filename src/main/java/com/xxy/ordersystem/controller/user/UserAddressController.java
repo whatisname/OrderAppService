@@ -1,8 +1,5 @@
-package com.xxy.ordersystem.controller;
+package com.xxy.ordersystem.controller.user;
 
-import com.xxy.ordersystem.enums.ExceptionStates;
-import com.xxy.ordersystem.enums.FileTypes;
-import com.xxy.ordersystem.exception.SaleException;
 import com.xxy.ordersystem.service.UpperService.intf.FileHandlerService;
 import com.xxy.ordersystem.service.intf.BoothService;
 import com.xxy.ordersystem.utils.MessageUtil;
@@ -10,34 +7,30 @@ import com.xxy.ordersystem.utils.QRUtil;
 import com.xxy.ordersystem.viewmessage.ResultVO;
 import com.xxy.ordersystem.viewmessage.UploadFileResponse;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.io.FilenameUtils;
-
-import java.io.IOException;
-import java.nio.file.Paths;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import org.springframework.core.io.ResourceLoader;
-import org.springframework.http.ResponseEntity;
-
+import java.nio.file.Paths;
 
 /**
  * @author X
- * @package com.xxy.ordersystem.controller
- * @date 7/23/2018 8:15 PM
+ * @package com.xxy.ordersystem.controller.user
+ * @date 8/15/2018 6:58 PM
  */
 @RestController
-@RequestMapping("/res")
+@RequestMapping("/user/booth")
 @Slf4j
-public class ResourceController {
-//    private String boothImgStoragePath = "D:\\fileUpload\\boothImg";
+public class UserAddressController {
+    //    private String boothImgStoragePath = "D:\\fileUpload\\boothImg";
 
     private final ResourceLoader resourceLoader;
     @Autowired
-    public ResourceController(ResourceLoader resourceLoader) {
+    public UserAddressController(ResourceLoader resourceLoader) {
         this.resourceLoader = resourceLoader;
     }
 
@@ -57,7 +50,7 @@ public class ResourceController {
     public ResultVO<UploadFileResponse> addBImg(
             @RequestParam("file") MultipartFile file,
             @RequestParam("bid") String bid
-            ){
+    ){
         //文件不能为空
         if (file.isEmpty()) {
             log.error("{} - {}", getClass(), "文件不能为空");
@@ -225,5 +218,4 @@ public class ResourceController {
 //            return ResponseEntity.notFound().build();
 //        }
 //    }
-
 }

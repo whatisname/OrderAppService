@@ -6,18 +6,19 @@ import lombok.Getter;
 /**
  * @author X
  * @package com.xxy.ordersystem.exception
- * @date 7/16/2018 1:45 AM
+ * @date 8/15/2018 11:34 AM
  */
 @Getter
-public class SaleException extends RuntimeException{
+public class WebSaleException extends RuntimeException{
+
     private Integer code;
 
-    public SaleException(ExceptionStates exceptionStates) {
+    public WebSaleException(ExceptionStates exceptionStates) {
         super(exceptionStates.getMessage());
         this.code = exceptionStates.getCode();
     }
 
-    public SaleException(Integer code, String message) {
+    public WebSaleException(Integer code, String message) {
         super(message);
         this.code = code;
     }

@@ -1,4 +1,4 @@
-package com.xxy.ordersystem.controller;
+package com.xxy.ordersystem.controller.user;
 
 import com.xxy.ordersystem.entity.Booth;
 import com.xxy.ordersystem.entity.Food;
@@ -15,10 +15,7 @@ import com.xxy.ordersystem.viewmessage.viewobject.BoothVO;
 import com.xxy.ordersystem.viewmessage.viewobject.FoodVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.BeanClassLoaderAware;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.validation.BindingResult;
@@ -30,13 +27,13 @@ import java.util.List;
 
 /**
  * @author X
- * @package com.xxy.ordersystem.controller
- * @date 7/12/2018 11:33 PM
+ * @package com.xxy.ordersystem.controller.user
+ * @date 8/15/2018 7:03 PM
  */
 @RestController
-@RequestMapping("/booth")
+@RequestMapping("/user/booth")
 @Slf4j
-public class BoothController {
+public class UserBoothController {
     @Autowired
     private FoodService foodService;
     @Autowired
@@ -149,8 +146,8 @@ public class BoothController {
         Boolean result = boothService.updateBooth(booth);
 
         if (result == false){
-        log.error("{} - {}", this.getClass(), "店铺更新失败");
-        return MessageUtil.error("店铺更新失败", null);
+            log.error("{} - {}", this.getClass(), "店铺更新失败");
+            return MessageUtil.error("店铺更新失败", null);
         }
         return MessageUtil.success();
     }

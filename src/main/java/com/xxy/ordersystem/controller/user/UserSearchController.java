@@ -1,11 +1,8 @@
-package com.xxy.ordersystem.controller;
+package com.xxy.ordersystem.controller.user;
 
 import com.xxy.ordersystem.entity.Booth;
 import com.xxy.ordersystem.entity.Food;
-import com.xxy.ordersystem.enums.BoothStates;
-import com.xxy.ordersystem.enums.ExceptionStates;
 import com.xxy.ordersystem.enums.SearchType;
-import com.xxy.ordersystem.service.UpperService.intf.SearchService;
 import com.xxy.ordersystem.service.intf.BoothService;
 import com.xxy.ordersystem.service.intf.FoodService;
 import com.xxy.ordersystem.utils.MessageUtil;
@@ -28,13 +25,13 @@ import java.util.List;
 
 /**
  * @author X
- * @package com.xxy.ordersystem.controller
- * @date 7/14/2018 1:33 AM
+ * @package com.xxy.ordersystem.controller.user
+ * @date 8/15/2018 7:16 PM
  */
 @RestController
-@RequestMapping("/search")
+@RequestMapping("/user/search")
 @Slf4j
-public class SearchController {
+public class UserSearchController {
     @Autowired
     private BoothService boothService;
     @Autowired
@@ -105,5 +102,4 @@ public class SearchController {
         }
         return MessageUtil.successDefault(searchResultVO);
     }
-
 }
