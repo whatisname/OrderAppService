@@ -74,13 +74,13 @@ public class OrderPrimaryServiceImp implements OrderPrimaryService {
     }
 
     @Override
-    public List<OrdersPrimary> findAllByAddressId(String addressId) {
-        return orderPrimaryDao.findAllByAId(addressId);
+    public Page<OrdersPrimary> findAllByOrderState(Integer orderState, Pageable pageable) {
+        return orderPrimaryDao.findAllByOPStateEquals(orderState, pageable);
     }
 
     @Override
-    public List<OrdersPrimary> findAllByAddressIdAndOrderState(String addressId, Integer orderState) {
-        return orderPrimaryDao.findAllByAIdAndOPState(addressId, orderState);
+    public Page<OrdersPrimary> findAll(Pageable pageable) {
+        return orderPrimaryDao.findAll(pageable);
     }
 
     @Override

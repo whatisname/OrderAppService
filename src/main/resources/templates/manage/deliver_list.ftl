@@ -192,7 +192,7 @@
         }
 
       }).fail(function (data) {
-        alert("error");
+        error_notify("删除失败", "服务器内部错误。")
       });
 
     }
@@ -237,8 +237,14 @@
 <script src="../../static/vendors/pnotify/dist/pnotify.js"></script>
 <script src="../../static/vendors/pnotify/dist/pnotify.buttons.js"></script>
 <script src="../../static/vendors/pnotify/dist/pnotify.nonblock.js"></script>
-<script>
-
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').dataTable( {
+      "language": {
+        "url": "dataTables.german.lang"
+      }
+    } );
+  } );
 </script>
 
 </body>

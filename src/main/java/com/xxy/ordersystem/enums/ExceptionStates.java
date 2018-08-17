@@ -29,11 +29,13 @@ public enum ExceptionStates {
 
     UNAUTHORIZED_ACCESS(100, "授权失败或没有权限查询"),
 
-    WRONG_FILE_TYPE(200, "非法文件类型"),
+    WRONG_FILE_TYPE(150, "非法文件类型"),
 
     UPDATE_FAIL(200, "更新数据失败"),
     CREATE_FAIL(201, "新增数据失败"),
     DELETE_FAIL(202, "删除数据失败"),
+
+    CONVERT_FAIL(300, "转换失败"),
 
 
     ;

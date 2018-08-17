@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="/os/static/images/favicon.ico" type="image/ico" />
 
-  <title>Gentelella Alela! | </title>
+  <title>主页 | </title>
 
   <!-- Bootstrap -->
   <link href="/os/static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">

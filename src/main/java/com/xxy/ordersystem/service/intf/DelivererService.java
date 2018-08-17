@@ -26,6 +26,7 @@ public interface DelivererService {
 
     Boolean deleteDelivererById(String delivererId);
     Boolean deleteDeliverer(Deliverer deliverer);
+    Boolean disableDeliverer(String delivererId);
 
     Deliverer addDeliverer(Deliverer deliverer);
 }

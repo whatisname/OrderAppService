@@ -16,8 +16,10 @@ public class StudentVO {
     private String sId;
     @JsonProperty("name")
     private String sName;
-    @JsonProperty("gender")
+    @JsonProperty("genderCode")
     private Byte sGender;
+    @JsonProperty("gender")
+    private String gender;
     @JsonProperty("phone")
     private String sPhone;
     @JsonProperty("xibiebanji")
@@ -28,13 +30,17 @@ public class StudentVO {
     private String sStudentid;
     @JsonProperty("email")
     private String sEmail;
-    @JsonProperty("quyu")
+    @JsonProperty("quyuCode")
     private int sQuyu;
+    @JsonProperty("quyu")
+    private int quyu;
     //    private String sPassword;
     @JsonProperty("openId")
     private String sOpenid;
-//    private String sComment;
-//    private Timestamp sCreateTime;
+
+    @JsonProperty("comment")
+    private String sComment;
+    private Timestamp sCreateTime;
 //    private Timestamp sUpdateTime;
 
 

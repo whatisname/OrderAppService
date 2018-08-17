@@ -29,6 +29,24 @@ public interface OrderService {
     List<OrderDTO> findAllOrders();
 
     /**
+     * 查询所有某一状态的订单（分页）
+     * @param orderState 订单状态
+     * @param haveDetail 是否有细节
+     * @param pageable 分页信息
+     * @return
+     */
+    Page<OrderDTO> findAllOrdersByState(Integer orderState, Boolean haveDetail, Pageable pageable);
+
+    /**
+     * 查询所有订单（分页）
+     * @param haveDetail 是否有细节
+     * @param pageable 分页信息
+     * @return
+     */
+    Page<OrderDTO> findAllOrders(Boolean haveDetail, Pageable pageable);
+
+
+    /**
      * 用户根据student id查找某个用户的所有订单
      * @param studentId
      * @param haveDetail

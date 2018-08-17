@@ -1,5 +1,6 @@
 package com.xxy.ordersystem.entity;
 
+import com.xxy.ordersystem.utils.KeyUtil;
 import lombok.Data;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -47,16 +48,17 @@ public class OrdersPrimary {
     private String sId;
     private String bId;
     private String dId;
-    private String aId;
     @Column(name = "o_p_comment")
     private String oPComment;
+    @Column(name = "o_p_address")
+    private String oPAddress;
 
 
     public OrdersPrimary() {
+//        this.oPId = KeyUtil.generateUniqueKeyId();
     }
 
-    public OrdersPrimary(String oPId, BigDecimal oPDeliverFee, BigDecimal oPSum, Timestamp oPOrderDate, Timestamp oPPaymentDate, Timestamp oPConfirmDate, Timestamp oPPrepareFinishDate, Timestamp oPStartDeliverDate, Timestamp oPDeliverArriveDate, Timestamp oPFinishDate, Integer oPState, String sId, String bId, String dId, String aId, String oPComment) {
-        this.oPId = oPId;
+    public OrdersPrimary(BigDecimal oPDeliverFee, BigDecimal oPSum, Timestamp oPOrderDate, Timestamp oPPaymentDate, Timestamp oPConfirmDate, Timestamp oPPrepareFinishDate, Timestamp oPStartDeliverDate, Timestamp oPDeliverArriveDate, Timestamp oPFinishDate, Integer oPState, String sId, String bId, String dId, String oPComment, String oPAddress) {
         this.oPDeliverFee = oPDeliverFee;
         this.oPSum = oPSum;
         this.oPOrderDate = oPOrderDate;
@@ -70,8 +72,9 @@ public class OrdersPrimary {
         this.sId = sId;
         this.bId = bId;
         this.dId = dId;
-        this.aId = aId;
         this.oPComment = oPComment;
+        this.oPAddress = oPAddress;
+//        this.oPId = KeyUtil.generateUniqueKeyId();
     }
 
     @Override
@@ -93,13 +96,13 @@ public class OrdersPrimary {
                 Objects.equals(sId, that.sId) &&
                 Objects.equals(bId, that.bId) &&
                 Objects.equals(dId, that.dId) &&
-                Objects.equals(aId, that.aId) &&
-                Objects.equals(oPComment, that.oPComment);
+                Objects.equals(oPComment, that.oPComment) &&
+                Objects.equals(oPAddress, that.oPAddress);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(oPId, oPDeliverFee, oPSum, oPOrderDate, oPPaymentDate, oPConfirmDate, oPPrepareFinishDate, oPStartDeliverDate, oPDeliverArriveDate, oPFinishDate, oPState, sId, bId, dId, aId, oPComment);
+        return Objects.hash(oPId, oPDeliverFee, oPSum, oPOrderDate, oPPaymentDate, oPConfirmDate, oPPrepareFinishDate, oPStartDeliverDate, oPDeliverArriveDate, oPFinishDate, oPState, sId, bId, dId, oPComment, oPAddress);
     }
 }

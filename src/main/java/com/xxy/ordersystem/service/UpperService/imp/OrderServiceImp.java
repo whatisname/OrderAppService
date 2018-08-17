@@ -9,6 +9,7 @@ import com.xxy.ordersystem.exception.SaleException;
 import com.xxy.ordersystem.service.UpperService.intf.OrderService;
 import com.xxy.ordersystem.service.intf.*;
 import com.xxy.ordersystem.utils.KeyUtil;
+import com.xxy.ordersystem.viewmessage.converterUtil.OrderAddressToAddress;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,16 +56,16 @@ public class OrderServiceImp implements OrderService {
         OrderDTO orderDTO = new OrderDTO();
         //get primary orderManage
         OrdersPrimary ordersPrimary = orderPrimaryService.findOrdersById(orderPrimaryId);
-        if (ordersPrimary == null){
-            log.error("({}) - {}", this.getClass() ,ExceptionStates.NO_SUCH_ORDERPRIMRY.getMessage());
+        if (ordersPrimary == null) {
+            log.error("({}) - {}", this.getClass(), ExceptionStates.NO_SUCH_ORDERPRIMRY.getMessage());
             throw new SaleException(ExceptionStates.NO_SUCH_ORDERPRIMRY);
-        }else{
+        } else {
             BeanUtils.copyProperties(ordersPrimary, orderDTO);
 
             //get detail orders
             List<OrdersDetail> ordersDetailList = ordersDetailService.findAllByOrderPrimaryId(orderPrimaryId);
-            if (ordersDetailList.size() == 0){
-                log.error("({}) - {}", this.getClass() ,ExceptionStates.NO_SUCH_ORDERDETAIL.getMessage());
+            if (ordersDetailList.size() == 0) {
+                log.error("({}) - {}", this.getClass(), ExceptionStates.NO_SUCH_ORDERDETAIL.getMessage());
                 throw new SaleException(ExceptionStates.NO_SUCH_ORDERDETAIL);
             }
             //load student
@@ -72,13 +73,13 @@ public class OrderServiceImp implements OrderService {
             orderDTO.setStudent(student);
 
             //load address
-            Address address = addressService.findAddressByAddressId(ordersPrimary.getAId());
+            Address address = OrderAddressToAddress.orderAddressToAddress(ordersPrimary);
             orderDTO.setAddress(address);
 
             //load deliever
 
-            if (ordersPrimary.getDId() != null){
-                if (!ordersPrimary.getDId().equals("")){
+            if (ordersPrimary.getDId() != null) {
+                if (!ordersPrimary.getDId().equals("")) {
                     Deliverer deliverer = delivererService.findDelivererByDId(ordersPrimary.getDId());
                     orderDTO.setDeliverer(deliverer);
                 }
@@ -86,7 +87,7 @@ public class OrderServiceImp implements OrderService {
 
             //load foods
             List<OrderDetailDTO> orderDetailDTOList = new ArrayList<>();
-            for(OrdersDetail ordersDetail: ordersDetailList){
+            for (OrdersDetail ordersDetail : ordersDetailList) {
                 OrderDetailDTO orderDetailDTO = new OrderDetailDTO();
 
                 //load OrderDetailDTO
@@ -114,13 +115,33 @@ public class OrderServiceImp implements OrderService {
     }
 
     @Override
+    public Page<OrderDTO> findAllOrdersByState(Integer orderState, Boolean haveDetail, Pageable pageable) {
+        if (haveDetail) {
+            //TODO
+            return null;
+        } else {
+            Page<OrdersPrimary> ordersPrimaryPage = orderPrimaryService.findAllByOrderState(orderState, pageable);
+            return this.convertToPageOrderDTO(ordersPrimaryPage, pageable);
+        }
+    }
+
+    @Override
+    public Page<OrderDTO> findAllOrders(Boolean haveDetail, Pageable pageable) {
+        if (haveDetail) {
+            //TODO
+            return null;
+        } else {
+            Page<OrdersPrimary> ordersPrimaryPage = orderPrimaryService.findAll(pageable);
+            return this.convertToPageOrderDTO(ordersPrimaryPage, pageable);
+        }
+    }
+
+    @Override
     public Page<OrderDTO> findAllOrdersByStudentId(String studentId, Boolean haveDetail, Pageable pageable) {
         Page<OrdersPrimary> ordersPrimaryPage = orderPrimaryService.findAllByStudentId(studentId, pageable);
-//        List<OrderDTO> orderDTOList = new ArrayList<>();
-
         if (!haveDetail) {
             return this.convertToPageOrderDTO(ordersPrimaryPage, pageable);
-        }else{
+        } else {
             //TODO
             return null;
         }
@@ -133,16 +154,23 @@ public class OrderServiceImp implements OrderService {
 
         if (!haveDetail) {
             return this.convertToPageOrderDTO(ordersPrimaryPage, pageable);
-        }else{
+        } else {
             //TODO
             return null;
         }
 
     }
 
-    private Page<OrderDTO> convertToPageOrderDTO(Page<OrdersPrimary> ordersPrimaryPage, Pageable pageable){
+    /**
+     * 转换{@link Page<OrdersPrimary>} -> {@Link Page<OrderDTO>}
+     *
+     * @param ordersPrimaryPage
+     * @param pageable
+     * @return
+     */
+    private Page<OrderDTO> convertToPageOrderDTO(Page<OrdersPrimary> ordersPrimaryPage, Pageable pageable) {
         List<OrderDTO> orderDTOList = new ArrayList<>();
-        for (OrdersPrimary ordersPrimary: ordersPrimaryPage.getContent()){
+        for (OrdersPrimary ordersPrimary : ordersPrimaryPage.getContent()) {
             OrderDTO orderDTO = new OrderDTO();
             BeanUtils.copyProperties(ordersPrimary, orderDTO);
             orderDTOList.add(orderDTO);
@@ -157,9 +185,9 @@ public class OrderServiceImp implements OrderService {
 
         if (!haveDetail) { //不包含细节
             return this.convertToPageOrderDTO(ordersPrimaryPage, pageable);
-        }else{
-        //TODO
-        return null;
+        } else {
+            //TODO
+            return null;
         }
     }
 
@@ -185,25 +213,24 @@ public class OrderServiceImp implements OrderService {
     @Override
     @Transactional
     public String addNewOrder(String studentId, String addressId, Map<String, Integer> orderDetailMap) {
-        if (studentService.findStudentByStudentId(studentId) == null){
+        if (studentService.findStudentByStudentId(studentId) == null) {
             log.error("{} - {}", getClass(), ExceptionStates.NOSUCH_STUDENT.getMessage());
             throw new SaleException(ExceptionStates.NOSUCH_STUDENT);
         }
         OrdersPrimary ordersPrimary = new OrdersPrimary();
         ordersPrimary.setOPId(KeyUtil.generateUniqueKeyId());
         ordersPrimary.setSId(studentId);
-        ordersPrimary.setAId(addressId);
         ordersPrimary.setOPState(OrderStates.ORDER_GENERATED.getCode());
 
         //1. 查询商品（数量价格）
-        List<String> foodIdList = new ArrayList<>( orderDetailMap.keySet());
+        List<String> foodIdList = new ArrayList<>(orderDetailMap.keySet());
         List<Food> foodList = foodService.findAllFoodById(foodIdList);
         if (foodList == null) {
-            log.error("({}) - {}", this.getClass() ,ExceptionStates.PRODUCT_NOT_EXIST.getMessage());
+            log.error("({}) - {}", this.getClass(), ExceptionStates.PRODUCT_NOT_EXIST.getMessage());
             throw new SaleException(ExceptionStates.PRODUCT_NOT_EXIST);
-        }else{
+        } else {
             if (foodList.size() == 0) {
-                log.error("({}) - {}", this.getClass() ,ExceptionStates.PRODUCT_NOT_EXIST.getMessage());
+                log.error("({}) - {}", this.getClass(), ExceptionStates.PRODUCT_NOT_EXIST.getMessage());
                 throw new SaleException(ExceptionStates.PRODUCT_NOT_EXIST);
             }
         }
@@ -212,12 +239,11 @@ public class OrderServiceImp implements OrderService {
         ordersPrimary.setBId(foodList.get(0).getBId());
 
 
-
         //2. 计算价格, load ordersDetailVOList
         BigDecimal sum = new BigDecimal(BigInteger.ZERO);
         List<OrdersDetail> ordersDetailList = new ArrayList<>();
 
-        for(Food food: foodList){
+        for (Food food : foodList) {
             OrdersDetail ordersDetail = new OrdersDetail();
             ordersDetail.setODId(KeyUtil.generateUniqueKeyId());
 
@@ -232,8 +258,8 @@ public class OrderServiceImp implements OrderService {
             //减库存(->5.)
             if (food.getFNumber() >= amount) {
                 food.setFNumber(food.getFNumber() - amount);
-            }else {
-                log.error("({}) - {}", this.getClass() ,ExceptionStates.OUT_OF_STOCK.getMessage());
+            } else {
+                log.error("({}) - {}", this.getClass(), ExceptionStates.OUT_OF_STOCK.getMessage());
                 throw new SaleException(ExceptionStates.OUT_OF_STOCK);
             }
 
@@ -251,15 +277,28 @@ public class OrderServiceImp implements OrderService {
         //3.计算快递费
         ordersPrimary.setOPDeliverFee(new BigDecimal(1));
 
-        //4. 写入数据库
+        //4.查询，填入地址
+        Address address = addressService.findAddressByAddressId(addressId);
+        ordersPrimary.setOPAddress(
+                address.getAName()
+                        .concat("#").concat(address.getAPhone())
+                        .concat("#").concat(String.valueOf(address.getAQuyu()))
+                        .concat("#").concat(address.getAAddress())
+                        .concat("#").concat(address.getADormintory())
+        );
+
+        //5.填入comment（订单备注，从地址comment填入）
+        ordersPrimary.setOPComment(address.getAComment());
+
+        //6. 写入数据库
         OrdersPrimary opResult = orderPrimaryService.saveNewOrdersPrimary(ordersPrimary);
         List<OrdersDetail> odResult = ordersDetailService.saveAllOrderDetails(ordersDetailList);
-        if (opResult == null || odResult == null){
-            log.error("({}) - {}", this.getClass() ,ExceptionStates.ORDER_CREATE_FAIL.getMessage());
+        if (opResult == null || odResult == null) {
+            log.error("({}) - {}", this.getClass(), ExceptionStates.ORDER_CREATE_FAIL.getMessage());
             throw new SaleException(ExceptionStates.ORDER_CREATE_FAIL);
-        }else{
-            if (odResult.size() == 0){
-                log.error("({}) - {}", this.getClass() ,ExceptionStates.ORDER_CREATE_FAIL.getMessage());
+        } else {
+            if (odResult.size() == 0) {
+                log.error("({}) - {}", this.getClass(), ExceptionStates.ORDER_CREATE_FAIL.getMessage());
                 throw new SaleException(ExceptionStates.ORDER_CREATE_FAIL);
             }
         }
@@ -272,8 +311,8 @@ public class OrderServiceImp implements OrderService {
 
     @Override
     public Boolean updateOrderTo_CANCELED_BY_USER(String orderPrimaryId, String comment) {
-        OrdersPrimary ordersPrimary  = orderPrimaryService.findOrdersById(orderPrimaryId);
-        if (ordersPrimary == null){
+        OrdersPrimary ordersPrimary = orderPrimaryService.findOrdersById(orderPrimaryId);
+        if (ordersPrimary == null) {
             log.error("{} - {}", getClass(), ExceptionStates.NO_SUCH_ORDERPRIMRY.getMessage());
             throw new SaleException(ExceptionStates.NO_SUCH_ORDERPRIMRY);
         }
@@ -281,8 +320,8 @@ public class OrderServiceImp implements OrderService {
         if (!ordersPrimary.getOPState().equals(OrderStates.ORDER_GENERATED.getCode())
                 && !ordersPrimary.getOPState().equals(OrderStates.PREPARING_FOOD.getCode())
                 && !ordersPrimary.getOPState().equals(OrderStates.READY_TO_DELIVER.getCode())
-                ){
-            log.error("({}) - {}", this.getClass() ,ExceptionStates.CANCEL_FAIL_ERROR_STATE.getMessage());
+                ) {
+            log.error("({}) - {}", this.getClass(), ExceptionStates.CANCEL_FAIL_ERROR_STATE.getMessage());
             throw new SaleException(ExceptionStates.CANCEL_FAIL_ERROR_STATE);
         }
         //2. 修改订单状态，填写退单理由
@@ -292,10 +331,10 @@ public class OrderServiceImp implements OrderService {
         //3. 返回库存
         //get detail orders
         List<OrdersDetail> ordersDetailList = ordersDetailService.findAllByOrderPrimaryId(orderPrimaryId);
-        if (ordersDetailList.size() == 0){
-            log.error("({}) - {}", this.getClass() ,ExceptionStates.NO_SUCH_ORDERDETAIL.getMessage());
+        if (ordersDetailList.size() == 0) {
+            log.error("({}) - {}", this.getClass(), ExceptionStates.NO_SUCH_ORDERDETAIL.getMessage());
             throw new SaleException(ExceptionStates.NO_SUCH_ORDERDETAIL);
-        }else{
+        } else {
 
             Map<String, Integer> cartMap = new HashMap<>();
             ordersDetailList.stream().collect(Collectors.toMap(OrdersDetail::getFId, OrdersDetail::getODNumber));
@@ -316,14 +355,14 @@ public class OrderServiceImp implements OrderService {
     @Override
     @Transactional
     public Boolean updateOrderTo_ORDER_PAID(String orderPrimaryId) {
-        OrdersPrimary ordersPrimary  = orderPrimaryService.findOrdersById(orderPrimaryId);
+        OrdersPrimary ordersPrimary = orderPrimaryService.findOrdersById(orderPrimaryId);
         //判断订单是否存在
-        if (ordersPrimary == null){
+        if (ordersPrimary == null) {
             log.error("{} - {} - opid:{}", this.getClass(), ExceptionStates.NO_SUCH_ORDERPRIMRY.getMessage(), orderPrimaryId);
             throw new SaleException(ExceptionStates.NO_SUCH_ORDERPRIMRY);
         }
         //判断支付状态
-        if (ordersPrimary.getOPState() != OrderStates.ORDER_GENERATED.getCode()){
+        if (ordersPrimary.getOPState() != OrderStates.ORDER_GENERATED.getCode()) {
             log.error("{} - {} - opid:{} - opstate:{}",
                     this.getClass(),
                     ExceptionStates.ERROR_ORDER_STATE.getMessage(),
@@ -335,7 +374,7 @@ public class OrderServiceImp implements OrderService {
         ordersPrimary.setOPState(OrderStates.ORDER_PAID.getCode());
         ordersPrimary.setOPPaymentDate(new Timestamp(System.currentTimeMillis()));
         OrdersPrimary result = orderPrimaryService.updateOrder(ordersPrimary);
-        if(result == null){
+        if (result == null) {
             log.error("{} - {} - opid:{}", this.getClass(), ExceptionStates.ERROR_ORDER_STATE.getMessage(), orderPrimaryId);
             throw new SaleException(ExceptionStates.PAYMENT_FAIL);
         }
@@ -345,8 +384,8 @@ public class OrderServiceImp implements OrderService {
 
     @Override
     public Boolean updateOrderTo_PREPARING_FOOD(String orderPrimaryId) {
-        OrdersPrimary ordersPrimary  = orderPrimaryService.findOrdersById(orderPrimaryId);
-        if (ordersPrimary == null){
+        OrdersPrimary ordersPrimary = orderPrimaryService.findOrdersById(orderPrimaryId);
+        if (ordersPrimary == null) {
             log.error("{} - {}", this.getClass(), ExceptionStates.NO_SUCH_ORDERPRIMRY.getMessage());
             throw new SaleException(ExceptionStates.NO_SUCH_ORDERPRIMRY);
         }
@@ -358,8 +397,8 @@ public class OrderServiceImp implements OrderService {
 
     @Override
     public Boolean updateOrderTo_READY_TO_DELIVER(String orderPrimaryId) {
-        OrdersPrimary ordersPrimary  = orderPrimaryService.findOrdersById(orderPrimaryId);
-        if (ordersPrimary == null){
+        OrdersPrimary ordersPrimary = orderPrimaryService.findOrdersById(orderPrimaryId);
+        if (ordersPrimary == null) {
             log.error("{} - {}", this.getClass(), ExceptionStates.NO_SUCH_ORDERPRIMRY.getMessage());
             throw new SaleException(ExceptionStates.NO_SUCH_ORDERPRIMRY);
         }
@@ -371,14 +410,14 @@ public class OrderServiceImp implements OrderService {
 
     @Override
     public Boolean updateOrderTo_FOOD_DELIVERING(String orderPrimaryId, String delivererId) {
-        OrdersPrimary ordersPrimary  = orderPrimaryService.findOrdersById(orderPrimaryId);
-        if (ordersPrimary == null){
+        OrdersPrimary ordersPrimary = orderPrimaryService.findOrdersById(orderPrimaryId);
+        if (ordersPrimary == null) {
             log.error("{} - {}", this.getClass(), ExceptionStates.NO_SUCH_ORDERPRIMRY.getMessage());
             throw new SaleException(ExceptionStates.NO_SUCH_ORDERPRIMRY);
         }
 
-        if (delivererService.findDelivererByDId(delivererId) == null){
-            log.error("({}) - {}", this.getClass() ,ExceptionStates.NO_SUCH_DELIVERER.getMessage());
+        if (delivererService.findDelivererByDId(delivererId) == null) {
+            log.error("({}) - {}", this.getClass(), ExceptionStates.NO_SUCH_DELIVERER.getMessage());
             throw new SaleException(ExceptionStates.NO_SUCH_DELIVERER);
         }
 
@@ -392,8 +431,8 @@ public class OrderServiceImp implements OrderService {
 
     @Override
     public Boolean updateOrderTo_FOOD_DELIVERED(String orderPrimaryId) {
-        OrdersPrimary ordersPrimary  = orderPrimaryService.findOrdersById(orderPrimaryId);
-        if (ordersPrimary == null){
+        OrdersPrimary ordersPrimary = orderPrimaryService.findOrdersById(orderPrimaryId);
+        if (ordersPrimary == null) {
             log.error("{} - {}", this.getClass(), ExceptionStates.NO_SUCH_ORDERPRIMRY.getMessage());
             throw new SaleException(ExceptionStates.NO_SUCH_ORDERPRIMRY);
         }
@@ -404,8 +443,8 @@ public class OrderServiceImp implements OrderService {
 
     @Override
     public Boolean updateOrderTo_USER_RECEIVED(String orderPrimaryId) {
-        OrdersPrimary ordersPrimary  = orderPrimaryService.findOrdersById(orderPrimaryId);
-        if (ordersPrimary == null){
+        OrdersPrimary ordersPrimary = orderPrimaryService.findOrdersById(orderPrimaryId);
+        if (ordersPrimary == null) {
             log.error("{} - {}", this.getClass(), ExceptionStates.NO_SUCH_ORDERPRIMRY.getMessage());
             throw new SaleException(ExceptionStates.NO_SUCH_ORDERPRIMRY);
         }
@@ -417,8 +456,8 @@ public class OrderServiceImp implements OrderService {
 
     @Override
     public Boolean updateOrderTo_REFUNDING(String orderPrimaryId) {
-        OrdersPrimary ordersPrimary  = orderPrimaryService.findOrdersById(orderPrimaryId);
-        if (ordersPrimary == null){
+        OrdersPrimary ordersPrimary = orderPrimaryService.findOrdersById(orderPrimaryId);
+        if (ordersPrimary == null) {
             log.error("{} - {}", this.getClass(), ExceptionStates.NO_SUCH_ORDERPRIMRY.getMessage());
             throw new SaleException(ExceptionStates.NO_SUCH_ORDERPRIMRY);
         }
@@ -429,8 +468,8 @@ public class OrderServiceImp implements OrderService {
 
     @Override
     public Boolean updateOrderTo_ERROR_STATE(String orderPrimaryId) {
-        OrdersPrimary ordersPrimary  = orderPrimaryService.findOrdersById(orderPrimaryId);
-        if (ordersPrimary == null){
+        OrdersPrimary ordersPrimary = orderPrimaryService.findOrdersById(orderPrimaryId);
+        if (ordersPrimary == null) {
             log.error("{} - {}", this.getClass(), ExceptionStates.NO_SUCH_ORDERPRIMRY.getMessage());
             throw new SaleException(ExceptionStates.NO_SUCH_ORDERPRIMRY);
         }
@@ -441,8 +480,8 @@ public class OrderServiceImp implements OrderService {
 
     @Override
     public Boolean updateOrderTo_CANCELED_BY_SHOP(String orderPrimaryId) {
-        OrdersPrimary ordersPrimary  = orderPrimaryService.findOrdersById(orderPrimaryId);
-        if (ordersPrimary == null){
+        OrdersPrimary ordersPrimary = orderPrimaryService.findOrdersById(orderPrimaryId);
+        if (ordersPrimary == null) {
             log.error("{} - {}", this.getClass(), ExceptionStates.NO_SUCH_ORDERPRIMRY.getMessage());
             throw new SaleException(ExceptionStates.NO_SUCH_ORDERPRIMRY);
         }
@@ -453,9 +492,9 @@ public class OrderServiceImp implements OrderService {
 
     @Override
     public Boolean validateStudentAndOrder(String studentId, String orderPrimaryId) {
-        if (studentService.findStudentByStudentId(studentId).getSId() == orderPrimaryService.findOrdersById(orderPrimaryId).getOPId()){
+        if (studentService.findStudentByStudentId(studentId).getSId() == orderPrimaryService.findOrdersById(orderPrimaryId).getOPId()) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }

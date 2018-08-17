@@ -1,221 +1,141 @@
 package com.xxy.ordersystem.controller.user;
 
-import com.xxy.ordersystem.service.UpperService.intf.FileHandlerService;
-import com.xxy.ordersystem.service.intf.BoothService;
+import com.xxy.ordersystem.entity.Address;
+import com.xxy.ordersystem.enums.ExceptionStates;
+import com.xxy.ordersystem.enums.Quyu;
+import com.xxy.ordersystem.exception.SaleException;
+import com.xxy.ordersystem.form.AddressForm;
+import com.xxy.ordersystem.service.intf.AddressService;
+import com.xxy.ordersystem.utils.KeyUtil;
 import com.xxy.ordersystem.utils.MessageUtil;
-import com.xxy.ordersystem.utils.QRUtil;
 import com.xxy.ordersystem.viewmessage.ResultVO;
-import com.xxy.ordersystem.viewmessage.UploadFileResponse;
+import com.xxy.ordersystem.viewmessage.viewobject.AddressVO;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ResourceLoader;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.nio.file.Paths;
+import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author X
- * @package com.xxy.ordersystem.controller.user
- * @date 8/15/2018 6:58 PM
+ * @package com.xxy.ordersystem.controller
+ * @date 7/26/2018 11:34 PM
  */
 @RestController
-@RequestMapping("/user/booth")
+@RequestMapping("/user/address")
 @Slf4j
 public class UserAddressController {
-    //    private String boothImgStoragePath = "D:\\fileUpload\\boothImg";
-
-    private final ResourceLoader resourceLoader;
-    @Autowired
-    public UserAddressController(ResourceLoader resourceLoader) {
-        this.resourceLoader = resourceLoader;
-    }
 
     @Autowired
-    private FileHandlerService fileHandlerService;
+    private AddressService addressService;
 
-    @Autowired
-    private BoothService boothService;
-
-    /**
-     * 上传商家图片
-     * @param file
-     * @param bid
-     * @return
-     */
-    @PostMapping("/addBImg")
-    public ResultVO<UploadFileResponse> addBImg(
-            @RequestParam("file") MultipartFile file,
-            @RequestParam("bid") String bid
+    @GetMapping("/list")
+    public ResultVO<List<AddressVO>> getAllAddress(
+            @RequestParam("sid") String sid
     ){
-        //文件不能为空
-        if (file.isEmpty()) {
-            log.error("{} - {}", getClass(), "文件不能为空");
-            return MessageUtil.error("文件不能为空", null);
+        List<Address> addressList = addressService.findAllByStudentId(sid);
+
+        List<AddressVO> addressVOList = new ArrayList<>();
+        for (Address address:addressList) {
+            AddressVO addressVO = new AddressVO();
+            BeanUtils.copyProperties(address, addressVO);
+            addressVO.setQuyu(Quyu.areaOf(address.getAQuyu()));
+            if(address.getADefault() == true){
+                addressVO.setIsSelected(true);
+            }
+            addressVOList.add(addressVO);
         }
 
-        //判断大小
-        if (file.getSize() > 1024*1024){
-            log.error("{} - {}", getClass(), "文件大小超过2M");
-            return MessageUtil.error("文件大小超过2M", null);
-        }
-
-        UploadFileResponse response = fileHandlerService.saveBoothImg(file, bid);
-
-        return MessageUtil.successDefault(response);
+        return MessageUtil.successDefault(addressVOList);
     }
 
-    /**
-     * 上传商品图片
-     * @param file
-     * @param bid
-     * @param fid
-     * @return
-     */
-    @PostMapping("/addFImg")
-    public ResultVO<UploadFileResponse> addFImg(
-            @RequestParam("file") MultipartFile file,
-            @RequestParam("bid") String bid,
-            @RequestParam("fid") String fid
+
+    @PostMapping("/add")
+    public ResultVO add(
+            @Valid AddressForm addressForm,
+            BindingResult bindingResult
     ){
-        //文件不能为空
-        if (file.isEmpty()) {
-            log.error("{} - {}", getClass(), "文件不能为空");
-            return MessageUtil.error("文件不能为空", null);
+        if (bindingResult.hasErrors()){
+            log.error("{} - {}", this.getClass(), ExceptionStates.PARAM_ERROR.getMessage());
+            return MessageUtil.error(bindingResult.getFieldError().getDefaultMessage(), null);
         }
-
-        //判断大小
-        if (file.getSize() > 1024*1024){
-            log.error("{} - {}", getClass(), "文件大小超过2M");
-            return MessageUtil.error("文件大小超过2M", null);
+        Address address = new Address();
+        String aid = KeyUtil.generateUniqueKeyId();
+        addressForm.setAId(aid);
+        BeanUtils.copyProperties(addressForm, address);
+        Address result = addressService.addNewAddress(address);
+        if (result == null){
+            log.error("{} - {}", this.getClass(), "地址创建失败");
+            return MessageUtil.error("地址创建失败", null);
         }
-
-        UploadFileResponse response = fileHandlerService.saveFoodImg(file, bid, fid);
-
-        return MessageUtil.successDefault(response);
+        return MessageUtil.success();
     }
 
-    /**
-     * 上传广告图片
-     * @param file
-     * @return
-     */
-    @PostMapping("/addAdvImg")
-    public ResultVO<UploadFileResponse> addAdvImg(
-            @RequestParam("file") MultipartFile file
+    @PostMapping("/update")
+    public ResultVO update(
+            @Valid AddressForm addressForm,
+            BindingResult bindingResult
     ){
-        //文件不能为空
-        if (file.isEmpty()) {
-            log.error("{} - {}", getClass(), "文件不能为空");
-            return MessageUtil.error("文件不能为空", null);
+        if (bindingResult.hasErrors()){
+            log.error("{} - {}", this.getClass(), ExceptionStates.PARAM_ERROR.getMessage());
+            return MessageUtil.error(bindingResult.getFieldError().getDefaultMessage(), null);
         }
-
-        //判断大小
-        if (file.getSize() > 1024*1024){
-            log.error("{} - {}", getClass(), "文件大小超过2M");
-            return MessageUtil.error("文件大小超过2M", null);
+        Address address = addressService.findAddressByAddressId(addressForm.getAId());
+        BeanUtils.copyProperties(addressForm, address);
+        Address result = addressService.updateAddress(address);
+        if (result == null){
+            log.error("{} - {}", this.getClass(), "地址更新失败");
+            return MessageUtil.error("地址更新失败", null);
         }
-
-        UploadFileResponse response = fileHandlerService.saveAdvImg(file, "ADid");
-
-        return MessageUtil.successDefault(response);
+        return MessageUtil.success();
     }
 
-    /**
-     * 获取图片
-     * 显示图片的方法关键 匹配路径像 localhost:8080/b7c76eb3-5a67-4d41-ae5c-1642af3f8746.png
-     * @param filename
-     * @return
-     */
-//    @GetMapping("/img/{filename:.+}")
-//    @ResponseBody
-//    public ResponseEntity<?> getFile(
-//            @PathVariable String filename
-//    ) {
-//        try {
-//            filename = filename.replaceAll("-", "/");
-//            String fileType = FilenameUtils.getExtension(filename);
-//            if (fileType.equals(FileTypes.PNG.getType())){
-//                return ResponseEntity.ok().contentType(MediaType.IMAGE_PNG).body(resourceLoader.getResource("file:" + Paths.get(fileHandlerService.BoothImgStoragePath, filename).toString()));
-//            }else if (
-//                    fileType.equals(FileTypes.JPEG.getType()) ||
-//                    fileType.equals(FileTypes.JPG.getType())
-//                    ){
-//                return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(resourceLoader.getResource("file:" + Paths.get(fileHandlerService.BoothImgStoragePath, filename).toString()));
-//            }else {
-//                log.error("{} - {}",getClass(), ExceptionStates.WRONG_FILE_TYPE.getMessage(), "不支持的图片类型");
-//                throw new SaleException(ExceptionStates.WRONG_FILE_TYPE);
-//
-////                return ResponseEntity.ok().contentType(MediaType.ALL).body(resourceLoader.getResource("file:" + Paths.get(BoothImgStoragePath, filename).toString()));
-//            }
-////            response.addHeader("Content-Disposition", "attachment;filename=image.png";
-////            这样写在浏览器上打开链接会直接下载图片，放入image标签的src属性会显示图片
-//
-////            return ResponseEntity.ok(resourceLoader.getResource("file:" + Paths.get(BoothImgStoragePath, filename).toString()));
-//        } catch (Exception e) {
-//            return ResponseEntity.notFound().build();
-//        }
-//    }
-
-
-    /**
-     * 获取二维码
-     * @return
-     */
-    @GetMapping("/getQR")
-    @ResponseBody
-    public ResponseEntity<?> getQR(){
-        String QRName = QRUtil.generateQR("www.baidu.com", 200, 200);
-        if (QRName.equals("")){
-            return ResponseEntity.status(500).build();
+    @GetMapping("/delete")
+    public ResultVO  delete(
+            @RequestParam("sid") String sid,
+            @RequestParam("aid") String aid
+    ){
+        Address address = addressService.findAddressByAddressId(aid);
+        if (address == null){
+            log.error("{} - {}", getClass(), "找不到aid");
+            throw new SaleException(ExceptionStates.ID_NOT_EXIST.getCode(), "找不到aid");
         }
-        try {
-            HttpHeaders headers = new HttpHeaders();
-            headers.add("title", QRName);
-            return ResponseEntity.ok()
-                    .contentType(MediaType.IMAGE_PNG)
-                    .headers(headers)
-                    .body(resourceLoader.getResource("file:" + Paths.get(QRUtil.QRDir, QRName).toString()));
-//            response.addHeader("Content-Disposition", "attachment;filename=image.png";
-//            这样写在浏览器上打开链接会直接下载图片，放入image标签的src属性会显示图片
-        } catch (Exception e) {
-            return ResponseEntity.notFound().build();
+        if (!address.getSId().equals(sid)){
+            log.error("{} - {}", getClass(), "非法操作");
+            throw new SaleException(ExceptionStates.UNAUTHORIZED_ACCESS.getCode(), "非法操作");
+        }
+        if (address.getADefault() == true){
+            log.error("{} - {}", getClass(), "默认地址不可删除！");
+            return MessageUtil.error("默认地址不可删除!", null);
+        }
+        Address result = addressService.deleteAddressById(aid);
+        if (result != null){
+            return MessageUtil.success();
+        }else {
+            log.error("{} - {}", getClass(), "操作失败");
+            return MessageUtil.error("操作失败", null);
         }
     }
 
-    /**
-     * 获取广告
-     * @param filename
-     * @return
-     */
-//    @GetMapping("/adv/{filename:.+}")
-//    @ResponseBody
-//    public ResponseEntity<?> getAdv(
-//            @PathVariable String filename
-//    ){
-//        try {
-//            filename = filename.replaceAll("-", "/");
-//            String fileType = FilenameUtils.getExtension(filename);
-//            if (fileType.equals(FileTypes.PNG.getType())){
-//                return ResponseEntity.ok().contentType(MediaType.IMAGE_PNG).body(resourceLoader.getResource("file:" + Paths.get(fileHandlerService.AdvImgStoragePath, filename).toString()));
-//            }else if (
-//                    fileType.equals(FileTypes.JPEG.getType()) ||
-//                            fileType.equals(FileTypes.JPG.getType())
-//                    ){
-//                return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(resourceLoader.getResource("file:" + Paths.get(fileHandlerService.AdvImgStoragePath, filename).toString()));
-//            }else {
-//                log.error("{} - {}",getClass(), ExceptionStates.WRONG_FILE_TYPE.getMessage(), "不支持的图片类型");
-//                throw new SaleException(ExceptionStates.WRONG_FILE_TYPE);
-//            }
-////            response.addHeader("Content-Disposition", "attachment;filename=image.png";
-////            这样写在浏览器上打开链接会直接下载图片，放入image标签的src属性会显示图片
-//
-////            return ResponseEntity.ok(resourceLoader.getResource("file:" + Paths.get(BoothImgStoragePath, filename).toString()));
-//        } catch (Exception e) {
-//            return ResponseEntity.notFound().build();
-//        }
-//    }
+    @GetMapping("/setDefault")
+    public ResultVO setDefault(
+            @RequestParam("sid") String sid,
+            @RequestParam("aid") String aid
+    ){
+        Address address = addressService.findAddressByAddressId(aid);
+        if (address == null){
+            log.error("{} - {}", getClass(), "aid不存在");
+            return MessageUtil.error("aid不存在", null);
+        }
+        Address result = addressService.saveDefault(address);
+        if (result == null){
+            log.error("{} - {}", getClass(), "更新失败");
+            return MessageUtil.error("更新失败", null);
+        }
+        return MessageUtil.success();
+    }
 }

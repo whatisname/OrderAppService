@@ -2,6 +2,7 @@ package com.xxy.ordersystem.service.imp;
 
 import com.xxy.ordersystem.dao.DelivererDao;
 import com.xxy.ordersystem.entity.Deliverer;
+import com.xxy.ordersystem.enums.AccountState;
 import com.xxy.ordersystem.service.intf.DelivererService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -77,6 +78,14 @@ public class DelivererServiceImp implements DelivererService {
     @Override
     public Boolean deleteDeliverer(Deliverer deliverer) {
         delivererDao.delete(deliverer);
+        return true;
+    }
+
+    @Override
+    public Boolean disableDeliverer(String delivererId) {
+        Deliverer deliverer = delivererDao.findDelivererByDId(delivererId);
+        deliverer.setDAccountState(AccountState.DEACTIVATE.getCode());
+        delivererDao.save(deliverer);
         return true;
     }
 

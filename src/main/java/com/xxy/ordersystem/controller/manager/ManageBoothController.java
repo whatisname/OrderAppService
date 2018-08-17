@@ -110,7 +110,8 @@ public class ManageBoothController {
     public ResultVO delete(
             @RequestParam("bid") String bid
     ) {
-        Boolean result = boothService.deleteBoothById(bid);
+        Boolean result = boothService.disableBoothById(bid);
+//        Boolean result = boothService.deleteBoothById(bid);
         if (result == true) {
             return MessageUtil.success();
         } else {

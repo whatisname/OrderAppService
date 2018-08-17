@@ -32,4 +32,6 @@ public interface BoothService {
     Boolean deleteBoothById(String boothId);
 
     Booth addBooth(Booth booth);
+
+    Boolean disableBoothById(String boothId);
 }

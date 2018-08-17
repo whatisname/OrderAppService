@@ -32,11 +32,16 @@ public class AddressVO {
     @JsonProperty("comment")
     private String aComment;
 
-//    private Timestamp aCreateTime;
+    private Timestamp aCreateTime;
 //    private Timestamp aUpdateTime;
 //    private String sId;
 
 
     @JsonProperty("isSelected")
     private Boolean isSelected = false;
+
+    @JsonProperty("name")
+    private String aName;
+    @JsonProperty("phone")
+    private String aPhone;
 }

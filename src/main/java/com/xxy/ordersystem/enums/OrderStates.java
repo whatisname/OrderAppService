@@ -4,6 +4,7 @@ import lombok.Getter;
 
 /**
  * 订单状态
+ *
  * @author X
  * @package com.xxy.ordersystem.enums
  * @date 7/12/2018 12:05 AM
@@ -33,5 +34,34 @@ public enum OrderStates {
         this.code = code;
         this.message = message;
         this.column = column;
+    }
+
+    public static String stateOf(Integer code) {
+        switch (code) {
+            case 1:
+                return ORDER_GENERATED.getMessage();
+            case 2:
+                return PREPARING_FOOD.getMessage();
+            case 3:
+                return READY_TO_DELIVER.getMessage();
+            case 4:
+                return FOOD_DELIVERING.getMessage();
+            case 5:
+                return FOOD_DELIVERED.getMessage();
+            case 6:
+                return USER_RECEIVED.getMessage();
+            case 7:
+                return REFUNDING.getMessage();
+            case 8:
+                return ERROR_STATE.getMessage();
+            case 9:
+                return CANCELED_BY_SHOP.getMessage();
+            case 10:
+                return CANCELED_BY_USER.getMessage();
+            case 11:
+                return ORDER_PAID.getMessage();
+            default:
+                return "illegal state";
+        }
     }
 }

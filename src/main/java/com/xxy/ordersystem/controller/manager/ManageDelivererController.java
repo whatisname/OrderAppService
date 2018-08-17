@@ -96,7 +96,7 @@ public class ManageDelivererController {
     public ResultVO delete(
             @RequestParam("did") String did
     ) {
-        Boolean result = delivererService.deleteDelivererById(did);
+        Boolean result = delivererService.disableDeliverer(did);
         if (result == true) {
             return MessageUtil.success();
         } else {
@@ -226,6 +226,8 @@ public class ManageDelivererController {
         map.put("did", did);
         return new ModelAndView("redirect:/manage/deliver/detail", map);
     }
+
+
 
 
 }

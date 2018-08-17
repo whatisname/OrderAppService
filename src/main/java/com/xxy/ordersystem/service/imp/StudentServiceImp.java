@@ -4,7 +4,10 @@ import com.xxy.ordersystem.dao.StudentDao;
 import com.xxy.ordersystem.entity.Student;
 import com.xxy.ordersystem.service.intf.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
 
 /**
  * @author X
@@ -36,5 +39,10 @@ public class StudentServiceImp implements StudentService {
         }else{
             return true;
         }
+    }
+
+    @Override
+    public Page<Student> findAllStudent(Pageable pageable) {
+        return studentDao.findAll(pageable);
     }
 }

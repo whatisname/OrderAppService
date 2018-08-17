@@ -108,4 +108,12 @@ public class BoothServiceImp implements BoothService {
     public Booth addBooth(Booth booth) {
         return boothDao.save(booth);
     }
+
+    @Override
+    public Boolean disableBoothById(String boothId) {
+        Booth booth = boothDao.findBoothByBIdEquals(boothId);
+        booth.setBState(BoothStates.CLOSE.getCode());
+        boothDao.save(booth);
+        return true;
+    }
 }

@@ -47,10 +47,10 @@ public class AddressServiceTest {
 
     @Test
     public void addNewAddress() {
-        Address address = new Address(KeyUtil.generateUniqueKeyId(), Quyu.EAST.getCode(), "宿舍", "东院仁园三号4343", true, null, "10");
-        Address result = addressService.addNewAddress(address);
-        log.info("保存：{}", result);
-        Assert.assertEquals(address, result);
+//        Address address = new Address(KeyUtil.generateUniqueKeyId(), Quyu.EAST.getCode(), "宿舍", "东院仁园三号4343", true, null, "10");
+//        Address result = addressService.addNewAddress(address);
+//        log.info("保存：{}", result);
+//        Assert.assertEquals(address, result);
     }
 
     @Test

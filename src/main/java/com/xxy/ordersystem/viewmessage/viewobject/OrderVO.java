@@ -39,16 +39,20 @@ public class OrderVO {
 
     @JsonProperty("finishDate")
     private Timestamp oPFinishDate;
-    @JsonProperty("state")
+    @JsonProperty("stateCode")
     private Integer oPState;
+    @JsonProperty("state")
+    private String state;
 
     @JsonProperty("comment")
     private String oPComment;
 
+    @JsonProperty("address")
+    private String address;
+
     private String sId;
     private String bId;
     private String dId;
-    private String aId;
 
 
     @JsonProperty("foods")
@@ -66,4 +70,7 @@ public class OrderVO {
 
     @JsonProperty("deliverer")
     private DelivererVO delivererVO;
+
+    @JsonProperty("address")
+    private String oPAddress;
 }
