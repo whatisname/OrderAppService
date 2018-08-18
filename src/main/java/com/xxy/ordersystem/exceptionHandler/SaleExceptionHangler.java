@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -31,10 +32,12 @@ public class SaleExceptionHangler {
     //拦截登陆异常
     @ExceptionHandler(value = AuthenticationException.class)
 //    @ResponseStatus(HttpStatus.FORBIDDEN)
-    public ModelAndView handleAuthorizationException(){
+    public ModelAndView handleAuthorizationException(AuthenticationException e){
+        Map<String, Object> map = new HashMap<>();
+        map.put("message", e.getMessage());
         return new ModelAndView("redirect:"
                 .concat(projectUrlConfig.getOs())
-                .concat("/manage/security/loginReq"));
+                .concat("/manage/security/loginReq"), map);
     }
 
     @ExceptionHandler(value = SaleException.class)

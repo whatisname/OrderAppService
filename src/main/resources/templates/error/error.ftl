@@ -29,7 +29,7 @@
         <div class="text-center text-center">
           <h1 class="error-number">ERROR</h1>
           <h2>呃，不可描述的操作...</h2>
-          <p>错误原因：${resultVO.getMessage()!}<a href="/os/">返回主页</a>
+          <p>服务器可能拒绝了您的操作<a href="/os/">返回主页</a>
           </p>
           <div class="mid_center">
             <h3>Search</h3>

@@ -36,7 +36,7 @@ public class ManagerAuthorizeAspect {
     private StringRedisTemplate stringRedisTemplate;
 
     @Pointcut("execution(public * com.xxy.ordersystem.controller.manager.Manage*.*(..))" +
-            "&& !execution(public * com.xxy.ordersystem.controller.manager.ManageSecurity.*(..))")
+            "&& !execution(public * com.xxy.ordersystem.controller.manager.ManageSecurityController.*(..))")
     public void verify() {
 
     }
