@@ -34,8 +34,8 @@ import java.util.concurrent.TimeUnit;
 @RequestMapping("/manage/security")
 public class ManageSecurityController {
 
-    @Autowired
-    private StringRedisTemplate stringRedisTemplate;
+//    @Autowired
+//    private StringRedisTemplate stringRedisTemplate;
     @Autowired
     private ProjectUrlConfig projectUrlConfig;
     @Autowired
@@ -71,8 +71,8 @@ public class ManageSecurityController {
         }
         //设置token - redis
         String token = UUID.randomUUID().toString();
-        Integer expire = RedisConstant.EXPIRE_TIME;
-        stringRedisTemplate.opsForValue().set(String.format(RedisConstant.TOKEN_PREFIX, token), email, expire, TimeUnit.SECONDS);
+//        Integer expire = RedisConstant.EXPIRE_TIME;
+//        stringRedisTemplate.opsForValue().set(String.format(RedisConstant.TOKEN_PREFIX, token), email, expire, TimeUnit.SECONDS);
 
         //设置token - cookie
 //        CookieUtil.set(response, cookieConfig.getName(), token, RedisConstant.EXPIRE_TIME);
@@ -109,7 +109,7 @@ public class ManageSecurityController {
         if (session.getAttribute(cookieConfig.getName()) != null) {
             String token = session.getAttribute(cookieConfig.getName()).toString();
             // 清除redis
-            stringRedisTemplate.opsForValue().getOperations().delete(String.format(RedisConstant.TOKEN_PREFIX, token));
+//            stringRedisTemplate.opsForValue().getOperations().delete(String.format(RedisConstant.TOKEN_PREFIX, token));
             //清除session
             request.getSession().removeAttribute(cookieConfig.getName());
             request.getSession().removeAttribute("user");

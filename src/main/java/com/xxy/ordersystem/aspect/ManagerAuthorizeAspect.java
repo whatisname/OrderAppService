@@ -32,8 +32,8 @@ import javax.servlet.http.HttpSession;
 public class ManagerAuthorizeAspect {
     @Autowired
     private CookieConfig cookieConfig;
-    @Autowired
-    private StringRedisTemplate stringRedisTemplate;
+//    @Autowired
+//    private StringRedisTemplate stringRedisTemplate;
 
     @Pointcut("execution(public * com.xxy.ordersystem.controller.manager.Manage*.*(..))" +
             "&& !execution(public * com.xxy.ordersystem.controller.manager.ManageSecurityController.*(..))")
@@ -59,11 +59,11 @@ public class ManagerAuthorizeAspect {
         if (session.getAttribute(cookieConfig.getName()) != null) {
             token = request.getSession().getAttribute(cookieConfig.getName()).toString();
             //查询redis
-            String tokenValue = stringRedisTemplate.opsForValue().get(String.format(RedisConstant.TOKEN_PREFIX, token));
-            if (StringUtils.isEmpty(tokenValue)) {
-                log.warn("【登陆校验】{} - Redis中查不到token", getClass());
-                throw new AuthenticationException(ExceptionStates.UNAUTHORIZED_ACCESS.getCode(), "Redis中查不到token");
-            }
+//            String tokenValue = stringRedisTemplate.opsForValue().get(String.format(RedisConstant.TOKEN_PREFIX, token));
+//            if (StringUtils.isEmpty(tokenValue)) {
+//                log.warn("【登陆校验】{} - Redis中查不到token", getClass());
+//                throw new AuthenticationException(ExceptionStates.UNAUTHORIZED_ACCESS.getCode(), "Redis中查不到token");
+//            }
         }else{ // 没有登陆
             log.warn("【登陆校验】{} - Session中查不到token" + getClass());
             throw new AuthenticationException(ExceptionStates.UNAUTHORIZED_ACCESS.getCode(), "Session中查不到token");

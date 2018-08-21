@@ -2,7 +2,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
-    password: 95081200axxy
+    password: 95081200aXyy;
     url: jdbc:mysql://localhost:3306/ordersystem?characterEncoding=utf-8&useSSL=false
   jpa:
     show-sql: true
@@ -26,9 +26,9 @@ spring:
   mvc:
     # 默认值为 /**
     static-path-pattern: /static/**
-  redis:
-    host: localhost
-    port: 6379
+#  redis:
+#    host: localhost
+#    port: 6379
 #  resources:
     # 默认值为 classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
       # 这里设置要指向的路径，多个使用英文逗号隔开
@@ -37,6 +37,6 @@ server:
     servlet:
       context-path: /os
 project-url:
-  os: http://192.168.0.160:8080/os
+  os: http://localhost:8080/os
 cookie-name:
   name: os_token
