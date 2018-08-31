@@ -116,4 +116,11 @@ public class BoothServiceImp implements BoothService {
         boothDao.save(booth);
         return true;
     }
+
+    @Override
+    public Boolean disableBooth(Booth booth) {
+        booth.setBState(BoothStates.CLOSE.getCode());
+        boothDao.save(booth);
+        return true;
+    }
 }

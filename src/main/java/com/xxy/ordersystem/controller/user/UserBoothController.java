@@ -130,26 +130,4 @@ public class UserBoothController {
         }
     }
 
-    @PostMapping("/update")
-    public ResultVO update(
-            @Valid BoothForm boothForm,
-            BindingResult bindingResult
-    ){
-        log.info("update");
-        if (bindingResult.hasErrors()){
-            log.error("{} - {}", this.getClass(), ExceptionStates.PARAM_ERROR.getMessage());
-            return MessageUtil.error(bindingResult.getFieldError().getDefaultMessage(), null);
-        }
-        Booth booth = boothService.findBoothById(boothForm.getBId());
-        String old_password = booth.getBOwnerPassword();
-        BeanUtils.copyProperties(boothForm, booth);
-        Boolean result = boothService.updateBooth(booth);
-
-        if (result == false){
-            log.error("{} - {}", this.getClass(), "店铺更新失败");
-            return MessageUtil.error("店铺更新失败", null);
-        }
-        return MessageUtil.success();
-    }
-
 }

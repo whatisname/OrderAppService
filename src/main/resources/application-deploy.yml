@@ -1,0 +1,42 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 95081200aXyy;
+    url: jdbc:mysql://localhost:3306/ordersystem?characterEncoding=utf-8&useSSL=false
+#  jpa:
+#    show-sql: true
+  jackson:
+    default-property-inclusion: non_null
+#    joda-date-time-format: yyyy-MM-dd HH:mm:ss
+    date-format: yyyy-MM-dd HH:mm:ss
+  freemarker:
+    cache: false
+    check-template-location: true
+    content-type: text/html
+    suffix: .ftl
+    template-loader-path: classpath:/templates/
+    settings:
+#      object_wrapper: com.control.back.halo.basic.utils.FreemarkerObjectWrapper
+      datetime_format: yyyy-MM-dd HH:mm:ss
+      date_format: yyyy-MM-dd
+      time_format: HH:mm:ss
+#      template_update_delay : 0
+#      boolean_format: yes,no
+  mvc:
+    # 默认值为 /**
+    static-path-pattern: /static/**
+#  redis:
+#    host: localhost
+#    port: 6379
+#  resources:
+    # 默认值为 classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+      # 这里设置要指向的路径，多个使用英文逗号隔开
+#    static-locations: classpath:/resources/
+server:
+    servlet:
+      context-path: /os
+project-url:
+  os: http://localhost:8080/os
+cookie-name:
+  name: os_token

@@ -19,6 +19,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
@@ -165,12 +166,19 @@ public class UserOrderController {
     //支付订单
     //TODO
 
-    //接收订单（商家）
+    /**
+     * 接收订单（商家）
+     * orderstate == paied
+     * @param bid
+     * @param id
+     * @return
+     */
     @PostMapping("/startPrepare")
     public ResultVO<String> startPrepare(
             @RequestParam("bid") String bid,
-            @RequestParam("id") String id
+            HttpServletRequest request
     ){
+        String sid = request.getSe
         Boolean result = orderService.updateOrderTo_PREPARING_FOOD(id);
         if (result){
             return MessageUtil.successDefault(id);

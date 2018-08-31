@@ -343,3 +343,13 @@ Caused by: org.hibernate.HibernateException: Access to DialectResolutionInfo can
 	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:88)
 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:259)
 	... 33 common frames omitted
+2018-08-21 19:52:56,146 - [ERROR] - Column 'f_create_time' cannot be null
+2018-08-21 19:52:56,164 - [ERROR] - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-08-21 19:52:56,438 - [ERROR] - error...
+2018-08-21 19:52:57,515 - [ERROR] - Column 'c_create_time' cannot be null
+2018-08-21 19:52:57,515 - [ERROR] - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-08-21 19:52:58,559 - [ERROR] - Duplicate entry 'admin' for key 'm_email_UNIQUE'
+2018-08-21 19:52:58,560 - [ERROR] - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-08-21 19:52:59,287 - [ERROR] - (class com.xxy.ordersystem.service.UpperService.imp.OrderServiceImp) - 订单副表id不存在
+2018-08-21 19:52:59,401 - [ERROR] - (class com.xxy.ordersystem.service.UpperService.imp.OrderServiceImp) - 没有库存或库存不足
+2018-08-21 19:52:59,557 - [ERROR] - (class com.xxy.ordersystem.service.UpperService.imp.OrderServiceImp) - 订单主表id不存在
