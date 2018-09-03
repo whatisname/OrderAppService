@@ -19,11 +19,13 @@ public enum OrderStates {
     FOOD_DELIVERING(4, "配送中", "o_start_deliver_date"),
     FOOD_DELIVERED(5, "外卖员已送达", "o_deliver_arrive_date"),
     USER_RECEIVED(6, "用户已接单", "o_finish_date"),
-    REFUNDING(7, "退款申请中(用户确认订单以后请求退款或投诉退款)", ""),
+    REFUNDING(7, "退款申请中(用户确认订单以后请求退款或投诉退款)", "o_p_refunding_date"),
     ERROR_STATE(8, "错误状态", ""),
     CANCELED_BY_SHOP(9, "被商家取消（无法准备或无法配送）", ""),
     CANCELED_BY_USER(10, "被用户取消（用户确认收到之前取消，如无法收到订单，快递员送未送达等）", ""),
-    ORDER_PAID(11, "订单已支付", "o_p_payment_date");
+    ORDER_PAID(11, "订单已支付", "o_p_payment_date"),
+    REFUNDING_RESOLVED(12, "订单退款已解决", "o_p_refunding_solve_date")
+    ;
 
 
     private int code;

@@ -76,9 +76,9 @@ public class ManageSecurityController {
 
         //设置token - cookie
 //        CookieUtil.set(response, cookieConfig.getName(), token, RedisConstant.EXPIRE_TIME);
-        //设置token和UserInfo - session
+        //设置session: token和UserInfo
         request.getSession().setAttribute(cookieConfig.getName(), token);
-        request.getSession().setAttribute("user", manager);
+        request.getSession().setAttribute("manager", manager);
 
         return new ModelAndView("redirect:" + projectUrlConfig.getOs() + "/", map);
     }

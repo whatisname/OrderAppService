@@ -8,8 +8,8 @@ import com.xxy.ordersystem.enums.OrderStates;
 import com.xxy.ordersystem.exception.SaleException;
 import com.xxy.ordersystem.service.UpperService.intf.OrderService;
 import com.xxy.ordersystem.service.intf.*;
+import com.xxy.ordersystem.utils.AddressUtil;
 import com.xxy.ordersystem.utils.KeyUtil;
-import com.xxy.ordersystem.viewmessage.converterUtil.OrderAddressToAddress;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,7 +73,7 @@ public class OrderServiceImp implements OrderService {
             orderDTO.setStudent(student);
 
             //load address
-            Address address = OrderAddressToAddress.orderAddressToAddress(ordersPrimary);
+            Address address = AddressUtil.toAddress(ordersPrimary.getOPAddress());
             orderDTO.setAddress(address);
 
             //load deliever
@@ -279,16 +279,10 @@ public class OrderServiceImp implements OrderService {
 
         //4.查询，填入地址
         Address address = addressService.findAddressByAddressId(addressId);
-        ordersPrimary.setOPAddress(
-                address.getAName()
-                        .concat("#").concat(address.getAPhone())
-                        .concat("#").concat(String.valueOf(address.getAQuyu()))
-                        .concat("#").concat(address.getAAddress())
-                        .concat("#").concat(address.getADormintory())
-        );
+        ordersPrimary.setOPAddress(AddressUtil.toAddressString(address));
 
-        //5.填入comment（订单备注，从地址comment填入）
-        ordersPrimary.setOPComment(address.getAComment());
+        //5.不可填入comment（订单备注），留用取消说明，订单备注加进地址String内
+//        ordersPrimary.setOPComment(address.getAComment());
 
         //6. 写入数据库
         OrdersPrimary opResult = orderPrimaryService.saveNewOrdersPrimary(ordersPrimary);
@@ -310,19 +304,11 @@ public class OrderServiceImp implements OrderService {
     }
 
     @Override
-    public Boolean updateOrderTo_CANCELED_BY_USER(String orderPrimaryId, String comment) {
-        OrdersPrimary ordersPrimary = orderPrimaryService.findOrdersById(orderPrimaryId);
-        if (ordersPrimary == null) {
-            log.error("{} - {}", getClass(), ExceptionStates.NO_SUCH_ORDERPRIMRY.getMessage());
-            throw new SaleException(ExceptionStates.NO_SUCH_ORDERPRIMRY);
-        }
+    public Boolean updateOrderTo_CANCELED_BY_USER(OrdersPrimary ordersPrimary, String comment) {
         //1. 判断订单状态
-        if (!ordersPrimary.getOPState().equals(OrderStates.ORDER_GENERATED.getCode())
-                && !ordersPrimary.getOPState().equals(OrderStates.PREPARING_FOOD.getCode())
-                && !ordersPrimary.getOPState().equals(OrderStates.READY_TO_DELIVER.getCode())
-                ) {
-            log.error("({}) - {}", this.getClass(), ExceptionStates.CANCEL_FAIL_ERROR_STATE.getMessage());
-            throw new SaleException(ExceptionStates.CANCEL_FAIL_ERROR_STATE);
+        if (!ordersPrimary.getOPState().equals(OrderStates.ORDER_GENERATED.getCode())) {
+            log.error("({}) - {}", this.getClass(), ExceptionStates.CANCEL_FAIL_ERROR_STATE.getMessage()+", 订单无法取消");
+            throw new SaleException(ExceptionStates.CANCEL_FAIL_ERROR_STATE.getCode(), ExceptionStates.CANCEL_FAIL_ERROR_STATE.getMessage()+", 订单无法取消");
         }
         //2. 修改订单状态，填写退单理由
         ordersPrimary.setOPState(OrderStates.CANCELED_BY_USER.getCode());
@@ -330,43 +316,54 @@ public class OrderServiceImp implements OrderService {
         orderPrimaryService.updateOrder(ordersPrimary);
         //3. 返回库存
         //get detail orders
-        List<OrdersDetail> ordersDetailList = ordersDetailService.findAllByOrderPrimaryId(orderPrimaryId);
+        List<OrdersDetail> ordersDetailList = ordersDetailService.findAllByOrderPrimaryId(ordersPrimary.getOPId());
         if (ordersDetailList.size() == 0) {
             log.error("({}) - {}", this.getClass(), ExceptionStates.NO_SUCH_ORDERDETAIL.getMessage());
             throw new SaleException(ExceptionStates.NO_SUCH_ORDERDETAIL);
         } else {
-
             Map<String, Integer> cartMap = new HashMap<>();
-            ordersDetailList.stream().collect(Collectors.toMap(OrdersDetail::getFId, OrdersDetail::getODNumber));
+            //TODO 待调试，可能会出问题
+            cartMap = ordersDetailList.stream().collect(Collectors.toMap(OrdersDetail::getFId, OrdersDetail::getODNumber));
             foodService.addNumber(cartMap);
         }
-
-        //4. 如果已支付，需要退款
-        //TODO:
+        //4. 如果已支付，需要退款(因为事件发生于付款之前，所以并不需要)
         return true;
     }
 
     @Override
-    public Boolean updateOrderAddress(String orderPrimaryId, String addressId) {
-        //TODO:
-        return null;
+    public Boolean updateOrderAddress(OrdersPrimary ordersPrimary, Address address) {
+        //判断状态
+        if (!ordersPrimary.getOPState().equals(OrderStates.READY_TO_DELIVER)
+                || !ordersPrimary.getOPState().equals(OrderStates.ORDER_GENERATED)
+                || !ordersPrimary.getOPState().equals(OrderStates.ORDER_PAID)
+                ) {
+            log.error("{} - {} - opid:{} - opstate:{}",
+                    this.getClass(),
+                    ExceptionStates.ERROR_ORDER_STATE.getMessage(),
+                    ordersPrimary.getOPId(),
+                    ordersPrimary.getOPState());
+            throw new SaleException(ExceptionStates.ERROR_ORDER_STATE);
+        }
+        //修改订单地址
+        ordersPrimary.setOPAddress(AddressUtil.toAddressString(address));
+        OrdersPrimary result = orderPrimaryService.updateOrder(ordersPrimary);
+        if (result == null) {
+            log.error("{} - {} - opid:{}", this.getClass(), ExceptionStates.ERROR_ORDER_STATE.getMessage(), ordersPrimary.getOPId());
+            throw new SaleException(ExceptionStates.PAYMENT_FAIL);
+        }
+
+        return true;
     }
 
     @Override
     @Transactional
-    public Boolean updateOrderTo_ORDER_PAID(String orderPrimaryId) {
-        OrdersPrimary ordersPrimary = orderPrimaryService.findOrdersById(orderPrimaryId);
-        //判断订单是否存在
-        if (ordersPrimary == null) {
-            log.error("{} - {} - opid:{}", this.getClass(), ExceptionStates.NO_SUCH_ORDERPRIMRY.getMessage(), orderPrimaryId);
-            throw new SaleException(ExceptionStates.NO_SUCH_ORDERPRIMRY);
-        }
-        //判断支付状态
+    public Boolean updateOrderTo_ORDER_PAID(OrdersPrimary ordersPrimary) {
+        //判断状态
         if (ordersPrimary.getOPState() != OrderStates.ORDER_GENERATED.getCode()) {
             log.error("{} - {} - opid:{} - opstate:{}",
                     this.getClass(),
                     ExceptionStates.ERROR_ORDER_STATE.getMessage(),
-                    orderPrimaryId,
+                    ordersPrimary.getOPId(),
                     ordersPrimary.getOPState());
             throw new SaleException(ExceptionStates.ERROR_ORDER_STATE);
         }
@@ -375,7 +372,7 @@ public class OrderServiceImp implements OrderService {
         ordersPrimary.setOPPaymentDate(new Timestamp(System.currentTimeMillis()));
         OrdersPrimary result = orderPrimaryService.updateOrder(ordersPrimary);
         if (result == null) {
-            log.error("{} - {} - opid:{}", this.getClass(), ExceptionStates.ERROR_ORDER_STATE.getMessage(), orderPrimaryId);
+            log.error("{} - {} - opid:{}", this.getClass(), ExceptionStates.ERROR_ORDER_STATE.getMessage(), ordersPrimary.getOPId());
             throw new SaleException(ExceptionStates.PAYMENT_FAIL);
         }
 
@@ -383,11 +380,14 @@ public class OrderServiceImp implements OrderService {
     }
 
     @Override
-    public Boolean updateOrderTo_PREPARING_FOOD(String orderPrimaryId) {
-        OrdersPrimary ordersPrimary = orderPrimaryService.findOrdersById(orderPrimaryId);
-        if (ordersPrimary == null) {
-            log.error("{} - {}", this.getClass(), ExceptionStates.NO_SUCH_ORDERPRIMRY.getMessage());
-            throw new SaleException(ExceptionStates.NO_SUCH_ORDERPRIMRY);
+    public Boolean updateOrderTo_PREPARING_FOOD(OrdersPrimary ordersPrimary) {
+        if (ordersPrimary.getOPState() != OrderStates.ORDER_PAID.getCode()) {
+            log.error("{} - {} - opid:{} - opstate:{}",
+                    this.getClass(),
+                    ExceptionStates.ERROR_ORDER_STATE.getMessage(),
+                    ordersPrimary.getOPId(),
+                    ordersPrimary.getOPState());
+            throw new SaleException(ExceptionStates.ERROR_ORDER_STATE);
         }
         ordersPrimary.setOPState(OrderStates.PREPARING_FOOD.getCode());
         ordersPrimary.setOPConfirmDate(new Timestamp(System.currentTimeMillis()));
@@ -396,11 +396,14 @@ public class OrderServiceImp implements OrderService {
     }
 
     @Override
-    public Boolean updateOrderTo_READY_TO_DELIVER(String orderPrimaryId) {
-        OrdersPrimary ordersPrimary = orderPrimaryService.findOrdersById(orderPrimaryId);
-        if (ordersPrimary == null) {
-            log.error("{} - {}", this.getClass(), ExceptionStates.NO_SUCH_ORDERPRIMRY.getMessage());
-            throw new SaleException(ExceptionStates.NO_SUCH_ORDERPRIMRY);
+    public Boolean updateOrderTo_READY_TO_DELIVER(OrdersPrimary ordersPrimary) {
+        if (ordersPrimary.getOPState() != OrderStates.PREPARING_FOOD.getCode()) {
+            log.error("{} - {} - opid:{} - opstate:{}",
+                    this.getClass(),
+                    ExceptionStates.ERROR_ORDER_STATE.getMessage(),
+                    ordersPrimary.getOPId(),
+                    ordersPrimary.getOPState());
+            throw new SaleException(ExceptionStates.ERROR_ORDER_STATE);
         }
         ordersPrimary.setOPState(OrderStates.READY_TO_DELIVER.getCode());
         ordersPrimary.setOPPrepareFinishDate(new Timestamp(System.currentTimeMillis()));
@@ -409,45 +412,61 @@ public class OrderServiceImp implements OrderService {
     }
 
     @Override
-    public Boolean updateOrderTo_FOOD_DELIVERING(String orderPrimaryId, String delivererId) {
-        OrdersPrimary ordersPrimary = orderPrimaryService.findOrdersById(orderPrimaryId);
-        if (ordersPrimary == null) {
-            log.error("{} - {}", this.getClass(), ExceptionStates.NO_SUCH_ORDERPRIMRY.getMessage());
-            throw new SaleException(ExceptionStates.NO_SUCH_ORDERPRIMRY);
-        }
-
-        if (delivererService.findDelivererByDId(delivererId) == null) {
-            log.error("({}) - {}", this.getClass(), ExceptionStates.NO_SUCH_DELIVERER.getMessage());
-            throw new SaleException(ExceptionStates.NO_SUCH_DELIVERER);
+    public Boolean updateOrderTo_FOOD_DELIVERING(OrdersPrimary ordersPrimary, Deliverer deliverer) {
+        if (ordersPrimary.getOPState() != OrderStates.READY_TO_DELIVER.getCode()) {
+            log.error("{} - {} - opid:{} - opstate:{}",
+                    this.getClass(),
+                    ExceptionStates.ERROR_ORDER_STATE.getMessage(),
+                    ordersPrimary.getOPId(),
+                    ordersPrimary.getOPState());
+            throw new SaleException(ExceptionStates.ERROR_ORDER_STATE);
         }
 
         ordersPrimary.setOPState(OrderStates.FOOD_DELIVERING.getCode());
         ordersPrimary.setOPStartDeliverDate(new Timestamp(System.currentTimeMillis()));
-        ordersPrimary.setDId(delivererId);
+        ordersPrimary.setDId(deliverer.getDId());
         orderPrimaryService.updateOrder(ordersPrimary);
 
         return true;
     }
 
     @Override
-    public Boolean updateOrderTo_FOOD_DELIVERED(String orderPrimaryId) {
-        OrdersPrimary ordersPrimary = orderPrimaryService.findOrdersById(orderPrimaryId);
-        if (ordersPrimary == null) {
-            log.error("{} - {}", this.getClass(), ExceptionStates.NO_SUCH_ORDERPRIMRY.getMessage());
-            throw new SaleException(ExceptionStates.NO_SUCH_ORDERPRIMRY);
+    public Boolean updateOrderTo_FOOD_DELIVERED(OrdersPrimary ordersPrimary) {
+        if(!ordersPrimary.getOPState().equals(OrderStates.FOOD_DELIVERING)
+                || !ordersPrimary.getOPState().equals(OrderStates.USER_RECEIVED)){
+            log.error("{} - {} - opid:{} - opstate:{}",
+                    this.getClass(),
+                    ExceptionStates.ERROR_ORDER_STATE.getMessage(),
+                    ordersPrimary.getOPId(),
+                    ordersPrimary.getOPState());
+            throw new SaleException(ExceptionStates.ERROR_ORDER_STATE);
         }
-        ordersPrimary.setOPState(OrderStates.FOOD_DELIVERED.getCode());
-        ordersPrimary.setOPDeliverArriveDate(new Timestamp(System.currentTimeMillis()));
+
+        //如果状态未配送中，说明用户未接单，可以把状态改为配送到
+        if(ordersPrimary.getOPState().equals(OrderStates.FOOD_DELIVERING)){
+            ordersPrimary.setOPState(OrderStates.FOOD_DELIVERED.getCode());
+            ordersPrimary.setOPDeliverArriveDate(new Timestamp(System.currentTimeMillis()));
+        }
+        //如果状态为用户已接单，说明用户先确认了接单，这时不需要更改状态为配送到，只需要设置时间为用户确认接单的时间即可
+        if(ordersPrimary.getOPState().equals(OrderStates.USER_RECEIVED)){
+            ordersPrimary.setOPDeliverArriveDate(ordersPrimary.getOPConfirmDate());
+        }
+        orderPrimaryService.updateOrder(ordersPrimary);
         return true;
     }
 
     @Override
-    public Boolean updateOrderTo_USER_RECEIVED(String orderPrimaryId) {
-        OrdersPrimary ordersPrimary = orderPrimaryService.findOrdersById(orderPrimaryId);
-        if (ordersPrimary == null) {
-            log.error("{} - {}", this.getClass(), ExceptionStates.NO_SUCH_ORDERPRIMRY.getMessage());
-            throw new SaleException(ExceptionStates.NO_SUCH_ORDERPRIMRY);
+    public Boolean updateOrderTo_USER_RECEIVED(OrdersPrimary ordersPrimary) {
+        if (ordersPrimary.getOPState() != OrderStates.FOOD_DELIVERING.getCode()
+                && ordersPrimary.getOPState() != OrderStates.FOOD_DELIVERED.getCode()) {
+            log.error("{} - {} - opid:{} - opstate:{}",
+                    this.getClass(),
+                    ExceptionStates.ERROR_ORDER_STATE.getMessage(),
+                    ordersPrimary.getOPId(),
+                    ordersPrimary.getOPState());
+            throw new SaleException(ExceptionStates.ERROR_ORDER_STATE);
         }
+
         ordersPrimary.setOPState(OrderStates.USER_RECEIVED.getCode());
         ordersPrimary.setOPFinishDate(new Timestamp(System.currentTimeMillis()));
         orderPrimaryService.updateOrder(ordersPrimary);
@@ -455,38 +474,97 @@ public class OrderServiceImp implements OrderService {
     }
 
     @Override
-    public Boolean updateOrderTo_REFUNDING(String orderPrimaryId) {
-        OrdersPrimary ordersPrimary = orderPrimaryService.findOrdersById(orderPrimaryId);
-        if (ordersPrimary == null) {
-            log.error("{} - {}", this.getClass(), ExceptionStates.NO_SUCH_ORDERPRIMRY.getMessage());
-            throw new SaleException(ExceptionStates.NO_SUCH_ORDERPRIMRY);
+    public Boolean updateOrderTo_REFUNDING(OrdersPrimary ordersPrimary, String comment) {
+        //1. 判断订单状态()
+        if (ordersPrimary.getOPState() == OrderStates.ORDER_GENERATED.getCode()) {
+            log.error("{} - {} - opid:{} - opstate:{}",
+                    this.getClass(),
+                    ExceptionStates.CANCEL_FAIL_ERROR_STATE.getMessage()+"订单未支付，不可退款。",
+                    ordersPrimary.getOPId(),
+                    ordersPrimary.getOPState());
+//            throw new SaleException(ExceptionStates.ERROR_ORDER_STATE.getCode(), ExceptionStates.ERROR_ORDER_STATE.getMessage()+"订单未支付，不可退款。");
+            throw new SaleException(ExceptionStates.CANCEL_FAIL_ERROR_STATE.getCode(), ExceptionStates.CANCEL_FAIL_ERROR_STATE.getMessage()+", 订单未支付，无法退款。");
         }
-        ordersPrimary.setOPState(OrderStates.REFUNDING.getCode());
+
+        //2. 修改订单状态，填写退款理由
+        ordersPrimary.setOPState(OrderStates.CANCELED_BY_USER.getCode());
+        ordersPrimary.setOPComment(comment);
         orderPrimaryService.updateOrder(ordersPrimary);
+        //3. 返回库存
+        //get detail orders
+        List<OrdersDetail> ordersDetailList = ordersDetailService.findAllByOrderPrimaryId(ordersPrimary.getOPId());
+        if (ordersDetailList.size() == 0) {
+            log.error("({}) - {}", this.getClass(), ExceptionStates.NO_SUCH_ORDERDETAIL.getMessage());
+            throw new SaleException(ExceptionStates.NO_SUCH_ORDERDETAIL);
+        } else {
+            Map<String, Integer> cartMap = new HashMap<>();
+            //TODO 待调试，可能会出问题
+            cartMap = ordersDetailList.stream().collect(Collectors.toMap(OrdersDetail::getFId, OrdersDetail::getODNumber));
+            foodService.addNumber(cartMap);
+        }
+        //4. 如果已支付，需要退款(因为需要管理员处理，所以并不需要自动退款)
         return true;
     }
 
     @Override
-    public Boolean updateOrderTo_ERROR_STATE(String orderPrimaryId) {
-        OrdersPrimary ordersPrimary = orderPrimaryService.findOrdersById(orderPrimaryId);
-        if (ordersPrimary == null) {
-            log.error("{} - {}", this.getClass(), ExceptionStates.NO_SUCH_ORDERPRIMRY.getMessage());
-            throw new SaleException(ExceptionStates.NO_SUCH_ORDERPRIMRY);
-        }
+    public Boolean updateOrderTo_ERROR_STATE(OrdersPrimary ordersPrimary, String comment) {
+        //1. 判断订单状态
+        //无需判断状态
+        //2. 修改订单状态，填写错误理由
         ordersPrimary.setOPState(OrderStates.ERROR_STATE.getCode());
+        ordersPrimary.setOPComment(comment);
         orderPrimaryService.updateOrder(ordersPrimary);
+        //3. 返回库存
+        //get detail orders
+        List<OrdersDetail> ordersDetailList = ordersDetailService.findAllByOrderPrimaryId(ordersPrimary.getOPId());
+        if (ordersDetailList.size() == 0) {
+            log.error("({}) - {}", this.getClass(), ExceptionStates.NO_SUCH_ORDERDETAIL.getMessage());
+            throw new SaleException(ExceptionStates.NO_SUCH_ORDERDETAIL);
+        } else {
+            Map<String, Integer> cartMap = new HashMap<>();
+            //TODO 待调试，可能会出问题
+            cartMap = ordersDetailList.stream().collect(Collectors.toMap(OrdersDetail::getFId, OrdersDetail::getODNumber));
+            foodService.addNumber(cartMap);
+        }
+        //4. 如果已支付，需要退款
+        //TODO 可能需要自动退款
         return true;
     }
 
     @Override
-    public Boolean updateOrderTo_CANCELED_BY_SHOP(String orderPrimaryId) {
-        OrdersPrimary ordersPrimary = orderPrimaryService.findOrdersById(orderPrimaryId);
-        if (ordersPrimary == null) {
-            log.error("{} - {}", this.getClass(), ExceptionStates.NO_SUCH_ORDERPRIMRY.getMessage());
-            throw new SaleException(ExceptionStates.NO_SUCH_ORDERPRIMRY);
+    public Boolean updateOrderTo_CANCELED_BY_SHOP(OrdersPrimary ordersPrimary, String comment) {
+        //1. 判断订单状态
+        if (!ordersPrimary.getOPState().equals(OrderStates.PREPARING_FOOD.getCode())
+                && !ordersPrimary.getOPState().equals(OrderStates.ORDER_PAID.getCode())
+                && !ordersPrimary.getOPState().equals(OrderStates.READY_TO_DELIVER.getCode())
+                ) {
+            log.error("{} - {} - opid:{} - opstate:{}",
+                    this.getClass(),
+                    ExceptionStates.CANCEL_FAIL_ERROR_STATE.getMessage()+"订单目前不可被商家取消。",
+                    ordersPrimary.getOPId(),
+                    ordersPrimary.getOPState());
+//            throw new SaleException(ExceptionStates.CANCEL_FAIL_ERROR_STATE.getCode(), ExceptionStates.CANCEL_FAIL_ERROR_STATE.getMessage());
+            throw new SaleException(ExceptionStates.CANCEL_FAIL_ERROR_STATE.getCode(), ExceptionStates.CANCEL_FAIL_ERROR_STATE.getMessage()+"订单目前不可被商家取消。");
+
         }
+        //2. 修改订单状态，填写退款理由
         ordersPrimary.setOPState(OrderStates.CANCELED_BY_SHOP.getCode());
+        ordersPrimary.setOPComment(comment);
         orderPrimaryService.updateOrder(ordersPrimary);
+        //3. 返回库存
+        //get detail orders
+        List<OrdersDetail> ordersDetailList = ordersDetailService.findAllByOrderPrimaryId(ordersPrimary.getOPId());
+        if (ordersDetailList.size() == 0) {
+            log.error("({}) - {}", this.getClass(), ExceptionStates.NO_SUCH_ORDERDETAIL.getMessage());
+            throw new SaleException(ExceptionStates.NO_SUCH_ORDERDETAIL);
+        } else {
+            Map<String, Integer> cartMap = new HashMap<>();
+            //TODO 待调试，可能会出问题
+            cartMap = ordersDetailList.stream().collect(Collectors.toMap(OrdersDetail::getFId, OrdersDetail::getODNumber));
+            foodService.addNumber(cartMap);
+        }
+        //4. 如果已支付，需要退款(因为需要管理员处理，所以并不需要自动退款)
+        //TODO 可能需要自动退款
         return true;
     }
 

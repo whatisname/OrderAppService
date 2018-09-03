@@ -3,10 +3,16 @@ package com.xxy.ordersystem.controller.user;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.xxy.ordersystem.dto.OrderDTO;
+import com.xxy.ordersystem.entity.Address;
+import com.xxy.ordersystem.entity.Deliverer;
+import com.xxy.ordersystem.entity.OrdersPrimary;
+import com.xxy.ordersystem.entity.Student;
 import com.xxy.ordersystem.enums.ExceptionStates;
+import com.xxy.ordersystem.enums.OrderStates;
 import com.xxy.ordersystem.exception.SaleException;
 import com.xxy.ordersystem.form.OrderForm;
 import com.xxy.ordersystem.service.UpperService.intf.OrderService;
+import com.xxy.ordersystem.service.intf.AddressService;
 import com.xxy.ordersystem.service.intf.StudentService;
 import com.xxy.ordersystem.utils.MessageUtil;
 import com.xxy.ordersystem.viewmessage.ResultVO;
@@ -20,6 +26,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
@@ -40,21 +47,24 @@ public class UserOrderController {
     private OrderService orderService;
     @Autowired
     private StudentService studentService;
+    @Autowired
+    private AddressService addressService;
 
     /**
      * 获取一个订单的所有细节
+     *
      * @param sid
      * @param id
      * @return
      */
     @GetMapping("/detail")
-    public ResultVO<OrderDTO> getOrdersById(@RequestParam("sid")String sid,
-                                            @RequestParam("id")String id){
+    public ResultVO<OrderDTO> getOrdersById(@RequestParam("sid") String sid,
+                                            @RequestParam("id") String id) {
 //        OrderDTO orderDTO = orderService.findOrderByPrimaryId("1531724848751343090");
         OrderDTO orderDTO = orderService.findOrderByPrimaryId(id);
         if (orderDTO.getOPId() == sid) {
             return MessageUtil.successDefault(orderDTO);
-        }else{
+        } else {
             log.error("{} - {}", getClass(), ExceptionStates.UNAUTHORIZED_ACCESS.getMessage());
             throw new SaleException(ExceptionStates.UNAUTHORIZED_ACCESS);
         }
@@ -62,6 +72,7 @@ public class UserOrderController {
 
     /**
      * 获取所有订单（忽略细节）
+     *
      * @param sid
      * @param page
      * @param size
@@ -69,12 +80,14 @@ public class UserOrderController {
      * @return
      */
     @GetMapping("/list")
-    public ResultVO<List<OrderVO>> getAllOrders(@RequestParam("sid") @NotEmpty(message = "sid不能为空") String sid,
-                                                @RequestParam(value = "page", defaultValue = "0") Integer page,
-                                                @RequestParam(value = "size", defaultValue = "10") Integer size,
-                                                @RequestParam(value = "state", defaultValue = "-1")Integer state){
+    public ResultVO<List<OrderVO>> getAllOrders(
+            @RequestParam("sid") @NotEmpty(message = "sid不能为空") String sid,
+            @RequestParam(value = "page", defaultValue = "0") Integer page,
+            @RequestParam(value = "size", defaultValue = "10") Integer size,
+            @RequestParam(value = "state", defaultValue = "-1") Integer state
+    ) {
         // TODO 验证sid
-        if(sid == null){
+        if (sid == null) {
             log.error("{} - {}", getClass(), ExceptionStates.PARAM_ERROR);
             throw new SaleException(ExceptionStates.PARAM_ERROR);
         }
@@ -83,7 +96,7 @@ public class UserOrderController {
         Page<OrderDTO> orderDTOPage = null;
         if (state == -1) {
             orderDTOPage = orderService.findAllOrdersByStudentId(sid, false, request);
-        }else{
+        } else {
             orderDTOPage = orderService.findAllOrdersByStudentIdAndState(sid, state, false, request);
         }
 //        if (orderDTOList.size() == 0){
@@ -98,32 +111,48 @@ public class UserOrderController {
 
     /**
      * 创建订单
+     *
      * @param orderForm
      * @param bindingResult
      * @return
      */
     @PostMapping("/create")
-    public ResultVO<String> create(@Valid OrderForm orderForm, BindingResult bindingResult){
-        if (bindingResult.hasErrors()){
+    public ResultVO<String> create(
+            HttpServletRequest request,
+            @Valid OrderForm orderForm,
+            BindingResult bindingResult
+    ) {
+        if (bindingResult.hasErrors()) {
             log.error("{} - {}", this.getClass(), ExceptionStates.PARAM_ERROR.getMessage());
             throw new SaleException(ExceptionStates.PARAM_ERROR.getCode(),
                     bindingResult.getFieldError().getDefaultMessage());
 //            return MessageUtil.error(bindingResult.getFieldError().getDefaultMessage(), null);
         }
+        //是否已登陆
+        HttpSession session = request.getSession();
+        Student student = null;
+        if (session != null) {
+            student = (Student) session.getAttribute("student");
+            if (student == null) {
+                throw new SaleException(ExceptionStates.UNAUTHORIZED_ACCESS.getCode(), "未登录");
+
+            }
+        }
         List<CartVO> cartVOList = new ArrayList<>();
-        try{
+        try {
             Gson gson = new Gson();
             cartVOList = gson.fromJson(orderForm.getItems(),
-                    new TypeToken<List<CartVO>>(){}.getType());
-        }catch (Exception e){
+                    new TypeToken<List<CartVO>>() {
+                    }.getType());
+        } catch (Exception e) {
             e.printStackTrace();
-            log.error("{} - {}",this.getClass(), e.getStackTrace().toString());
+            log.error("{} - {}", this.getClass(), e.getStackTrace().toString());
             log.error("{} - {} - {}", this.getClass(), "items参数JSON转换错误",
                     ExceptionStates.PARAM_ERROR.getMessage());
             throw new SaleException(ExceptionStates.PARAM_ERROR.getCode(), "items参数JSON转换错误");
 //            return MessageUtil.error("items参数JSON转换错误", null);
         }
-        if (cartVOList.size() == 0){
+        if (cartVOList.size() == 0) {
             log.error("{} - {}", this.getClass(), ExceptionStates.CART_EMPTY.getMessage());
             throw new SaleException(ExceptionStates.CART_EMPTY);
 //            return MessageUtil.error(ExceptionStates.CART_EMPTY.getMessage(), null);
@@ -131,114 +160,182 @@ public class UserOrderController {
 
         Map<String, Integer> cartMap = cartVOList.stream().collect(Collectors.toMap(CartVO::getId, CartVO::getNumber));
 
-        String orderParimaryId = orderService.addNewOrder(orderForm.getSid(), orderForm.getAid(), cartMap);
-        if (orderParimaryId == null){
+        String orderParimaryId = orderService.addNewOrder(student.getSId(), orderForm.getAid(), cartMap);
+        if (orderParimaryId == null) {
             return MessageUtil.error("添加操作失败", null);
         }
         return MessageUtil.successDefault(orderParimaryId);
     }
 
     /**
-     * 取消订单
-     * @param sid
-     * @param id
+     * 取消订单（学生）
+     * 必须为未支付状态
+     *
+     * @param request
+     * @param opid
      * @param reason
      * @return
      */
-    @PostMapping("/cancel")
-    public ResultVO<String> cancel(@RequestParam("sid")String sid,
-                                   @RequestParam("id")String id,
-                                   @RequestParam(value = "reason", defaultValue = "取消订单") String reason){
-        //TODO 身份验证
-
-        if (orderService.validateStudentAndOrder(sid, id)){
-            log.error("{} - {}", getClass(), ExceptionStates.UNAUTHORIZED_ACCESS);
-            throw new SaleException(ExceptionStates.UNAUTHORIZED_ACCESS);
+    @GetMapping("/cancel")
+    public ResultVO cancel(
+            HttpServletRequest request,
+            @RequestParam("opid") String opid,
+            @RequestParam(value = "reason", defaultValue = "取消订单") String reason
+    ) {
+        OrdersPrimary ordersPrimary = orderService.findOrderByPrimaryId(opid);
+        if (ordersPrimary == null) {
+            log.info("{} - {}", getClass(), "opid不存在");
+            throw new SaleException(ExceptionStates.ID_NOT_EXIST.getCode(), "opid不存在");
         }
-        Boolean result = orderService.updateOrderTo_CANCELED_BY_USER(id, reason);
-        if (result == true) {
-            return MessageUtil.successDefault(id);
-        } else{
-            return MessageUtil.error();
+        //是否已登陆
+        HttpSession session = request.getSession();
+        Student student = null;
+        if (session != null) {
+            student = (Student) session.getAttribute("student");
+            if (student == null) {
+                throw new SaleException(ExceptionStates.UNAUTHORIZED_ACCESS.getCode(), "未登录");
+
+            }
+        }
+        //检查是否有权限
+        if (!ordersPrimary.getSId().equals(student.getSId())) {
+            log.info("{} - {}", getClass(), "没有权限操作订单(sid:" + student.getSId() + ", opid:" + opid + ")");
+            throw new SaleException(ExceptionStates.UNAUTHORIZED_OPERATION.getCode(), "没有权限操作订单(sid:" + student.getSId() + ", opid:" + opid + ")");
+        }
+        //检查订单状态（必须为未支付）
+        if (ordersPrimary.getOPState().equals(OrderStates.ORDER_GENERATED)) {
+            Boolean result = orderService.updateOrderTo_CANCELED_BY_USER(ordersPrimary, reason);
+            if (result) {
+                return MessageUtil.success();
+            } else {
+                return MessageUtil.error();
+            }
+        } else {
+            log.info("{} - {}", getClass(), "订单状态不正确，opid：" + ordersPrimary.getOPId());
+            throw new SaleException(ExceptionStates.ERROR_ORDER_STATE.getCode(), "订单状态不正确，opid：" + ordersPrimary.getOPId());
         }
     }
 
     //支付订单
     //TODO
-
-    /**
-     * 接收订单（商家）
-     * orderstate == paied
-     * @param bid
-     * @param id
-     * @return
-     */
-    @PostMapping("/startPrepare")
-    public ResultVO<String> startPrepare(
-            @RequestParam("bid") String bid,
-            HttpServletRequest request
-    ){
-        String sid = request.getSe
-        Boolean result = orderService.updateOrderTo_PREPARING_FOOD(id);
-        if (result){
-            return MessageUtil.successDefault(id);
-        }else{
-            return MessageUtil.error();
-        }
+    @GetMapping("/paymentConfirm")
+    public ResultVO paymentConfirm() {
+        return MessageUtil.success();
     }
 
-    //准备完成（商家）
-    @PostMapping("/finishPrepare")
-    public ResultVO<String> finishPrepare(
-            @RequestParam("bid") String bid,
-            @RequestParam("id") String id
-    ){
-        Boolean result = orderService.updateOrderTo_READY_TO_DELIVER(id);
-        if (result){
-            return MessageUtil.successDefault(id);
-        }else{
-            return MessageUtil.error();
-        }
-    }
-
-    //抢单（快递员）
-    @PostMapping("/startDeliver")
-    public ResultVO<String> startDeliver(
-            @RequestParam("id") String id,
-            @RequestParam("did") String did
-    ){
-        Boolean result = orderService.updateOrderTo_FOOD_DELIVERING(id, did);
-        if (result){
-            return MessageUtil.successDefault(id);
-        }else{
-            return MessageUtil.error();
-        }
-    }
-
-    //确认送到（快递员）
-    @PostMapping("/confirmDelivered")
-    public ResultVO<String> confirmDelivered(
-            @RequestParam("id") String id,
-            @RequestParam("did") String did
-    ){
-        Boolean result = orderService.updateOrderTo_FOOD_DELIVERED(id);
-        if (result){
-            return MessageUtil.successDefault(id);
-        }else{
-            return MessageUtil.error();
-        }
-    }
 
     //确认收到（用户）
-    @PostMapping("/confirmReceived")
+    @GetMapping("/confirmReceived")
     public ResultVO<String> confirmReceived(
-            @RequestParam("id") String id,
-            @RequestParam("sid") String sid
-    ){
-        Boolean result = orderService.updateOrderTo_USER_RECEIVED(id);
-        if (result){
-            return MessageUtil.successDefault(id);
-        }else{
+            HttpServletRequest request,
+            @RequestParam("opid") String opid
+    ) {
+        HttpSession session = request.getSession();
+        OrdersPrimary ordersPrimary = orderService.findOrderByPrimaryId(opid);
+        if (ordersPrimary == null) {
+            log.info("{} - {}", getClass(), "opid不存在");
+            throw new SaleException(ExceptionStates.ID_NOT_EXIST.getCode(), "opid不存在");
+        }
+        Student student = null;
+        //是否已登陆
+        if (session != null) {
+            student = (Student) session.getAttribute("student");
+            if (student == null) {
+                throw new SaleException(ExceptionStates.UNAUTHORIZED_ACCESS.getCode(), "未登录");
+
+            }
+        }
+        //检查是否有权限
+        if (!ordersPrimary.getSId().equals(student.getSId())) {
+            log.info("{} - {}", getClass(), "没有权限操作订单(sid:" + student.getSId() + ", opid:" + opid + ")");
+            throw new SaleException(ExceptionStates.UNAUTHORIZED_OPERATION.getCode(), "没有权限操作订单(sid:" + student.getSId() + ", opid:" + opid + ")");
+        }
+        //检查订单状态（必须为快递员确认送达或派送中）
+        if (ordersPrimary.getOPState().equals(OrderStates.FOOD_DELIVERED)
+                || ordersPrimary.getOPState().equals(OrderStates.FOOD_DELIVERING)) {
+            Boolean result = orderService.updateOrderTo_USER_RECEIVED(ordersPrimary);
+            if (result) {
+                return MessageUtil.success();
+            } else {
+                return MessageUtil.error();
+            }
+        } else {
+            log.info("{} - {}", getClass(), "订单状态不正确，opid：" + ordersPrimary.getOPId());
+            throw new SaleException(ExceptionStates.ERROR_ORDER_STATE.getCode(), "订单状态不正确，opid：" + ordersPrimary.getOPId());
+        }
+    }
+
+    //更改地址
+    @GetMapping("/changeAddress")
+    public ResultVO changeAddress(
+            HttpServletRequest request,
+            @RequestParam("opid") String opid,
+            @RequestParam("aid") String aid
+    ) {
+        HttpSession session = request.getSession();
+        OrdersPrimary ordersPrimary = orderService.findOrderByPrimaryId(opid);
+        if (ordersPrimary == null) {
+            log.info("{} - {}", getClass(), "opid不存在");
+            throw new SaleException(ExceptionStates.ID_NOT_EXIST.getCode(), "opid不存在");
+        }
+        Address address = addressService.findAddressByAddressId(aid);
+        if (address == null) {
+            log.info("{} - {}", getClass(), "aid不存在");
+            throw new SaleException(ExceptionStates.ID_NOT_EXIST.getCode(), "aid不存在");
+        }
+        Student student = null;
+        //是否已登陆
+        if (session != null) {
+            student = (Student) session.getAttribute("student");
+            if (student == null) {
+                throw new SaleException(ExceptionStates.UNAUTHORIZED_ACCESS.getCode(), "未登录");
+
+            }
+        }
+        //检查是否有权限
+        if (!ordersPrimary.getSId().equals(student.getSId())) {
+            log.info("{} - {}", getClass(), "没有权限操作订单(sid:" + student.getSId() + ", opid:" + opid + ")");
+            throw new SaleException(ExceptionStates.UNAUTHORIZED_OPERATION.getCode(), "没有权限操作订单(sid:" + student.getSId() + ", opid:" + opid + ")");
+        }
+        Boolean result = orderService.updateOrderAddress(ordersPrimary, address);
+        if (result) {
+            return MessageUtil.success();
+        } else {
+            return MessageUtil.error();
+        }
+    }
+
+    //订单退款
+    @GetMapping("/applyRefund")
+    public ResultVO applyRefund(
+            HttpServletRequest request,
+            @RequestParam("opid") String opid,
+            @RequestParam(value = "reason", defaultValue = "取消订单") String reason
+    ) {
+        HttpSession session = request.getSession();
+        OrdersPrimary ordersPrimary = orderService.findOrderByPrimaryId(opid);
+        if (ordersPrimary == null) {
+            log.info("{} - {}", getClass(), "opid不存在");
+            throw new SaleException(ExceptionStates.ID_NOT_EXIST.getCode(), "opid不存在");
+        }
+        Student student = null;
+        //是否已登陆
+        if (session != null) {
+            student = (Student) session.getAttribute("student");
+            if (student == null) {
+                throw new SaleException(ExceptionStates.UNAUTHORIZED_ACCESS.getCode(), "未登录");
+
+            }
+        }
+        //检查是否有权限
+        if (!ordersPrimary.getSId().equals(student.getSId())) {
+            log.info("{} - {}", getClass(), "没有权限操作订单(sid:" + student.getSId() + ", opid:" + opid + ")");
+            throw new SaleException(ExceptionStates.UNAUTHORIZED_OPERATION.getCode(), "没有权限操作订单(sid:" + student.getSId() + ", opid:" + opid + ")");
+        }
+        Boolean result = orderService.updateOrderTo_REFUNDING(ordersPrimary, reason);
+        if (result) {
+            return MessageUtil.success();
+        } else {
             return MessageUtil.error();
         }
     }

@@ -28,6 +28,7 @@ public enum ExceptionStates {
 
 
     UNAUTHORIZED_ACCESS(100, "授权失败或没有权限查询"),
+    UNAUTHORIZED_OPERATION(101, "没有权限进行操作"),
 
     WRONG_FILE_TYPE(150, "非法文件类型"),
 
