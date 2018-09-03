@@ -58,23 +58,23 @@ public class OrderServiceTest {
     @Test
     public void updateOrderTo_PREPARING_FOOD() {
 
-        orderService.updateOrderTo_PREPARING_FOOD("1531863039437307773");
+//        orderService.updateOrderTo_PREPARING_FOOD("1531863039437307773");
     }
 
     @Test
     public void updateOrderTo_READY_TO_DELIVER() {
 
-        orderService.updateOrderTo_READY_TO_DELIVER("1531863039437307773");
+//        orderService.updateOrderTo_READY_TO_DELIVER("1531863039437307773");
     }
 
     @Test
     public void updateOrderTo_FOOD_DELIVERING() {
 
-        orderService.updateOrderTo_FOOD_DELIVERING("1531863039437307773", "1");
+//        orderService.updateOrderTo_FOOD_DELIVERING("1531863039437307773", "1");
     }
 
     @Test
     public void updateOrderTo_CANCELED_BY_USER() {
-        orderService.updateOrderTo_CANCELED_BY_USER("1", "取消订单");
+//        orderService.updateOrderTo_CANCELED_BY_USER("1", "取消订单");
     }
 }

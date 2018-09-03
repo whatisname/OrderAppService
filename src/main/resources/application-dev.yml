@@ -37,6 +37,7 @@ server:
     servlet:
       context-path: /os
 project-url:
-  os: http://119.27.181.223:8080/os
+#  os: http://119.27.181.223:8080/os
+  os: http://localhost:8080/os
 cookie-name:
   name: os_token
