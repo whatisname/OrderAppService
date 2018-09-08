@@ -65,8 +65,9 @@ public class ManagerAuthorizeAspect {
 //                throw new AuthenticationException(ExceptionStates.UNAUTHORIZED_ACCESS.getCode(), "Redis中查不到token");
 //            }
         }else{ // 没有登陆
-            log.warn("【登陆校验】{} - Session中查不到token" + getClass());
-            throw new AuthenticationException(ExceptionStates.UNAUTHORIZED_ACCESS.getCode(), "Session中查不到token");
+            log.warn("【登陆校验】{} - Session中查不到token, 用户未登录。", getClass());
+//            throw new AuthenticationException(ExceptionStates.UNAUTHORIZED_ACCESS.getCode(), "Session中查不到token");            throw new AuthenticationException(ExceptionStates.UNAUTHORIZED_ACCESS.getCode(), "Session中查不到token");
+            throw new AuthenticationException(ExceptionStates.UNAUTHORIZED_ACCESS.getCode(), "");
         }
     }
 

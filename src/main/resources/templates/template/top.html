@@ -29,7 +29,7 @@
         <li role="presentation" class="dropdown">
           <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
             <i class="fa fa-envelope-o"></i>
-            <span class="badge bg-green" id="feedback-count">6</span>
+            <span class="badge bg-green" id="inform-count">6</span>
           </a>
           <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
             <li>
@@ -90,6 +90,12 @@
             </li>
           </ul>
         </li>
+        <li class="">
+          <a href="javascript:sendSocket();" class="info-number" aria-expanded="false">
+            <i class="fa fa-envelope-o"></i>
+            <span id="socketMessage">send message</span>
+          </a>
+        </li>
       </ul>
     </nav>
   </div>
@@ -97,56 +103,143 @@
 <!-- /top navigation -->
 
 <!-- jQuery -->
-<script src="../../static/vendors/jquery/dist/jquery.min.js"></script>
+<script src="/os/static/vendors/jquery/dist/jquery.min.js"></script>
+<!-- PNotify -->
+<script src="/os/static/vendors/pnotify/dist/pnotify.js"></script>
+<script src="/os/static/vendors/pnotify/dist/pnotify.buttons.js"></script>
+<script src="/os/static/vendors/pnotify/dist/pnotify.nonblock.js"></script>
 <script>
+  // websocket
+  var websocket = null;
+
   $(document).ready(function () {
     query_feedback(1);
-    var feedbackInterval = setInterval(function() {
-        query_feedback(1);
-    }, 60000);
-  });
-  function query_feedback(state) {
-      // 发送后台
-      $.get("/os/manage/feedback/countState", {
-          state: state
-      }).done(function (data) {
-          if (data.code == 1) {
-              $("#feedback-count").empty().append(data.data);
-              console.log("feedback cound: "+data.data)
-              // // 结果显示
-              // var notice = new PNotify({
-              //     title: '反馈总数',
-              //     text: '查询到状态为（' + state + '）的反馈共有' + data.data + '条记录。',
-              //     type: 'success',
-              //     styling: 'bootstrap3',
-              //     buttons: {
-              //         closer: false,
-              //         sticker: false
-              //     }
-              // });
-              // notice.get().click(function () {
-              //     notice.remove();
-              // });
-          } else {
-              // 预警显示
-              var notice = new PNotify({
-                  title: '查询反馈数量失败',
-                  text: '原因: ' + data.message,
-                  type: 'warning',
-                  styling: 'bootstrap3',
-                  buttons: {
-                      closer: false,
-                      sticker: false
-                  }
-              });
-              notice.get().click(function () {
-                  notice.remove();
-              });
+    // var feedbackInterval = setInterval(function() {
+    //     query_feedback(1);
+    // }, 60000);
+
+
+    // check if websocket is supported
+    if ('websocket' in window) {
+      websocket = new WebSocket('ws://localhost:8080/os/manage/websocket');
+    } else {
+      // 预警显示
+      alert('浏览器不支持websocket, 请尝试更新或更换浏览器' );
+      // var notice2 = new PNotify({
+      //   title: '浏览器不支持websocket',
+      //   text: '请尝试更新或更换浏览器',
+      //   type: 'warning',
+      //   styling: 'bootstrap3',
+      //   buttons: {
+      //     closer: false,
+      //     sticker: false
+      //   }
+      // });
+      // notice2.get().click(function () {
+      //   notice2.remove();
+      // });
+    }
+
+    websocket.onopen = function (event) {
+      console.log("create websocket connection")
+    }
+    websocket.onclose = function (event) {
+      console.log("close websocket connection")
+    }
+    websocket.onmessage = function (event) {
+      // alert(event.data);
+      // set content
+      var notice4 = new PNotify({
+          title: '系统通知',
+          text: event.data,
+          type: 'success',
+          styling: 'bootstrap3',
+          buttons: {
+              closer: false,
+              sticker: false
           }
-
-      }).fail(function (data) {
-          error_notify("查询失败", "服务器内部错误。")
       });
+      notice4.get().click(function () {
+          notice4.remove();
+      });
+      console.log("receive: " + event.data)
+      $('#socketMessage').empty().append(event.data);
+      // play music
+    }
+    websocket.onerror = function (event) {
+      // 预警显示
+      alert('接受消息失败, 请尝试刷新页面或重新发送请求');
+      // var notice3 = new PNotify({
+      //   title: '接受消息失败',
+      //   text: '请尝试刷新页面或重新发送请求',
+      //   type: 'warning',
+      //   styling: 'bootstrap3',
+      //   buttons: {
+      //     closer: false,
+      //     sticker: false
+      //   }
+      // });
+      // notice3.get().click(function () {
+      //   notice3.remove();
+      // });
+    }
 
+  });
+
+  //
+  function query_feedback(state) {
+    // 发送后台
+    $.get("/os/manage/feedback/countState", {
+      state: state
+    }).done(function (data) {
+      if (data.code == 1) {
+        $("#feedback-count").empty().append(data.data);
+        console.log("feedback count: " + data.data)
+        // // 结果显示
+        // var notice = new PNotify({
+        //     title: '反馈总数',
+        //     text: '查询到状态为（' + state + '）的反馈共有' + data.data + '条记录。',
+        //     type: 'success',
+        //     styling: 'bootstrap3',
+        //     buttons: {
+        //         closer: false,
+        //         sticker: false
+        //     }
+        // });
+        // notice.get().click(function () {
+        //     notice.remove();
+        // });
+      } else {
+        // 预警显示
+        var notice = new PNotify({
+          title: '查询反馈数量失败',
+          text: '原因: ' + data.message,
+          type: 'warning',
+          styling: 'bootstrap3',
+          buttons: {
+            closer: false,
+            sticker: false
+          }
+        });
+        notice.get().click(function () {
+          notice.remove();
+        });
+      }
+
+    }).fail(function (data) {
+      error_notify("查询失败", "服务器内部错误。")
+    });
+
+  }
+</script>
+
+<script>
+  function sendSocket() {
+    $.get("/os/manage/message/sendSocket", {
+      message: "socket message lsjfljdslfjlsdjf"
+    }).done(function (data) {
+      if (data.code == 1) {
+      } else {}
+    });
   }
 </script>

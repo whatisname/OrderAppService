@@ -47,8 +47,8 @@ public class OrderVO {
     @JsonProperty("comment")
     private String oPComment;
 
-    @JsonProperty("address")
-    private String address;
+    @Column(name = "address_str")
+    private String oPAddress;
 
     private String sId;
     private String bId;
@@ -71,6 +71,4 @@ public class OrderVO {
     @JsonProperty("deliverer")
     private DelivererVO delivererVO;
 
-    @JsonProperty("address")
-    private String oPAddress;
 }

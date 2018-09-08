@@ -133,7 +133,7 @@
                     <td class=" ">${item.getOPDeliverArriveDate()!}</td>
                     <td class=" ">${item.getOPFinishDate()!} </td>
                     <td class=" ">${item.getState()!} </td>
-                    <td class=" ">${item.getAddress()!} </td>
+                    <td class=" ">${item.getOPAddress()!} </td>
                     <td>${item.getOPComment()!} </td>
                     <td class="a-right a-right ">${item.getSId()!}</td>
                     <td class="a-right a-right ">${item.getBId()!}</td>

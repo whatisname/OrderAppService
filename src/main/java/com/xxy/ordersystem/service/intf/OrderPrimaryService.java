@@ -18,7 +18,7 @@ public interface OrderPrimaryService {
     List<OrdersPrimary> findAllByStudentIdAndOrderState(String studentId, Integer orderState);
     Page<OrdersPrimary> findAllByStudentIdAndOrderState(String studentId, Integer orderState,  Pageable pageable);
 
-    OrdersPrimary findOrdersById(String ordersPrimaryId);
+    OrdersPrimary findOrdersPrimaryById(String ordersPrimaryId);
 
     List<OrdersPrimary> findAllByBoothId(String boothId);
     Page<OrdersPrimary> findAllByBoothId(String boothId, Pageable pageable);

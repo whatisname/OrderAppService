@@ -44,7 +44,7 @@ public class OrderPrimaryServiceImp implements OrderPrimaryService {
     }
 
     @Override
-    public OrdersPrimary findOrdersById(String ordersPrimaryId) {
+    public OrdersPrimary findOrdersPrimaryById(String ordersPrimaryId) {
         return orderPrimaryDao.findOrdersPrimaryByOPId(ordersPrimaryId);
     }
 

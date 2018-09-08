@@ -51,6 +51,7 @@ public class OrderServiceTest {
         Map<String, Integer> orderDetailMap = new HashMap<>();
         orderDetailMap.put("1", 5);
         orderDetailMap.put("3", 3);
+        orderDetailMap.put("2", 6);
         String result = orderService.addNewOrder("1", "1", orderDetailMap);
         log.info("result: opid {}", result);
     }

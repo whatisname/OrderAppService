@@ -55,7 +55,7 @@ public class OrderServiceImp implements OrderService {
     public OrderDTO findOrderByPrimaryId(String orderPrimaryId) {
         OrderDTO orderDTO = new OrderDTO();
         //get primary orderManage
-        OrdersPrimary ordersPrimary = orderPrimaryService.findOrdersById(orderPrimaryId);
+        OrdersPrimary ordersPrimary = orderPrimaryService.findOrdersPrimaryById(orderPrimaryId);
         if (ordersPrimary == null) {
             log.error("({}) - {}", this.getClass(), ExceptionStates.NO_SUCH_ORDERPRIMRY.getMessage());
             throw new SaleException(ExceptionStates.NO_SUCH_ORDERPRIMRY);
@@ -349,7 +349,7 @@ public class OrderServiceImp implements OrderService {
         OrdersPrimary result = orderPrimaryService.updateOrder(ordersPrimary);
         if (result == null) {
             log.error("{} - {} - opid:{}", this.getClass(), ExceptionStates.ERROR_ORDER_STATE.getMessage(), ordersPrimary.getOPId());
-            throw new SaleException(ExceptionStates.PAYMENT_FAIL);
+            throw new SaleException(ExceptionStates.UPDATE_FAIL);
         }
 
         return true;
@@ -570,7 +570,7 @@ public class OrderServiceImp implements OrderService {
 
     @Override
     public Boolean validateStudentAndOrder(String studentId, String orderPrimaryId) {
-        if (studentService.findStudentByStudentId(studentId).getSId() == orderPrimaryService.findOrdersById(orderPrimaryId).getOPId()) {
+        if (studentService.findStudentByStudentId(studentId).getSId() == orderPrimaryService.findOrdersPrimaryById(orderPrimaryId).getOPId()) {
             return true;
         } else {
             return false;

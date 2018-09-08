@@ -11,14 +11,17 @@ import com.xxy.ordersystem.enums.ExceptionStates;
 import com.xxy.ordersystem.enums.OrderStates;
 import com.xxy.ordersystem.exception.SaleException;
 import com.xxy.ordersystem.form.OrderForm;
+import com.xxy.ordersystem.service.UpperService.imp.WebSocket;
 import com.xxy.ordersystem.service.UpperService.intf.OrderService;
 import com.xxy.ordersystem.service.intf.AddressService;
+import com.xxy.ordersystem.service.intf.OrderPrimaryService;
 import com.xxy.ordersystem.service.intf.StudentService;
 import com.xxy.ordersystem.utils.MessageUtil;
 import com.xxy.ordersystem.viewmessage.ResultVO;
 import com.xxy.ordersystem.viewmessage.viewobject.CartVO;
 import com.xxy.ordersystem.viewmessage.viewobject.OrderVO;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -46,9 +49,13 @@ public class UserOrderController {
     @Autowired
     private OrderService orderService;
     @Autowired
+    private OrderPrimaryService orderPrimaryService;
+    @Autowired
     private StudentService studentService;
     @Autowired
     private AddressService addressService;
+    @Autowired
+    private WebSocket webSocket;
 
     /**
      * 获取一个订单的所有细节
@@ -128,16 +135,17 @@ public class UserOrderController {
                     bindingResult.getFieldError().getDefaultMessage());
 //            return MessageUtil.error(bindingResult.getFieldError().getDefaultMessage(), null);
         }
-        //是否已登陆
+//        是否已登陆
         HttpSession session = request.getSession();
         Student student = null;
-        if (session != null) {
-            student = (Student) session.getAttribute("student");
-            if (student == null) {
-                throw new SaleException(ExceptionStates.UNAUTHORIZED_ACCESS.getCode(), "未登录");
+//        if (session != null) {
+//            student = (Student) session.getAttribute("student");
+//            if (student == null) {
+//                throw new SaleException(ExceptionStates.UNAUTHORIZED_ACCESS.getCode(), "未登录");
+//            }
+//        }
 
-            }
-        }
+        student = studentService.findStudentByStudentId(orderForm.getSid());
         List<CartVO> cartVOList = new ArrayList<>();
         try {
             Gson gson = new Gson();
@@ -216,10 +224,26 @@ public class UserOrderController {
         }
     }
 
-    //支付订单
+    /**
+     * 支付订单
+     */
     //TODO
     @GetMapping("/paymentConfirm")
-    public ResultVO paymentConfirm() {
+    public ResultVO paymentConfirm(
+            @RequestParam("opid") String opid
+    ) {
+        OrdersPrimary ordersPrimary = orderPrimaryService.findOrdersPrimaryById(opid);
+        if (ordersPrimary == null) {
+            log.info("{} - {}", getClass(), "opid不存在");
+            throw new SaleException(ExceptionStates.ID_NOT_EXIST.getCode(), "opid不存在");
+        }
+
+        //更新订单状态
+        orderService.updateOrderTo_ORDER_PAID(ordersPrimary);
+        // 通知商家
+        webSocket.sendMessage("有新的订单");
+        // 通知快递员
+        // TODO
         return MessageUtil.success();
     }
 

@@ -101,11 +101,12 @@
                   <th class="column-title">区域</th>
                   <th class="column-title">身份证号码</th>
                   <th class="column-title">邮箱</th>
+                  <th class="column-title">工作状态</th>
                   <th class="column-title">备注</th>
                   <th class="column-title">创建时间</th>
                   <th class="column-title no-link last"><span class="nobr">操作</span>
                   </th>
-                  <th class="bulk-actions" colspan="9">
+                  <th class="bulk-actions" colspan="10">
                     <a class="antoo" style="color:#fff; font-weight:500;">( <span class="action-cnt"> </span> ) 操作： </a>
 
                     <!--<a class="" href="/delete/">删除所选</a>-->
@@ -125,6 +126,14 @@
                     <td class=" ">${item.getQuyu()!}</td>
                     <td class="">${item.getDIdcard()!}</td>
                     <td class=" ">${item.getDEmail()!} </td>
+                    <td class=" ">
+                      <#if item.getDAccountState() == 0>
+
+                        <button class="btn btn-success btn-xs">上岗</button>
+                      <#elseif item.getDAccountState() == 1>
+                        <button class="btn btn-default btn-xs">注销</button>
+                      </#if>
+                    </td>
                     <td class=" ">${item.getDComment()!} </td>
                     <td class="a-right a-right ">${item.getDCreateTime()!} </td>
 
@@ -132,7 +141,7 @@
                     <#--<a class="btn btn-default btn-xs" href="/os/manage/booth/detail?did=${item.getDId()}">详情</a>-->
                       <a class="btn btn-default btn-xs" href="/os/manage/deliver/detail?did=${item.getDId()}">修改</a>
                       <a class="btn btn-danger btn-xs" href="javascript:"
-                         onclick="delete_item('${item.getDId()!}', '${item.getDName()!}')">删除</a>
+                         onclick="delete_item('${item.getDId()!}', '${item.getDName()!}')">注销（下岗）</a>
                     </td>
                   </tr>
                   </#list>
@@ -158,8 +167,8 @@
         if (data.code == 1) {
           // 结果显示
           var notice = new PNotify({
-            title: '删除成功',
-            text: '快递员（' + name + '） id:' + did + '已删除(取消工作状态，非数据库删除)',
+            title: '注销成功',
+            text: '快递员（' + name + '） id:' + did + '已注销(取消工作状态)',
             type: 'success',
             styling: 'bootstrap3',
             buttons: {
@@ -238,13 +247,13 @@
 <script src="../../static/vendors/pnotify/dist/pnotify.buttons.js"></script>
 <script src="../../static/vendors/pnotify/dist/pnotify.nonblock.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() {
-    $('#example').dataTable( {
+  $(document).ready(function () {
+    $('#example').dataTable({
       "language": {
         "url": "dataTables.german.lang"
       }
-    } );
-  } );
+    });
+  });
 </script>
 
 </body>

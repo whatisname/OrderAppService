@@ -59,4 +59,18 @@ public class ManageOrderController {
         map.put("orderVOPage", orderVOPage);
         return new ModelAndView("/manage/order_list", map);
     }
+
+    @GetMapping("/addReq")
+    public ModelAndView addReq(
+            Map<String, Object> map
+    ) {
+        return new ModelAndView("/manage/order_add", map);
+    }
+
+    @GetMapping("/updateReq")
+    public ModelAndView changeStateReq(
+            Map<String, Object> map
+    ) {
+        return new ModelAndView("/manage/order_update", map);
+    }
 }
